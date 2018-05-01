@@ -1,0 +1,126 @@
+{
+  "Slope": {
+    "info": "The steepness of a surface of the earth.",
+    "subcategories": [],
+    "type": "continuous",
+    "related-species": [
+		["Hylocichla_mustelina", "0020188", "Wood Thrush"],
+		["Oxalis_montana", "0028172", "Wood-Sorrel  "],
+		["Sedum_ternatum", "0036236", "Woodland Stonecrop"],
+		["Nais_communis", "0024518", "Worm"]
+    ],
+    "ranges": ["0-26°", "26-53°", "53-80°"]
+  },
+  "Elevation": {
+    "info": "Height above sea level",
+    "subcategories": [],
+    "type": "continuous",
+    "related-species": [[]]
+  },
+  "Geology": {
+    "info": "The type of rock underneath the trees and soil.",
+    "subcategories": [
+      "Amphibolite",
+      "Anakeesta Formation",
+      "Anakeesta Formation; ankerite-rich metasandstone and sandy dolomite, chloritoid metasiltstone",
+      "Anakeesta Formation; metagraywacke interbedded with metasiltstone",
+      "Anakeesta Formation; slate containing small dark elliptical porphyroblasts of chloritoid",
+      "Biotite augen gneiss",
+      "Blockhouse Shale",
+      "Cades Sandstone",
+      "Cades Sandstone; boulder conglomerate",
+      "Cades Sandstone; siltstone interbedded with fine-grained metasandstone",
+      "Cochran Formation",
+      "Copperhill Formation",
+      "Copperhill Formation; metasiltstone, interbedded with metagraywacke",
+      "Copperhill Formation; quartz-muscovite schist and phyllite interbedded with metagraywacke",
+      "Elkmont Sandstone",
+      "Elkmont Sandstone; metasandstone and metaconglomerate",
+      "Helenmode Formation",
+      "Hesse Quartzite",
+      "Hornblende-biotite gneiss",
+      "Jonesboro Limestone",
+      "Licklog Formation",
+      "Licklog Formation; conglomeratic sandstone",
+      "Longarm Quartzite",
+      "Metadiorite and metadiabase, and altered rocks",
+      "Metcalf Phyllite",
+      "Migmatitic biotite gneiss",
+      "Monzogranite gneiss",
+      "Murray Shale",
+      "Nebo Quartzite",
+      "Nichols Shale",
+      "Pigeon Siltstone",
+      "Pigeon Siltstone; feldspathic metasandstone",
+      "Rich Butt Sandstone",
+      "Rich Butt Sandstone; slate and metasiltstone interbedded with fine-grained metasandstone",
+      "Roaring Fork Sandstone",
+      "Roaring Fork Sandstone; feldspathic metasandstone",
+      "Shady Dolomite",
+      "Shady Dolomite; shaly dolomite",
+      "Shields Formation",
+      "Shields Formation; coarse conglomerate of polymictic pebbles and cobbles, and pebbly sandstone",
+      "Shields Formation; limestone and siltstone",
+      "Tellico Formation",
+      "Thunderhead Sandstone",
+      "Thunderhead Sandstone; boulder conglomerate",
+      "Thunderhead Sandstone; graphitic metasiltstone and slate",
+      "Ultramafic rock",
+      "Upper Part of Chilhowee Group, undifferentiated",
+      "Wading Branch Formation",
+      "Wehutty Formation",
+      "Wilhite Formation",
+      "Wilhite Formation; carbonate rocks, limestone, and sandy limestone within argillaceous shale",
+      "Wilhite Formation; limestone and shale",
+      "Wilhite Formation; quartzite, sandstone, and polymictic pebble conglomerate",
+      "Years since fire (ordinal with skips by decades)"
+    ],
+    "type": "categorical",
+    "related-species": [
+		["Hylocichla_mustelina", "0020188", "Wood Thrush"],
+		["Oxalis_montana", "0028172", "Wood-Sorrel  "],
+		["Sedum_ternatum", "0036236", "Woodland Stonecrop"],
+		["Nais_communis", "0024518", "Worm"]
+	]
+  },
+  "Year Since Fire": {
+    "subcategories": [],
+    "type": "categorical",
+    "related-species": [[]]
+  },
+  "Understory Density": {
+    "subcategories": [],
+    "type": "categorical",
+    "related-species": [[]]
+  },
+  "Type of Disturbance": {
+    "subcategories": [],
+    "type": "categorical",
+    "related-species": [[]]
+  },
+  "Soil Drainage Class": {
+    "subcategories": [],
+    "type": "categorical",
+    "related-species": [[]]
+  },
+  "Avg Yearly Rainfall": {
+    "subcategories": [],
+    "type": "continuous",
+    "related-species": [[]]
+  },
+  "Aspect": {
+    "subcategories": [],
+    "type": "continuous",
+    "related-species": [[]]
+  },
+  "Vegetation": {
+    "subcategories": [],
+    "type": "categorical",
+    "related-species": [[]]
+  },
+  "Direct Solar Radiation": {
+    "subcategories": [],
+    "type": "continuous",
+    "related-species": [[]]
+  }
+}
