@@ -1,6 +1,21 @@
 <template>
     <div class="box" style="width: 290px;">
         <div id="box"> 
+            <div class='label'>3. Select an affected species</div>
+            <select v-model="selected" v-on:change="speciesChanged">
+                <option value="" disabled selected>Select or type a species</option>
+                <option v-for="s in species">
+                    {{ s[2] }}
+                </option>
+            </select>
+            <div id='search-initial-altname'></div>
+            <div class="progress-bar">
+                <div class="progress-bar-before">Least</div>
+                <div class="progress-bar-after">Most</div>
+                <div class="progress-bar-percentage" style="width: 20%;"></div>
+                <div class="progress-bar-percentage2" style="width: 20%;"></div>
+            </div>
+
             <div id='checkbox-container' tooltip='Toggle the visibility of the predicted habitat' data-intro='Toggle visibility of predicted and observed data' data-position='bottom'>
               <div id='options-predicted' class='search-checkbox'>
                 View:&nbsp; 
@@ -23,19 +38,6 @@
             </span>
         </div>
 
-        <select v-model="selected" v-on:change="speciesChanged">
-			<option value="" disabled selected>Select an affected species</option>
-			<option v-for="s in species">
-				{{ s[2] }}
-			</option>
-        </select>
-        <div id='search-initial-altname'></div>
-        <div class="progress-bar">
-            <div class="progress-bar-before">Least</div>
-            <div class="progress-bar-after">Most</div>
-            <div class="progress-bar-percentage" style="width: 20%;"></div>
-            <div class="progress-bar-percentage2" style="width: 20%;"></div>
-        </div>
 
         <span v-if="selected != ''">
             <div class="species-info-box">

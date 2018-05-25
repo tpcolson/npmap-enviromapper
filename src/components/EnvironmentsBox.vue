@@ -1,10 +1,10 @@
 <template>
 	<div class='box' style="border: none;">
-		<div class='label'>Select an environmental attribute to view affected species</div>
+		<div class='label'>1. Select an environmental attribute</div>
 		<select v-model="selected" v-on:change="layerChanged">
 			<option value="" disabled selected>Select an environment layer</option>
-			<option v-for="(item, key, index) in layers">
-				{{ key }}
+			<option v-for="(item, key, index) in layers" :value="key">
+				{{ item.name }}
 			</option>
 		</select>      
 		<InfoBox></InfoBox>
@@ -28,7 +28,8 @@ export default {
     },
     methods: {
         layerChanged: function(){
-            this.$root.$emit('layerChanged', this.$data.layers[this.$data.selected]);
+            this.$root.$emit('layerChanged', this.$data.layers[this.$data.selected], 
+                this.$data.selected);
         }
     },
     mounted: function()

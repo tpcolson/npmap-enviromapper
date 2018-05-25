@@ -40,13 +40,13 @@ function drawData() {
       color;
     switch(idx) {
       case 0:
-        color = '_orange';
+        color = '_blue';
         break;
       case 1:
         color = '_pink';
         break;
       case 2:
-        color = '_blue';
+        color = '_orange';
         break;
       default:
         return;
