@@ -6,6 +6,7 @@ preprocessing/sublayers
 preprocessing/tmp
 preprocessing/irma_mapping.json
 preprocessing/secret.txt
+package-lock.json
 
 # local env files
 .env.local
