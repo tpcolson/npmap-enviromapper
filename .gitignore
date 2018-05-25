@@ -4,6 +4,8 @@ node_modules
 preprocessing/layers
 preprocessing/sublayers
 preprocessing/tmp
+preprocessing/irma_mapping.json
+preprocessing/secret.txt
 
 # local env files
 .env.local

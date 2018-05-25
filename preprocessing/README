@@ -1,0 +1,15 @@
+- We need to filter asc files and create geotiffs out of them (with various value ranges)
+- We need to extract subcategories from geojsons and create geotiffs out of them
+- We need to upload the results to mapbox
+
+Issues:
+We need a geojson for "cat_years_since_fire" to know what each number indicates
+cat_type_disturbance doesn't have wind, other, or insect in the geojson 
+
+
+./download_environment_layers.sh
+./extract_continuous.py
+./extract_subcategory.sh
+./patch_data_with_env_contributions.py
+./rasterize_continuous.sh
+./upload.sh
