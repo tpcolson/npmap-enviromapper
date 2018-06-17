@@ -4,7 +4,7 @@
             {{ info }} 
         </div>
 
-        <span style="margin-top: 66px; display: block;">
+        <span style="display: block;">
             <transition name="info-slide">
             <div v-if="open" class="species-info-box">
                 <div style="" class="info-box-image environment-image"></div>  
