@@ -2426,7 +2426,7 @@ select
 .species-info-toggle
 {
     width: 40px;
-    height: 22px;
+    height: 10px;
     border-radius: 0 0 50px 50px;
     background-color: black;
     text-align: center;
@@ -2435,25 +2435,16 @@ select
     z-index: 10;
     border-bottom: 1px solid #333;
     margin-left: 105px;
-    padding-top: 0;
-    margin-top: -33px;
 }
 .species-info-toggle .triangle
 {
     color: #333;
     position: relative;
     margin-left: 5px;
-    margin-top: 10px;
+    margin-top: -5px;
 }
 .species-info-box
 {
-    width: 100%;
-    border-top: 0;
-    border-radius: 0 0 5px 5px;
-    height: 0px;
-    background-color: black;
-    margin-top: 48px;
-    font-size: 14px;
     overflow: hidden;
 }
 .info-box-image

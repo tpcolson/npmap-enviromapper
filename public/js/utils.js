@@ -590,6 +590,7 @@ function hacks()
     });
     */
 
+    /*
     $(".species-info-toggle").on("click", function(){
         var el = $(this).parent().children(".species-info-box");
         if (el.outerHeight() < 10)
@@ -603,6 +604,7 @@ function hacks()
             $(this).children(".triangle").css({transform: "rotate(0deg)"});
         }
     });
+    */
 }
 function disabled(e)
 {

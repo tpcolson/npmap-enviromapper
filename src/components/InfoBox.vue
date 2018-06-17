@@ -4,14 +4,16 @@
             {{ info }} 
         </div>
 
-        <span v-if="info!=''">
-            <div class="species-info-box" style="margin-top: 15px; width: 700px; position: relative; z-index: 10000;">
+        <span style="margin-top: 66px; display: block;">
+            <transition name="info-slide">
+            <div v-if="open" class="species-info-box">
                 <div style="" class="info-box-image environment-image"></div>  
-                <div class="label info-box-info">
+                <div class="info-box-info">
                     Here is some information about this environment layer. For example, where it encompasses, what categories does it have, how important it is to species in general, etc. 
                 </div>
             </div>
-            <div class="species-info-toggle" style="margin-left: 80px; margin-top: -12px;">
+            </transition>
+            <div @click="open=!open" class="species-info-toggle" style="margin-left: 80px; margin-top: 0px;">
                 <div class="triangle"></div>
             </div>
         </span>
@@ -24,7 +26,8 @@ export default {
         info:{
             default: "",
             type: String
-        }
+        },
+        open: false
     },
     mounted: function(){
         this.$root.$on('layerChanged', data =>{
@@ -34,3 +37,28 @@ export default {
     }
 }
 </script>
+
+<style>
+.species-info-box{
+    background-color: #EAEAEA;
+    width: 400px; 
+    height: 300px;
+    position: relative; 
+    z-index: 10000;
+    color: #333;
+    box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
+    border: 1px solid #999;
+    border-top: 0;
+}
+.info-slide-enter{
+    height: 0;
+}
+.info-slide-enter-to{
+    transition: height .5s ease-out;
+    height: 300px;
+}
+.info-slide-leave-to{
+    height: 0;
+    transition: height .5s ease-out;
+}
+</style>
