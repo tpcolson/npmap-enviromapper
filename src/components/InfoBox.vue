@@ -4,16 +4,17 @@
             {{ info }} 
         </div>
 
-        <span style="display: block;">
+        <span style="display: block;" v-if="info!=''">
             <transition name="info-slide">
             <div v-if="open" class="species-info-box">
-                <div style="" class="info-box-image environment-image"></div>  
+                <div class="info-box-title">Subcat Name</div>
+                <div style="" class="info-box-image environment-image"><img src="http://via.placeholder.com/150x150"></img></div>  
                 <div class="info-box-info">
-                    Here is some information about this environment layer. For example, where it encompasses, what categories does it have, how important it is to species in general, etc. 
+                    Here is some information about this subcategory. For example, where it encompasses, how important it is to species in general, etc. 
                 </div>
             </div>
             </transition>
-            <div @click="open=!open" class="species-info-toggle" style="margin-left: 80px; margin-top: 0px;">
+            <div @click="open=!open" class="species-info-toggle" style="margin-left: 200px; margin-top: 0px;">
                 <div class="triangle"></div>
             </div>
         </span>
@@ -39,9 +40,19 @@ export default {
 </script>
 
 <style>
+.info-box-title{
+    font-weight: bold;
+    border-bottom: 5px solid magenta;
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.info-box-image{
+    text-align: center;
+}
 .species-info-box{
     background-color: #EAEAEA;
-    width: 400px; 
+    width: 470px; 
     height: 300px;
     position: relative; 
     z-index: 10000;

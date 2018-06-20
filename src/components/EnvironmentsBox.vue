@@ -4,7 +4,8 @@
 		<select v-model="selected" v-on:change="layerChanged">
 			<option value="" disabled selected>Select an environment layer</option>
 			<option v-for="(item, key, index) in layers" :value="key">
-				{{ item.name }}
+				<span v-if="item.subcategories.length > 0 || item.type=='continuous'">{{ item.name }}</span>
+				<span v-if="item.subcategories.length==0 && item.type=='categorical'">-{{ item.name }}</span>
 			</option>
 		</select>      
 		<InfoBox></InfoBox>
@@ -46,3 +47,8 @@ export default {
     }
 }
 </script>
+<style>
+.box{
+    
+}
+</style>

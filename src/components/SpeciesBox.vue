@@ -39,7 +39,7 @@
         </div>
 
 
-        <span v-if="selected != ''">
+        <span v-if="false">
             <div class="species-info-box">
                 <div style="" class="info-box-image"></div>  
                 <div class="info-box-info">

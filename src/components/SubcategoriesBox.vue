@@ -1,5 +1,6 @@
 <template>
-        <div class='box'>
+        <transition name="subcat-slide"> 
+        <div class='subcat-slide box' v-if="populated">
             <div v-if="type=='categorical'" class='label'>2. Select upto two sub-categories</div>
             <div v-if="type=='continuous'" class='label'>2. Select a range of values</div>
             <select class="subcat subcat1" v-if="type=='categorical'" v-model="selected1" v-on:change="subcatChanged1" label="name">
@@ -37,6 +38,7 @@
                 </div>
             </span>
 		</div>
+        </transition>
 </template>
 
 <script>
@@ -60,7 +62,8 @@ export default {
         return {
             selected1: "",
             selected2: "",
-            maps: {}
+            maps: {},
+            populated: false
         }
     },
     methods: {
@@ -132,7 +135,24 @@ export default {
                 NPMap.config.L.removeLayer(this.maps[i]);
                 this.range1 = this.range2 = this.range3 = false;
             }
+            this.populated = true;
         });
     }
 }
 </script>
+<style>
+.subcat-slide{
+    width: 220px; 
+}
+.subcat-slide-enter{
+    width: 0;
+}
+.subcat-slide-enter-to{
+    transition: height .5s ease-out;
+    width: 220px;
+}
+.subcat-slide-leave-to{
+    width: 0;
+    transition: width .5s ease-out;
+}
+</style>
