@@ -239,13 +239,11 @@ var lastBaseIndex = 0;
 function updateBaseLayer(idx) {
   if(idx !== lastBaseIndex) {
     /* remove last layer (taken from NPMap.js switcher.js) */
-    $('#options-background-dropdown-ul').get(0).children[lastBaseIndex].innerHTML = $('#options-background-dropdown-ul').get(0).children[lastBaseIndex].innerHTML.substring(2, $('#options-background-dropdown-ul').get(0).children[lastBaseIndex].innerHTML.length);
     NPMap.config.baseLayers[lastBaseIndex].visible = false;
     NPMap.config.L.removeLayer(NPMap.config.baseLayers[lastBaseIndex].L);
 
     /* add new layer (taken from NPMap.js switcher.js) */
-    recordAction('changed base layer', $('#options-background-dropdown-ul').get(0).children[idx].innerHTML);
-    $('#options-background-dropdown-ul').get(0).children[idx].innerHTML = '\u2714 ' + $('#options-background-dropdown-ul').get(0).children[idx].innerHTML;
+    recordAction('changed base layer');
     var newLayer = NPMap.config.baseLayers[idx];
     if (newLayer.type === 'arcgisserver') {
       newLayer.L = L.npmap.layer[newLayer.type][newLayer.tiled === true ? 'tiled' : 'dynamic'](newLayer);
@@ -263,16 +261,13 @@ function updateBaseLayer(idx) {
 }
 
 function toggleOverlay(idx) {
-  var overlay = NPMap.config.overlays[idx],
-    text = $('#options-overlays-dropdown-ul').get(0).children[idx].innerHTML;
-  if(text.charAt(0) !== '\u2714') {
-    recordAction('turned on overlay', text);
-    $('#options-overlays-dropdown-ul').get(0).children[idx].innerHTML = '\u2714 ' + text;
+  var overlay = NPMap.config.overlays[idx];
+  if(overlay.visible == false) {
+    recordAction('turned on overlay');
     overlay.visible = true;
     NPMap.config.L.addLayer(overlay.L);
   } else {
-    recordAction('turned off overlay', text.substring(2, text.length));
-    $('#options-overlays-dropdown-ul').get(0).children[idx].innerHTML = text.substring(2, text.length);
+    recordAction('turned off overlay');
     overlay.visible = false;
     NPMap.config.L.removeLayer(overlay.L);
   }

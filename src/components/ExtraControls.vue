@@ -3,31 +3,29 @@
         <div id='search-options' class='bordered'>
           <div id='search-options-left'>
             <div id='options-label label' style="color: #efefef">MAP CONTROLS</div>
-            <div id='options-background' tooltip='Change the background map'>
-              <div id='options-background-dropdown' class='species-dropdown' onkeypress='toggleBackgroundList();' onclick='toggleBackgroundList();' data-intro="Change map background" data-position='left'>
-                Map Background
-                <div class='triangle'></div>
-                <ul id='options-background-dropdown-ul'>
-                  <li onkeypress='updateBaseLayer(0);' onclick='updateBaseLayer(0);'>&#10004; Park Tiles</li>
-                  <li onkeypress='updateBaseLayer(1);' onclick='updateBaseLayer(1);'>Mapbox Terrain</li>
-                  <li onkeypress='updateBaseLayer(2);' onclick='updateBaseLayer(2);'>Esri Topo</li>
-                  <li onkeypress='updateBaseLayer(3);' onclick='updateBaseLayer(3);'>Esri Imagery</li>
-                </ul>
-              </div>
-            </div>
-            <div id='options-overlays' tooltip='Turn or off extra map features'>
-              <div id='options-overlays-dropdown' class='species-dropdown' data-intro='Show extra map features' data-position='left'>
-                <div onkeypress='toggleOverlayList();' onclick='toggleOverlayList();' style="color: black !important;">Map Overlays</div>
-                <div onkeypress='toggleOverlayList();' onclick='toggleOverlayList();' class='triangle'></div>
-                <ul id='options-overlays-dropdown-ul'>
-                  <li onkeypress='toggleOverlay(0);' onclick='toggleOverlay(0);'>Trails</li>
-                  <li onkeypress='toggleOverlay(1);' onclick='toggleOverlay(1);'>Visitor Centers</li>
-                  <li onkeypress='toggleOverlay(2);' onclick='toggleOverlay(2);'>Shelters</li>
-                  <li onkeypress='toggleOverlay(3);' onclick='toggleOverlay(3);'>Roads</li>
-                  <li onkeypress='toggleOverlay(4);' onclick='toggleOverlay(4);'>Campsites</li>
-                </ul>
-              </div>
-            </div>
+
+            <multiselect
+              v-model="selectedBackgroundOption"
+              :options="mapBackgroundOptions"
+              :close-on-select="true"
+              placeholder="Map Background"
+              @input="selectBackground"
+              :show-labels="false"
+              :searchable="false"
+            ></multiselect>
+            <multiselect
+              :multiple="true"
+              v-model="selectedOverlayOption"
+              :options="mapOverlayOptions"
+              :close-on-select="false"
+              placeholder="Map Overlays"
+              @select="selectOverlay"
+              @remove="selectOverlay"
+              :show-labels="false"
+              :searchable="false"
+              :hideSelected="true"
+            ></multiselect>
+
           </div>
 
           <!--<button onkeypress='clearLayers();' onclick='clearLayers();' tooltip='Press here to remove all drawings from map'>CLEAR</button>-->
@@ -60,7 +58,19 @@ export default {
     return {
         layers: [
         ],
-        selected: ""
+        selected: "",
+        selectedBackgroundOption: "",
+        mapBackgroundOptions: ['Park Tiles', 'Mapbox Terrain', 'Esri Topo', 'Esri Imagery'],
+        selectedOverlayOption: "",
+        mapOverlayOptions: ['Trails', 'Visitor Centers', 'Shelters', 'Roads', 'Campsites']
+    }
+  },
+  methods: {
+    selectBackground: function(option) {
+      updateBaseLayer(this.mapBackgroundOptions.indexOf(option));
+    },
+    selectOverlay: function(option) {
+      toggleOverlay(this.mapOverlayOptions.indexOf(option));
     }
   }
 }

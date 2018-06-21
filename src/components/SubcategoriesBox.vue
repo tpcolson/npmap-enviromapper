@@ -1,28 +1,33 @@
 <template>
         <transition name="subcat-slide"> 
         <div class='subcat-slide box' v-if="populated">
-            <div v-if="type=='categorical'" class='label'>2. Select upto two sub-categories</div>
+            <div v-if="type=='categorical'" class='label'>2. Select up to two sub-categories</div>
             <div v-if="type=='continuous'" class='label'>2. Select a range of values</div>
-            <select class="subcat subcat1" v-if="type=='categorical'" v-model="selected1" v-on:change="subcatChanged1" label="name">
-                <option value="" disabled selected>Select a subcategory</option>
-                <option v-for="item in subcategories">
-                    {{ item.fullname }}
-                </option>
-            </select>      
-
-            <select class="subcat subcat2" v-if="type=='categorical'" v-model="selected2" v-on:change="subcatChanged2" label="name">
-                <option value="" disabled selected>Select another</option>
-                <option v-for="item in subcategories">
-                    {{ item.fullname }}
-                </option>
-            </select>      
-
-            <!--
-            <multiselect v-if="type=='categorical'" @select="subcatChanged" v-model="selected" :max="2" :options="subcategories" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" :preserve-search="true" placeholder="Select a subcategory of the environmental layer" track-by="name" label="name">
-            <template slot="tag" slot-scope="props"><span class="custom__tag"><span>{{ props.option.name }}</span><span class="custom__remove" @click="props.remove(props.option)">❌</span></span></template>
-
-            </multiselect>
-            -->
+            <multiselect
+                v-if="type=='categorical'"
+                class="subcat1"
+                v-model="selected1"
+                :options="subcategories"
+                :close-on-select="true"
+                placeholder="Select a subcategory"
+                label="fullname"
+                track-by="fullname"
+                @input="subcatChanged1"
+                :show-labels="false"
+            ></multiselect>
+            
+            <multiselect
+                v-if="type=='categorical'"
+                class="subcat2"
+                v-model="selected2"
+                :options="subcategories"
+                :close-on-select="true"
+                placeholder="Select a subcategory"
+                label="fullname"
+                track-by="fullname"
+                @input="subcatChanged2"
+                :show-labels="false"
+            ></multiselect>
 
             <span v-if="type=='continuous'"> 
                 <div id="continuous-spectrum">
@@ -79,12 +84,12 @@ export default {
             return -1;
         },
         subcatChanged1: function(subcat){
-            var index = this.findSubcatIndex(this.selected1).index; 
+            var index = this.findSubcatIndex(this.selected1.fullname).index;
             var name = "soil_" + index + "_1";
             this.updateLayer(name, true);
         },
         subcatChanged2: function(subcat){
-            var index = this.findSubcatIndex(this.selected2).index;
+            var index = this.findSubcatIndex(this.selected2.fullname).index;
             var name = "soil_" + index + "_2";
             this.updateLayer(name, true);
         },
@@ -119,6 +124,7 @@ export default {
     {
         this.$root.$on('layerChanged', (data, id) =>{
             // for example "con_slope"
+            
             this.selected_layer_name = id;
             if (data.type == 'categorical')
             {
@@ -141,6 +147,123 @@ export default {
 }
 </script>
 <style>
+.subcat {
+  background: black;
+}
+.subcat1 {
+  background: black;
+}
+.subcat2 {
+  background: black;
+}
+.subcat1 > .multiselect__tags {
+  min-height: 40px;
+  display: block;
+  padding: 8px 40px 0 8px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background:  #c41c8e;
+  font-size: 14px;
+}
+.subcat1 > .multiselect__tags > .multiselect__single {
+  position: relative;
+  display: inline-block;
+  min-height: 20px;
+  line-height: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #c41c8e;
+  padding: 0 0 0 5px;
+  width: calc(100%);
+  transition: border 0.1s ease;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  vertical-align: top;
+}
+.subcat1 > .multiselect__tags > span > .multiselect__single {
+  position: relative;
+  display: inline-block;
+  min-height: 20px;
+  line-height: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #c41c8e;
+  padding: 0 0 0 5px;
+  width: calc(100%);
+  transition: border 0.1s ease;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  vertical-align: top;
+}
+.subcat1 > .multiselect__tags > .multiselect__input {
+  position: relative;
+  display: inline-block;
+  min-height: 20px;
+  line-height: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #c41c8e;
+  padding: 0 0 0 5px;
+  width: calc(100%);
+  transition: border 0.1s ease;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  vertical-align: top;
+}
+.subcat2 > .multiselect__tags {
+  min-height: 40px;
+  display: block;
+  padding: 8px 40px 0 8px;
+  border-radius: 5px;
+  border: 1px solid black;
+  background:  #fd8e1f;
+  font-size: 14px;
+}
+.subcat2 > .multiselect__tags > .multiselect__single {
+  position: relative;
+  display: inline-block;
+  min-height: 20px;
+  line-height: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #fd8e1f;
+  padding: 0 0 0 5px;
+  width: calc(100%);
+  transition: border 0.1s ease;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  vertical-align: top;
+}
+.subcat2 > .multiselect__tags > span > .multiselect__single {
+  position: relative;
+  display: inline-block;
+  min-height: 20px;
+  line-height: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #fd8e1f;
+  padding: 0 0 0 5px;
+  width: calc(100%);
+  transition: border 0.1s ease;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  vertical-align: top;
+}
+.subcat2 > .multiselect__tags > .multiselect__input {
+  position: relative;
+  display: inline-block;
+  min-height: 20px;
+  line-height: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #fd8e1f;
+  padding: 0 0 0 5px;
+  width: calc(100%);
+  transition: border 0.1s ease;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  vertical-align: top;
+}
 .subcat-slide{
     width: 220px; 
 }
