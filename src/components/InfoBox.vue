@@ -4,10 +4,10 @@
             {{ mutableInfo }} 
         </div>
 
-        <span style="display: block;" v-if="mutableInfo!=''">
+        <span style="display: block;" v-if="subcatName1 != '' || subcatName2 != ''">
             <transition name="info-slide">
             <div v-if="open" class="species-info-box">
-                <div class="info-box-title">Subcat Name</div>
+                <div class="info-box-title">{{ subcatName1 }}</div>
                 <div style="" class="info-box-image environment-image"><img src="http://via.placeholder.com/150x150" /></div>  
                 <div class="info-box-info">
                     Here is some information about this subcategory. For example, where it encompasses, how important it is to species in general, etc. 
@@ -28,17 +28,45 @@ export default {
             default: "",
             type: String
         },
-        open: false
+        open: false,
+        layer: {
+            type: Object
+        }
     },
     data: function() {
         return {
-            mutableInfo: this.info
+            mutableInfo: this.info,
+            subcatName1: {
+                default: '',
+                type: String
+            },
+            subcatName2: {
+                default: '',
+                type: String
+            }
         }
     },
     mounted: function(){
         this.$root.$on('layerChanged', data =>{
-            console.log(data.info);
+//            console.log(data.info);
+//            console.log(data);
+//            console.log(this.layer);
             this.mutableInfo = data.info;
+        });
+        this.$root.$on('subcatChanged', (subcatName, subcatNumber) => {
+            let name = subcatName;
+            if (subcatNumber == 1) {
+                if (subcatName == 'null') {
+                    name = '';
+                }
+                this.subcatName1 = name;
+            }
+            if (subcatNumber == 2) {
+                if (subcatName == 'null') {
+                    name = '';
+                }
+                this.subcatName2 = name;
+            }
         });
     },
     watch: {

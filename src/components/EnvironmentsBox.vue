@@ -10,7 +10,7 @@
               track-by="label"
               :showLabels="false"
             ></multiselect>
-		<InfoBox></InfoBox>
+		<InfoBox :layers="layersForSubCat"></InfoBox>
 	</div>
 </template>
 
@@ -26,7 +26,8 @@ export default {
         return {
             layersArray: [],
             layersObject: {},
-            selected: ""
+            selected: "",
+            layersForSubCat: {}
         }
     },
     methods: {
@@ -40,8 +41,10 @@ export default {
             }
             for (let key in this.$data.layersObject) {
                 if (this.$data.layersArray[selected].name == this.$data.layersObject[key].name) {
+                    this.layersForSubCat = this.$data.layersArray[selected];
                     this.$root.$emit('layerChanged', this.$data.layersArray[selected], 
                         key);
+                    break;
                 }
             }
             
