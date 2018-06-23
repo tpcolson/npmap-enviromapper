@@ -1,14 +1,14 @@
 <template>
     <div>
         <div class="label environment-info">
-            {{ info }} 
+            {{ mutableInfo }} 
         </div>
 
-        <span style="display: block;" v-if="info!=''">
+        <span style="display: block;" v-if="mutableInfo!=''">
             <transition name="info-slide">
             <div v-if="open" class="species-info-box">
                 <div class="info-box-title">Subcat Name</div>
-                <div style="" class="info-box-image environment-image"><img src="http://via.placeholder.com/150x150"></img></div>  
+                <div style="" class="info-box-image environment-image"><img src="http://via.placeholder.com/150x150" /></div>  
                 <div class="info-box-info">
                     Here is some information about this subcategory. For example, where it encompasses, how important it is to species in general, etc. 
                 </div>
@@ -30,27 +30,37 @@ export default {
         },
         open: false
     },
+    data: function() {
+        return {
+            mutableInfo: this.info
+        }
+    },
     mounted: function(){
         this.$root.$on('layerChanged', data =>{
             console.log(data.info);
-            this.info= data.info;
+            this.mutableInfo = data.info;
         });
+    },
+    watch: {
+        info: function() {
+            this.mutableInfo = this.info;
+        }
     }
 }
 </script>
 
 <style>
-.info-box-title{
+.info-box-title {
     font-weight: bold;
     border-bottom: 5px solid magenta;
     width: 100px;
     padding: 10px;
     margin-bottom: 10px;
 }
-.info-box-image{
+.info-box-image {
     text-align: center;
 }
-.species-info-box{
+.species-info-box {
     background-color: #EAEAEA;
     width: 470px; 
     height: 300px;
@@ -61,14 +71,14 @@ export default {
     border: 1px solid #999;
     border-top: 0;
 }
-.info-slide-enter{
+.info-slide-enter {
     height: 0;
 }
-.info-slide-enter-to{
+.info-slide-enter-to {
     transition: height .5s ease-out;
     height: 300px;
 }
-.info-slide-leave-to{
+.info-slide-leave-to {
     height: 0;
     transition: height .5s ease-out;
 }
