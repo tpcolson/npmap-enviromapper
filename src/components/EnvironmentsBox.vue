@@ -9,8 +9,8 @@
               label="label"
               track-by="label"
               :showLabels="false"
-            ></multiselect>
-		<InfoBox :layers="layersForSubCat"></InfoBox>
+        />
+		<InfoBox :layers="layersForSubCat" />
 	</div>
 </template>
 
@@ -74,8 +74,3 @@ export default {
     }
 }
 </script>
-<style>
-.box{
-    
-}
-</style>

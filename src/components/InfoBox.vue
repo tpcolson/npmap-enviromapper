@@ -36,21 +36,12 @@ export default {
     data: function() {
         return {
             mutableInfo: this.info,
-            subcatName1: {
-                default: '',
-                type: String
-            },
-            subcatName2: {
-                default: '',
-                type: String
-            }
+            subcatName1: '',
+            subcatName2: ''
         }
     },
     mounted: function(){
         this.$root.$on('layerChanged', data =>{
-//            console.log(data.info);
-//            console.log(data);
-//            console.log(this.layer);
             this.mutableInfo = data.info;
         });
         this.$root.$on('subcatChanged', (subcatName, subcatNumber) => {

@@ -14,7 +14,7 @@
                 track-by="fullname"
                 @input="subcatChanged1"
                 :show-labels="false"
-            ></multiselect>
+            />
             
             <multiselect
                 v-if="mutableType=='categorical'"
@@ -27,7 +27,7 @@
                 track-by="fullname"
                 @input="subcatChanged2"
                 :show-labels="false"
-            ></multiselect>
+            />
 
             <span v-if="mutableType=='continuous'"> 
                 <div id="continuous-spectrum">
@@ -49,7 +49,6 @@
 <script>
 import InfoBox from './InfoBox.vue';
 import Multiselect from 'vue-multiselect';
-
 
 export default {
     name: 'SubcategoriesBox',
