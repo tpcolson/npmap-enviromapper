@@ -12,7 +12,7 @@
               @input="selectBackground"
               :show-labels="false"
               :searchable="false"
-            ></multiselect>
+            />
             <multiselect
               :multiple="true"
               v-model="selectedOverlayOption"
@@ -24,7 +24,7 @@
               :show-labels="false"
               :searchable="false"
               :hideSelected="true"
-            ></multiselect>
+            />
 
           </div>
 

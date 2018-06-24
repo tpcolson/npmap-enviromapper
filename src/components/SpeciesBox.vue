@@ -13,7 +13,6 @@
             <p slot="noResult">No species found. Consider changing your search.</p>
             
             </multiselect>
-<!--            <div id='search-initial-altname'></div> -->
             <div class="progress-bar">
                 <div class="progress-bar-before">Least</div>
                 <div class="progress-bar-after">Most</div>
@@ -81,7 +80,8 @@ export default {
             ],
             selected: "",
             speciesNames: [],
-            namingConvention: 'common'
+            namingConvention: 'common',
+            mutableSpecies: this.species
         }
     },
     methods: {
@@ -93,27 +93,27 @@ export default {
             } else {
                 this.namingConvention = 'common';
             }
-            if (typeof this.species == 'undefined' || typeof this.species.length == 'undefined') return;
+            if (typeof this.mutableSpecies == 'undefined' || typeof this.mutableSpecies.length == 'undefined') return;
             let element = document.getElementsByClassName('multiselect__single')[3];
             if (typeof element == 'undefined')  {
                 element = document.getElementsByClassName('multiselect__single')[1];
             }
             let currentSpeciesName = element.innerText;
             this.speciesNames = [];
-            for (var i = 0; i < this.species.length; i++)
+            for (var i = 0; i < this.mutableSpecies.length; i++) 
             {
                 if (this.namingConvention !== 'common') {
-                    let speciesName = this.species[i][0].replace(/_/g, ' ');
+                    let speciesName = this.mutableSpecies[i][0].replace(/_/g, ' ');
                     this.speciesNames.push(speciesName);
 
-                    if (this.species[i][2] == currentSpeciesName) {
+                    if (this.mutableSpecies[i][2] == currentSpeciesName) {
                         document.getElementsByClassName('multiselect__single')[3].innerText = this.selected = speciesName;
                     }
                 } else {
-                    this.speciesNames.push(this.species[i][2]);
+                    this.speciesNames.push(this.mutableSpecies[i][2]);
 
-                    if (this.species[i][0] == currentSpeciesName.replace(/ /g, '_')) {
-                        document.getElementsByClassName('multiselect__single')[3].innerText = this.selected = this.species[i][2];
+                    if (this.mutableSpecies[i][0] == currentSpeciesName.replace(/ /g, '_')) {
+                        document.getElementsByClassName('multiselect__single')[3].innerText = this.selected = this.mutableSpecies[i][2];
                     }
                 }
                 
@@ -121,15 +121,16 @@ export default {
         },
 
         speciesChanged: function(){
-            for (var i = 0; i < this.species.length; i++)
+            for (var i = 0; i < this.mutableSpecies.length; i++)
             {
-                let selected = this.selected.replace(/ /g, '_')
-                if (selected == this.species[i][2] || selected == this.species[i][0]){
+                let selected = this.selected;
+                if (selected == this.mutableSpecies[i][2] || selected.replace(/ /g, '_') == this.mutableSpecies[i][0]){
                     var li = {};
-                    li._id = (this.species[i][1]);
-                    li._latin = this.species[i][0];
-                    li._common = this.species[i][2];
+                    li._id = (this.mutableSpecies[i][1]);
+                    li._latin = this.mutableSpecies[i][0];
+                    li._common = this.mutableSpecies[i][2];
                     selectInitialSpecies(li);
+                    break;
                 }
             }
         }
@@ -137,18 +138,24 @@ export default {
     mounted: function()
     {
         this.$root.$on('layerChanged', data => {
-            this.species = data['related-species'];
+            this.mutableSpecies = data['related-species'];
             this.speciesNames = [];
-            for (let species in this.species) {
+            for (let species in this.mutableSpecies) {
                 if (this.namingConvention == 'common') {
-                    this.speciesNames.push(this.species[species][2]);
+                    this.speciesNames.push(this.mutableSpecies[species][2]);
                 } else {
-                    let speciesName = this.species[species][0].replace(/_/g, ' ');
+                    let speciesName = this.mutableSpecies[species][0].replace(/_/g, ' ');
                     this.speciesNames.push(speciesName);
                 }
             }
         });
-    } 
+    },
+    watch:
+    {
+        species: function() {
+            this.mutableSpecies = this.species;
+        }
+    }
 }
 </script>
 <style>
