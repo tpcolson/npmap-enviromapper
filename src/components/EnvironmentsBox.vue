@@ -10,7 +10,7 @@
               track-by="label"
               :showLabels="false"
         />
-		<InfoBox :layers="layersForSubCat" />
+		<InfoBox :layer="layersForSubCat" />
 	</div>
 </template>
 

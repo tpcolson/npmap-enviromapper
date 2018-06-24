@@ -159,12 +159,11 @@ export default {
     {
         this.$root.$on('layerChanged', (data, id) =>{
             // for example "con_slope"
-            
             this.selected_layer_name = id;
             if (data.type == 'categorical')
             {
                 this.mutableSubcategories = data.subcategories.map(function(d, i){
-                    return {name: d.substring(0, 30) + "...", fullname: d, index: i};
+                    return {name: d.name.substring(0, 30) + "...", fullname: d.name, index: i};
                 });
             }
             else

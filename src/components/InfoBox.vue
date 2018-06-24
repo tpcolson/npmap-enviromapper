@@ -4,18 +4,16 @@
             {{ mutableInfo }} 
         </div>
 
-        <span style="display: block;" v-if="subcatName1 != '' || subcatName2 != ''">
+        <span style="display: block;" v-if="subcatName1 !== '' || subcatName2 !== ''">
             <transition name="info-slide">
             <div v-if="open" class="species-info-box">
                 <div class="info-box-title">{{ subcatName1 }}</div>
-                <div style="" class="info-box-image environment-image"><img src="http://via.placeholder.com/150x150" /></div>  
-                <div class="info-box-info">
-                    Here is some information about this subcategory. For example, where it encompasses, how important it is to species in general, etc. 
-                </div>
+                <div style="" class="info-box-image environment-image"><img v-if="subcatImg1 !== ''" :src="subcatImg1" /></div>  
+                <div class="info-box-info" v-if="subcatInfo1 !== ''">{{ subcatInfo1 }}</div>
             </div>
             </transition>
             <div @click="open=!open" class="species-info-toggle" style="margin-left: 200px; margin-top: 0px;">
-                <div class="triangle"></div>
+                <div :class="{ 'triangle-closed': !open, 'triangle-open': open }" class="triangle"></div>
             </div>
         </span>
     </div>
@@ -28,16 +26,20 @@ export default {
             default: "",
             type: String
         },
-        open: false,
         layer: {
             type: Object
         }
     },
     data: function() {
         return {
+            open: false,
             mutableInfo: this.info,
             subcatName1: '',
-            subcatName2: ''
+            subcatName2: '',
+            subcatImg1: '',
+            subcatImg2: '',
+            subcatInfo1: '',
+            subcatInfo2: ''
         }
     },
     mounted: function(){
@@ -47,17 +49,36 @@ export default {
         this.$root.$on('subcatChanged', (subcatName, subcatNumber) => {
             let name = subcatName;
             if (subcatNumber == 1) {
-                if (subcatName == 'null') {
+                if (name == 'null') {
                     name = '';
                 }
                 this.subcatName1 = name;
+                if (this.layer != undefined) {
+                    let subcat = this.layer.subcategories;
+                    for (let key in subcat) {
+                        if (subcatName == subcat[key].name) {
+                            this.subcatImg1 = subcat[key].img;
+                            this.subcatInfo1 = subcat[key].info;
+                        }
+                    }
+                }
             }
             if (subcatNumber == 2) {
                 if (subcatName == 'null') {
                     name = '';
                 }
                 this.subcatName2 = name;
+                if (this.layer != undefined) {
+                    let subcat = this.layer.subcategories;
+                    for (let key in subcat) {
+                        if (subcatName == subcat[key].name) {
+                            this.subcatImg2 = subcat[key].img;
+                            this.subcatInfo2 = subcat[key].info;
+                        }
+                    }
+                }
             }
+            
         });
     },
     watch: {
@@ -94,11 +115,20 @@ export default {
     height: 0;
 }
 .info-slide-enter-to {
-    transition: height .5s ease-out;
+    transition: height 1s ease-out;
     height: 300px;
 }
 .info-slide-leave-to {
     height: 0;
-    transition: height .5s ease-out;
+    transition: height 1s ease-out;
 }
+.triangle-closed {
+    transform: rotate(0deg);
+    transition: transform 1s ease-out;
+}
+.triangle-open {
+    transform: rotate(180deg);
+    transition: transform 1s ease-out;
+}
+
 </style>
