@@ -150,7 +150,8 @@ function populateResults() {
       }
 
       //document.getElementById('search-initial-dropdown-select').appendChild(li);
-      document.getElementById('search-compare-one-dropdown-select').appendChild(li1);
+      /* temporarily removed to fix species removal issue */
+      //document.getElementById('search-compare-one-dropdown-select').appendChild(li1);
       //document.getElementById('search-compare-two-dropdown-select').appendChild(li2);
     }
   } else {
@@ -201,8 +202,8 @@ function populateResults() {
         toggleSearchList(2);
         selectThirdSpecies(this);
       }
-
-      document.getElementById('search-compare-one-dropdown-select').appendChild(li1);
+      /* temporarily removed to fix species removal issue */
+//      document.getElementById('search-compare-one-dropdown-select').appendChild(li1);
     }
   }
 
@@ -488,7 +489,8 @@ function populateDistributionLists() {
       li.onclick = li.onkeypress = function() {
         selectSecondSpecies(this);
       }
-      document.getElementById('compare-dist-one').children[2].appendChild(li);
+      /* temporarily removed to fix species removal issue */
+//      document.getElementById('compare-dist-one').children[2].appendChild(li);
 
       li = document.createElement('li');
       li._latin = latin;
@@ -504,7 +506,8 @@ function populateDistributionLists() {
       li.onclick = li.onkeypress = function() {
         selectThirdSpecies(this);
       }
-      document.getElementById('compare-dist-two').children[2].appendChild(li);
+      /* temporarily removed to fix species removal issue */
+//      document.getElementById('compare-dist-two').children[2].appendChild(li); 
     }
   }
 

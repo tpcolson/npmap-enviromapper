@@ -1,21 +1,28 @@
 <template>
     <div>
         <div class="label environment-info">
-            {{ info }} 
+            {{ mutableInfo }} 
         </div>
 
-        <span style="display: block;" v-if="info!=''">
+        <span style="display: block;" v-if="subcatExists1 || subcatExists2">
             <transition name="info-slide">
-            <div v-if="open" class="species-info-box">
-                <div class="info-box-title">Subcat Name</div>
-                <div style="" class="info-box-image environment-image"><img src="http://via.placeholder.com/150x150"></img></div>  
-                <div class="info-box-info">
-                    Here is some information about this subcategory. For example, where it encompasses, how important it is to species in general, etc. 
+            <div v-show="open" class="species-info-box">
+                <transition name="info-box-subcat-1">
+                <div :class="{'info-box-subcat-title-1': true, 'info-box-subcat-title-1-inactive': !subcatActive1 }" v-show="subcatExists1" @click="subcatActive1 = true; subcatActive2 = false;">{{ subcatName1 }}</div>
+                </transition>
+                <transition name="info-box-subcat-2">
+                <div :class="{'info-box-subcat-title-2': true, 'info-box-subcat-title-2-inactive': !subcatActive2 }" v-show="subcatExists2" @click="subcatActive1 = false; subcatActive2 = true;">{{ subcatName2 }}</div>
+                </transition>
+                <div style="" class="info-box-image environment-image">
+                    <img v-if="subcatImg1 !== '' && subcatActive1" :src="subcatImg1" />
+                    <img v-else-if="subcatImg2 !== '' && subcatActive2" :src="subcatImg2" />
                 </div>
+                <div class="info-box-info" v-if="subcatInfo1 !== '' && subcatActive1">{{ subcatInfo1 }}</div>
+                <div class="info-box-info" v-else-if="subcatInfo2 !== '' && subcatActive2">{{ subcatInfo2 }}</div>
             </div>
             </transition>
             <div @click="open=!open" class="species-info-toggle" style="margin-left: 200px; margin-top: 0px;">
-                <div class="triangle"></div>
+                <div :class="{ 'triangle-closed': !open, 'triangle-open': open }" class="triangle"></div>
             </div>
         </span>
     </div>
@@ -28,29 +35,146 @@ export default {
             default: "",
             type: String
         },
-        open: false
+        layer: {
+            type: Object
+        }
+    },
+    data: function() {
+        return {
+            open: false,
+            mutableInfo: this.info,
+            subcatName1: '',
+            subcatName2: '',
+            subcatImg1: '',
+            subcatImg2: '',
+            subcatInfo1: '',
+            subcatInfo2: '',
+            subcatActive1: false,
+            subcatActive2: false,
+            subcatExists1: false,
+            subcatExists2: false,
+            selected: ''
+        }
     },
     mounted: function(){
         this.$root.$on('layerChanged', data =>{
-            console.log(data.info);
-            this.info= data.info;
+            this.mutableInfo = data.info;
         });
+        this.$root.$on('subcatChanged', (subcatName, subcatNumber) => {
+            let name = subcatName;
+            if (subcatNumber == 1) {
+                if (name == 'null') {
+                    name = '';
+                    this.subcatExists1 = false;
+                    this.toggleActive(false, true);
+                    return;
+                }
+                this.toggleActive(true, false);
+                this.subcatName1 = name;
+                if (this.layer != undefined) {
+                    let subcat = this.layer.subcategories;
+                    for (let key in subcat) {
+                        if (subcatName == subcat[key].name) {
+                            this.subcatImg1 = subcat[key].img;
+                            this.subcatInfo1 = subcat[key].info;
+                            this.subcatExists1 = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (subcatNumber == 2) {
+                if (name == 'null') {
+                    name = '';
+                    this.subcatExists2 = false;
+                    this.toggleActive(true, false);
+                    return;
+                }
+                this.toggleActive(false, true);
+                this.subcatName2 = name;
+                if (this.layer != undefined) {
+                    let subcat = this.layer.subcategories;
+                    for (let key in subcat) {
+                        if (subcatName == subcat[key].name) {
+                            this.subcatImg2 = subcat[key].img;
+                            this.subcatInfo2 = subcat[key].info;
+                            this.subcatExists2 = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            
+        });
+    },
+    methods: {
+        toggleActive: function(subcatActive1, subcatActive2) {
+            this.subcatActive1 = subcatActive1;
+            this.subcatActive2 = subcatActive2;
+        }
+    },
+    watch: {
+        info: function() {
+            this.mutableInfo = this.info;
+        }
     }
 }
 </script>
 
 <style>
-.info-box-title{
+.info-box-subcat-title-1 {
     font-weight: bold;
     border-bottom: 5px solid magenta;
     width: 100px;
+    max-width: 100px;
     padding: 10px;
     margin-bottom: 10px;
+    margin-right: 10px;
+    float: left;
 }
-.info-box-image{
+.info-box-subcat-title-1-inactive {
+    border-bottom: none;
+}
+.info-box-subcat-1-enter {
+    max-width: 0%;
+}
+.info-box-subcat-1-enter-to {
+    max-width: 100%;
+    transition: max-width 1s linear;
+}
+.info-box-subcat-1-leave-to {
+    max-width: 0%;
+    transition: max-width 1s linear;
+}
+.info-box-subcat-title-2 {
+    font-weight: bold;
+    border-bottom: 5px solid #FF9933;
+    width: 100px;
+    max-width: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    float: left;
+}
+.info-box-subcat-title-2-inactive {
+    border-bottom: none;
+}
+.info-box-subcat-2-enter {
+    max-width: 0%;
+}
+.info-box-subcat-2-enter-to {
+    max-width: 100%;
+    transition: max-width 1s linear;
+}
+.info-box-subcat-2-leave-to {
+    max-width: 0%;
+    transition: max-width 1s linear;
+}
+.info-box-image {
     text-align: center;
+    clear: both;
 }
-.species-info-box{
+.species-info-box {
     background-color: #EAEAEA;
     width: 470px; 
     height: 300px;
@@ -61,15 +185,24 @@ export default {
     border: 1px solid #999;
     border-top: 0;
 }
-.info-slide-enter{
+.info-slide-enter {
     height: 0;
 }
-.info-slide-enter-to{
-    transition: height .5s ease-out;
+.info-slide-enter-to {
+    transition: height 1s ease-out;
     height: 300px;
 }
-.info-slide-leave-to{
+.info-slide-leave-to {
     height: 0;
-    transition: height .5s ease-out;
+    transition: height 1s ease-out;
 }
+.triangle-closed {
+    transform: rotate(0deg);
+    transition: transform 1s ease-out;
+}
+.triangle-open {
+    transform: rotate(180deg);
+    transition: transform 1s ease-out;
+}
+
 </style>
