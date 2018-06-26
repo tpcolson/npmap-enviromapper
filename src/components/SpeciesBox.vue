@@ -9,6 +9,7 @@
                 placeholder="Select or type a species"
                 @input="speciesChanged"
                 :show-labels="false"
+                class="species-multiselect"
             >
             <p slot="noResult">No species found. Consider changing your search.</p>
             
@@ -94,10 +95,7 @@ export default {
                 this.namingConvention = 'common';
             }
             if (typeof this.mutableSpecies == 'undefined' || typeof this.mutableSpecies.length == 'undefined') return;
-            let element = document.getElementsByClassName('multiselect__single')[3];
-            if (typeof element == 'undefined')  {
-                element = document.getElementsByClassName('multiselect__single')[1];
-            }
+            let element = document.getElementsByClassName('species-multiselect')[0].getElementsByClassName('multiselect__single')[0];
             let currentSpeciesName = element.innerText;
             this.speciesNames = [];
             for (var i = 0; i < this.mutableSpecies.length; i++) 
@@ -107,13 +105,13 @@ export default {
                     this.speciesNames.push(speciesName);
 
                     if (this.mutableSpecies[i][2] == currentSpeciesName) {
-                        document.getElementsByClassName('multiselect__single')[3].innerText = this.selected = speciesName;
+                        element.innerText = this.selected = speciesName;
                     }
                 } else {
                     this.speciesNames.push(this.mutableSpecies[i][2]);
 
                     if (this.mutableSpecies[i][0] == currentSpeciesName.replace(/ /g, '_')) {
-                        document.getElementsByClassName('multiselect__single')[3].innerText = this.selected = this.mutableSpecies[i][2];
+                        element.innerText = this.selected = this.mutableSpecies[i][2];
                     }
                 }
                 
