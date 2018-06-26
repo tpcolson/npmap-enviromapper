@@ -32,8 +32,12 @@ export default {
     },
     methods: {
         layerChanged: function(){
-            let selected; 
-            for (let key in this.layersArray) { 
+            if (this.$data.selected == null) {
+                this.$root.$emit('layerChanged', 'removeLayer', null);
+                return;
+            }
+            let selected;
+            for (let key in this.layersArray) {
                 if (this.layersArray[key].name == this.$data.selected.name) { 
                     selected = key; 
                     break;

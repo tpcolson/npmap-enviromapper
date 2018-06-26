@@ -58,6 +58,12 @@ export default {
     },
     mounted: function(){
         this.$root.$on('layerChanged', data =>{
+            if (data == 'removeLayer') {
+                this.toggleActive(false, false);
+                this.subcatExists1 = false;
+                this.subcatExists2 = false;
+                return;
+            }
             this.mutableInfo = data.info;
         });
         this.$root.$on('subcatChanged', (subcatName, subcatNumber) => {

@@ -158,6 +158,10 @@ export default {
     mounted: function()
     {
         this.$root.$on('layerChanged', (data, id) =>{
+            if (data == 'removeLayer') {
+                this.populated = false;
+                return;
+            }
             // for example "con_slope"
             this.selected_layer_name = id;
             if (data.type == 'categorical')
@@ -216,18 +220,18 @@ export default {
 .subcat2 > .multiselect__tags > .multiselect__input {
   background: #fd8e1f;
 }
-.subcat-slide{
+.subcat-slide {
     width: 220px; 
 }
-.subcat-slide-enter{
+.subcat-slide-enter {
     width: 0;
 }
-.subcat-slide-enter-to{
-    transition: height .5s ease-out;
+.subcat-slide-enter-to {
+    transition: width 1s ease-out;
     width: 220px;
 }
-.subcat-slide-leave-to{
+.subcat-slide-leave-to {
     width: 0;
-    transition: width .5s ease-out;
+    transition: width 1s ease-out;
 }
 </style>

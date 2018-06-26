@@ -1,5 +1,6 @@
 <template>
-    <div class="box" style="width: 290px;">
+    <transition name="species-slide">
+    <div class="species-slide box" v-if="speciesNames.length">
         <div id="box">
             <div class='label'>3. Select an affected species</div>
             <multiselect
@@ -62,6 +63,7 @@
             </div>
         </span>
     </div>
+    </transition>
 </template>
 
 <script>
@@ -77,8 +79,7 @@ export default {
     ],
     data: function(){
         return {
-            layers: [
-            ],
+            layers: [],
             selected: "",
             speciesNames: [],
             namingConvention: 'common',
@@ -136,8 +137,11 @@ export default {
     mounted: function()
     {
         this.$root.$on('layerChanged', data => {
-            this.mutableSpecies = data['related-species'];
             this.speciesNames = [];
+            if (data == 'removeLayer') {
+                return;
+            }
+            this.mutableSpecies = data['related-species'];
             for (let species in this.mutableSpecies) {
                 if (this.namingConvention == 'common') {
                     this.speciesNames.push(this.mutableSpecies[species][2]);
@@ -162,5 +166,19 @@ export default {
 }
 .speciecs-info-toggle.clicked > .triangle {
     border-top: 5px solid red;
+}
+.species-slide {
+    width: 290px; 
+}
+.species-slide-enter {
+    width: 0;
+}
+.species-slide-enter-to {
+    transition: width 1s ease-out;
+    width: 290px;
+}
+.species-slide-leave-to {
+    width: 0;
+    transition: width 1s ease-out;
 }
 </style>
