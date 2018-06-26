@@ -4,13 +4,14 @@
       <a id="title" href = "https://www.nps.gov/grsm/learn/nature/index.htm" style="text-decoration: none" target="_blank"> 
         <h1> Great Smoky Mountains National Park</h1>
       </a>
-      <div id="atlas-app-changer">
+      <div style="padding-left: 1px; color: #bdbdbd; letter-spacing: 1px; display: inline-block; font-size: 19px; font-family: 'Source Sans Pro'">ATLAS OF THE SMOKIES: </div>
+      <div style="margin-left: 230px; margin-top: 18px;" id="atlas-app-changer">
         <multiselect
           class="header-selector"
           v-model="selected"
           :options="options"
           :close-on-select="true"
-          placeholder="Atlas of the Smokies"
+          placeholder="EnviroMapper"
           :show-labels="false"
           @input="appSelect"
         />

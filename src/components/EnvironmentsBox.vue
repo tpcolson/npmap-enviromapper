@@ -74,3 +74,24 @@ export default {
     }
 }
 </script>
+<style>
+    .multiselect{
+        min-height: 18px;
+        margin-bottom: 7px;
+        font-size: 13px !important;
+    }
+    .multiselect__tags{
+        padding: 0;
+        min-height: 18px;
+        max-height: 25px;
+        border-radius: 3px;
+    }
+    .multiselect__select{
+        padding: 0;
+        height: 18px;
+    }
+    .multiselect__select:before{
+        z-index: 1000;
+        top: 16px;    
+    }
+</style>

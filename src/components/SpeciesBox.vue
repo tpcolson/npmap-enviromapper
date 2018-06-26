@@ -29,7 +29,7 @@
                 <label for='options-observed-checkbox'>Observations</label>
               </div>
                 <div id='search-initial-switch' class='label' tooltip='Choose to show latin or common species names' data-intro='Choose to show common or latin names' data-position='bottom'>
-                  View affected species as:&nbsp; 
+                  View name as:&nbsp; 
                   <input type='radio' class='search-initial-switch-sides' id='search-name-convention-common' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" checked />
                   <label for='search-name-convention-common'>Common</label>&nbsp;&nbsp;
                   <input type='radio' class='search-initial-switch-sides' id='search-name-convention-latin' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" />
