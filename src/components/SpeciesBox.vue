@@ -120,6 +120,10 @@ export default {
         },
 
         speciesChanged: function(){
+            if (this.selected == null) {
+                return;
+                /* need to add removing of species layer */
+            }
             for (var i = 0; i < this.mutableSpecies.length; i++)
             {
                 let selected = this.selected;

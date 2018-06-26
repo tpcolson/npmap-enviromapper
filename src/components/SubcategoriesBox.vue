@@ -93,30 +93,32 @@ export default {
         },
         subcatChanged1: function(value){
             this.subcatChange(value, 1);
-            let fullname = (value == null) ? this.oldSelected1.fullname : this.selected1.fullname;
-            let index = this.findSubcatIndex(fullname).index;
-            let name = "soil_" + index + "_1";
-            let add = (value == null) ? false : true;
-            this.updateLayer(name, add);
-            if (value !== null && this.oldSelected1 != '') {
+            let index, name;
+            if (this.oldSelected1 !== '') {
                 index = this.findSubcatIndex(this.oldSelected1.fullname).index;
                 name = "soil_" + index + "_1";
                 this.updateLayer(name, false);
             }
+            let fullname = (value == null) ? this.oldSelected1.fullname : this.selected1.fullname;
+            index = this.findSubcatIndex(fullname).index;
+            name = "soil_" + index + "_1";
+            let add = (value == null) ? false : true;
+            this.updateLayer(name, add);
             if (value !== null) this.oldSelected1 = this.selected1;
         },
         subcatChanged2: function(value){
             this.subcatChange(value, 2);
-            let fullname = (value == null) ? this.oldSelected2.fullname : this.selected2.fullname;
-            let index = this.findSubcatIndex(fullname).index;
-            let name = "soil_" + index + "_2";
-            let add = (value == null) ? false : true;
-            this.updateLayer(name, add);
-            if (value !== null && this.oldSelected2 != '') {
+            let index, name;
+            if (this.oldSelected2 != '') {
                 index = this.findSubcatIndex(this.oldSelected2.fullname).index;
                 name = "soil_" + index + "_2";
                 this.updateLayer(name, false);
             }
+            let fullname = (value == null) ? this.oldSelected2.fullname : this.selected2.fullname;
+            index = this.findSubcatIndex(fullname).index;
+            name = "soil_" + index + "_2";
+            let add = (value == null) ? false : true;
+            this.updateLayer(name, add);
             if (value !== null) this.oldSelected2 = this.selected2;
         },
         updateLayer: function(environment, add){
