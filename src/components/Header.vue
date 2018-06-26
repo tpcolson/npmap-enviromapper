@@ -11,7 +11,7 @@
           v-model="selected"
           :options="options"
           :close-on-select="true"
-          placeholder="EnviroMapper"
+          placeholder="ENVIROMAPPER"
           :show-labels="false"
           @input="appSelect"
         />
@@ -50,8 +50,25 @@ export default {
   width: 170px;
   display: inline-block;
   position: relative;
-  top: -12px;
+  top: -7px;
+  letter-spacing: 1px;
 }
+.header-selector .multiselect__tags {
+  background-color: #2b2b2b;
+  border: none;
+  color: #bdbdbd;
+  max-height: 20px;
+}
+.header-selector .multiselect__single {
+  background-color: #2b2b2b;
+  border-radius: 3px 0 0 3px;
+  border-right: 1px solid #5b5b5b;
+  width: 125px;
+}
+.header-selector .multiselect__select:before {
+  top: 13px;
+}
+
 .multiselect--active {
   z-index: 1000000000;
 }
