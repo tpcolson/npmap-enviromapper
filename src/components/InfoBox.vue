@@ -131,6 +131,7 @@ export default {
     margin-bottom: 10px;
     margin-right: 10px;
     float: left;
+    cursor: pointer;
 }
 .info-box-subcat-title-1-inactive {
     border-bottom: none;
@@ -155,6 +156,7 @@ export default {
     margin-bottom: 10px;
     margin-right: 10px;
     float: left;
+    cursor: pointer;
 }
 .info-box-subcat-title-2-inactive {
     border-bottom: none;

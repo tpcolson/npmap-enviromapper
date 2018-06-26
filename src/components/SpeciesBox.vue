@@ -157,6 +157,9 @@ export default {
 }
 </script>
 <style>
+.species-info-toggle {
+    cursor: pointer; 
+}
 .speciecs-info-toggle.clicked > .triangle {
     border-top: 5px solid red;
 }
