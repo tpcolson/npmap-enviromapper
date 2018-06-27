@@ -45,21 +45,25 @@
         </div>
 
 
-        <span v-if="false">
-            <div class="species-info-box">
-                <div style="" class="info-box-image"></div>  
+        <span v-if="selected !== null">
+            <transition name="species-info-slide">
+            <div v-show="open" class="species-info-box">
+                <div class="species-info-box-title">{{ selected }}</div>
+                <div style="" class="species-info-box-image">
+                    <img src="http://via.placeholder.com/150x150" />
+                </div>
                 <div class="info-box-info">
                     The top 3 attributes that most affect this species are: 
                 </div>
                 <ul>
                     <li>Env. Attr. 1</li>
-                    <li>Env. Attr. 1</li>
-                    <li>Env. Attr. 1</li>
-                    <li>Env. Attr. 1</li>
+                    <li>Env. Attr. 2</li>
+                    <li>Env. Attr. 3</li>
                 </ul>
             </div>
-            <div class="species-info-toggle">
-                <div class="triangle"></div>
+            </transition>
+            <div @click="open=!open" class="species-info-toggle">
+                <div :class="{ 'triangle-closed': !open, 'triangle-open': open }" class="triangle"></div>
             </div>
         </span>
     </div>
@@ -79,8 +83,9 @@ export default {
     ],
     data: function(){
         return {
+            open: false,
             layers: [],
-            selected: "",
+            selected: null,
             speciesNames: [],
             namingConvention: 'common',
             mutableSpecies: this.species
@@ -165,8 +170,36 @@ export default {
 }
 </script>
 <style>
+.species-info-box {
+    background-color: #EAEAEA;
+    width: 290px;
+    height: 300px;
+    position: relative; 
+    z-index: 10000;
+    color: #333;
+    box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
+    border: 1px solid #999;
+    border-top: 0;
+    transform: translate(0, 20px);
+}
+.species-info-box-title {
+    font-weight: bold;
+    width: 100px;
+    max-width: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    float: left;
+    cursor: pointer;
+}
+.species-info-box-image {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+}
 .species-info-toggle {
-    cursor: pointer; 
+    cursor: pointer;
+    transform: translate(0, 20px);
 }
 .speciecs-info-toggle.clicked > .triangle {
     border-top: 5px solid red;
@@ -184,5 +217,16 @@ export default {
 .species-slide-leave-to {
     width: 0;
     transition: width 1s ease-out;
+}
+.species-info-slide-enter {
+    height: 0;
+}
+.species-info-slide-enter-to {
+    transition: height 1s ease-out;
+    height: 300px;
+}
+.species-info-slide-leave-to {
+    height: 0;
+    transition: height 1s ease-out;
 }
 </style>

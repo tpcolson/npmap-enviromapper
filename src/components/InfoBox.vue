@@ -6,7 +6,7 @@
 
         <span style="display: block;" v-if="subcatExists1 || subcatExists2">
             <transition name="info-slide">
-            <div v-show="open" class="species-info-box">
+            <div v-show="open" class="info-box">
                 <transition name="info-box-subcat-1">
                 <div :class="{'info-box-subcat-title-1': true, 'info-box-subcat-title-1-inactive': !subcatActive1 }" v-show="subcatExists1" @click="subcatActive1 = true; subcatActive2 = false;">{{ subcatName1 }}</div>
                 </transition>
@@ -21,7 +21,7 @@
                 <div class="info-box-info" v-else-if="subcatInfo2 !== '' && subcatActive2">{{ subcatInfo2 }}</div>
             </div>
             </transition>
-            <div @click="open=!open" class="species-info-toggle" style="margin-left: 200px; margin-top: 0px;">
+            <div @click="open=!open" class="info-toggle" style="margin-left: 200px; margin-top: 0px;">
                 <div :class="{ 'triangle-closed': !open, 'triangle-open': open }" class="triangle"></div>
             </div>
         </span>
@@ -128,6 +128,10 @@ export default {
 </script>
 
 <style>
+.info-toggle {
+    cursor: pointer;
+    transform: translate(0, 8px);
+}
 .info-box-subcat-title-1 {
     font-weight: bold;
     border-bottom: 5px solid magenta;
@@ -182,7 +186,7 @@ export default {
     text-align: center;
     clear: both;
 }
-.species-info-box {
+.info-box {
     background-color: #EAEAEA;
     width: 470px; 
     height: 300px;
@@ -192,6 +196,7 @@ export default {
     box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
     border: 1px solid #999;
     border-top: 0;
+    transform: translate(0, 8px);
 }
 .info-slide-enter {
     height: 0;
