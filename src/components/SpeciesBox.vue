@@ -11,6 +11,7 @@
                 @input="speciesChanged"
                 :show-labels="false"
                 class="species-multiselect"
+                :showPointer="false"
             >
             <p slot="noResult">No species found. Consider changing your search.</p>
             

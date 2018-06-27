@@ -5,6 +5,7 @@
             <div id='options-label label' style="color: #efefef">MAP CONTROLS</div>
 
             <multiselect
+              class="controls"
               v-model="selectedBackgroundOption"
               :options="mapBackgroundOptions"
               :close-on-select="true"
@@ -12,8 +13,10 @@
               @input="selectBackground"
               :show-labels="false"
               :searchable="false"
+              :showPointer="false"
             />
             <multiselect
+              class="controls"
               :multiple="true"
               v-model="selectedOverlayOption"
               :options="mapOverlayOptions"
@@ -23,9 +26,10 @@
               @remove="selectOverlay"
               :show-labels="false"
               :searchable="false"
-              :hideSelected="true"
-            />
-
+              :showPointer="false"
+            >
+              <template slot="tag" slot-scope="props"><span class="multiselect__single">Map Overlays</span></template>
+            </multiselect>
           </div>
 
           <!--<button onkeypress='clearLayers();' onclick='clearLayers();' tooltip='Press here to remove all drawings from map'>CLEAR</button>-->
@@ -56,13 +60,15 @@ export default {
   },
   data: function(){
     return {
+        a: true,
         layers: [
         ],
         selected: "",
         selectedBackgroundOption: "",
         mapBackgroundOptions: ['Park Tiles', 'Mapbox Terrain', 'Esri Topo', 'Esri Imagery'],
         selectedOverlayOption: "",
-        mapOverlayOptions: ['Trails', 'Visitor Centers', 'Shelters', 'Roads', 'Campsites']
+        mapOverlayOptions: ['Trails', 'Visitor Centers', 'Shelters', 'Roads', 'Campsites'],
+        mapOverlayOptionState: [0, 0, 0, 0, 0]
     }
   },
   methods: {
@@ -75,3 +81,11 @@ export default {
   }
 }
 </script>
+<style>
+  .multiselect.controls > .multiselect__content-wrapper > .multiselect__content > .multiselect__element > .multiselect__option.multiselect__option--selected:before {
+    content: "✔ ";
+  }
+  .multiselect.controls > .multiselect__tags > .multiselect__tags-wrap > .multiselect__single ~ .multiselect__single {
+    display: none;
+  }
+</style>

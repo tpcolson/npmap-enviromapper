@@ -14,6 +14,7 @@
                 track-by="fullname"
                 @input="subcatChanged1"
                 :show-labels="false"
+                :showPointer="false"
             />
             
             <multiselect
@@ -27,6 +28,7 @@
                 track-by="fullname"
                 @input="subcatChanged2"
                 :show-labels="false"
+                :showPointer="false"
             />
 
             <span v-if="mutableType=='continuous'"> 
