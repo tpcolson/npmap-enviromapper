@@ -6,7 +6,7 @@
 
         <span style="display: block;" v-if="subcatExists1 || subcatExists2">
             <transition name="info-slide">
-            <div v-show="open" class="info-box">
+            <div v-show="categoricalOpen" class="info-box">
                 <transition name="info-box-subcat-1">
                 <div :class="{'info-box-subcat-title-1': true, 'info-box-subcat-title-1-inactive': !subcatActive1 }" v-show="subcatExists1" @click="subcatActive1 = true; subcatActive2 = false;">{{ subcatName1 }}</div>
                 </transition>
@@ -21,8 +21,22 @@
                 <div class="info-box-info" v-else-if="subcatInfo2 !== '' && subcatActive2">{{ subcatInfo2 }}</div>
             </div>
             </transition>
-            <div @click="open=!open" class="info-toggle" style="margin-left: 200px; margin-top: 0px;">
-                <div :class="{ 'triangle-closed': !open, 'triangle-open': open }" class="triangle"></div>
+            <div @click="categoricalOpen=!categoricalOpen" class="info-toggle" style="margin-left: 200px; margin-top: 0px;">
+                <div :class="{ 'triangle-closed': !categoricalOpen, 'triangle-open': categoricalOpen }" class="triangle"></div>
+            </div>
+        </span>
+        <span style="display: block;" v-else-if="type=='continuous'">
+            <transition name="info-slide">
+            <div v-show="continousOpen" class="info-box">
+                <div class="info-box-cont-title">{{ name }}</div>
+                <div style="" class="info-box-image environment-image">
+                    <img src="http://via.placeholder.com/150x150" />
+                </div>
+                <div class="info-box-info">Placeholder text about {{name}}</div>
+            </div>
+            </transition>
+            <div @click="continousOpen=!continousOpen" class="info-toggle" style="margin-left: 200px; margin-top: 0px;">
+                <div :class="{ 'triangle-closed': !continousOpen, 'triangle-open': continousOpen }" class="triangle"></div>
             </div>
         </span>
     </div>
@@ -41,8 +55,10 @@ export default {
     },
     data: function() {
         return {
-            open: false,
+            categoricalOpen: false,
+            continousOpen: false,
             mutableInfo: this.info,
+            name: '',
             subcatName1: '',
             subcatName2: '',
             subcatImg1: '',
@@ -53,17 +69,22 @@ export default {
             subcatActive2: false,
             subcatExists1: false,
             subcatExists2: false,
-            selected: ''
+            selected: '',
+            type: null
         }
     },
     mounted: function(){
         this.$root.$on('layerChanged', data =>{
-            if (data == 'removeLayer') {
+            if (data == 'removeLayer' || data.name !== this.name) {
                 this.toggleActive(false, false);
                 this.subcatExists1 = false;
                 this.subcatExists2 = false;
-                return;
+                this.selected = null;
+                this.type = null;
+                if (data == 'removeLayer') return;
             }
+            this.type = data.type;
+            this.name = data.name;
             this.mutableInfo = data.info;
         });
         this.$root.$on('subcatChanged', (subcatName, subcatNumber) => {
@@ -132,6 +153,18 @@ export default {
     cursor: pointer;
     transform: translate(0, 8px);
 }
+.info-box-cont-title {
+    font-weight: bold;
+    border-bottom: 5px solid black;
+    width: 100px;
+    max-width: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+}
 .info-box-subcat-title-1 {
     font-weight: bold;
     border-bottom: 5px solid magenta;
@@ -142,6 +175,7 @@ export default {
     margin-right: 10px;
     float: left;
     cursor: pointer;
+    text-align: center;
 }
 .info-box-subcat-title-1-inactive {
     border-bottom: none;
@@ -167,6 +201,7 @@ export default {
     margin-right: 10px;
     float: left;
     cursor: pointer;
+    text-align: center;
 }
 .info-box-subcat-title-2-inactive {
     border-bottom: none;
