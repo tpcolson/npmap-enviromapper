@@ -37,7 +37,7 @@
                     <div class="label continuous-block" style="background-color: rgb(180, 51, 139)">
                         <input type="checkbox" v-model="range2">{{ mutableRanges[1] }}
                     </div>
-                    <div class="label continuous-block" style="background-color: rgb(110, 23, 119)">
+                    <div class="label continuous-block" style="width: 73px; background-color: rgb(110, 23, 119)">
                         <input type="checkbox" v-model="range3">{{ mutableRanges[2] }}
                     </div>
                 </div>
@@ -59,7 +59,6 @@ export default {
     props: [
         'subcategories',
         'type', 'ranges',
-        'range1', 'range2', 'range3',
         'firstflag'
     ],
     data: function(){
@@ -72,7 +71,10 @@ export default {
             populated: false,
             mutableSubcategories: this.subcategories,
             mutableType: this.type,
-            mutableRanges: this.ranges
+            mutableRanges: this.ranges,
+            range1: null,
+            range2: null,
+            range3: null
         }
     },
     methods: {

@@ -1,9 +1,9 @@
 <template>
-    <transition name="species-slide">
-    <div class="species-slide box" v-if="speciesNames.length">
+    <div class="species-slide box">
         <div id="box">
             <div class='label'>3. Select an affected species</div>
             <multiselect
+                :disabled="speciesNames.length == 0"
                 v-model="selected"
                 :options="speciesNames"
                 :close-on-select="true"
@@ -32,9 +32,9 @@
               </div>
                 <div id='search-initial-switch' class='label' tooltip='Choose to show latin or common species names' data-intro='Choose to show common or latin names' data-position='bottom'>
                   View name as:&nbsp; 
-                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-common' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" checked />
+                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-common' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" checked :disabled="speciesNames.length == 0" />
                   <label for='search-name-convention-common'>Common</label>&nbsp;&nbsp;
-                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-latin' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" />
+                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-latin' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" :disabled="speciesNames.length == 0" />
                   <label for='search-name-convention-latin'>Latin</label>
                 </div>
             </div>
@@ -67,7 +67,6 @@
             </div>
         </span>
     </div>
-    </transition>
 </template>
 
 <script>
@@ -148,6 +147,7 @@ export default {
         this.$root.$on('layerChanged', data => {
             this.speciesNames = [];
             if (data == 'removeLayer') {
+                this.selected = null;
                 return;
             }
             this.mutableSpecies = data['related-species'];
@@ -203,20 +203,6 @@ export default {
 }
 .speciecs-info-toggle.clicked > .triangle {
     border-top: 5px solid red;
-}
-.species-slide {
-    width: 290px; 
-}
-.species-slide-enter {
-    width: 0;
-}
-.species-slide-enter-to {
-    transition: width 1s ease-out;
-    width: 290px;
-}
-.species-slide-leave-to {
-    width: 0;
-    transition: width 1s ease-out;
 }
 .species-info-slide-enter {
     height: 0;
