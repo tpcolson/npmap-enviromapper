@@ -2489,6 +2489,16 @@ select
 	}
 }
 
+@media
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi)
+{
+  .print
+  {
+    background-size: 80% !important;
+  }
+}
+
 .environment-info
 {
     line-height: 1.3;
