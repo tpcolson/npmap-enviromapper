@@ -126,9 +126,11 @@ export default {
 
         speciesChanged: function(){
             if (this.selected == null) {
+                this.$root.$emit('speciesChanged', false);
                 return;
                 /* need to add removing of species layer */
             }
+            this.$root.$emit('speciesChanged', true);
             for (var i = 0; i < this.mutableSpecies.length; i++)
             {
                 let selected = this.selected;

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import Header from './components/Header.vue'
 import Multiselect from 'vue-multiselect'
+import SpeciesDensity from './components/SpeciesDensity.vue'
 
 Vue.config.productionTip = false
 Vue.component('multiselect', Multiselect)
