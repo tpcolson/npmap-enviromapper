@@ -2,6 +2,7 @@
     <div class="species-slide box">
         <div id="box">
             <div class='label'>3. Select an affected species</div>
+            <img class="species-hover-thumbnail" :src="hoverImage" :style="{ top: hoverImageTopOffset + 50 + 'px', display: hoverImageDisplay }">
             <multiselect
                 :disabled="speciesNames.length == 0"
                 v-model="selected"
@@ -14,7 +15,9 @@
                 :showPointer="false"
             >
             <p slot="noResult">No species found. Consider changing your search.</p>
-            
+            <template slot="option" slot-scope="props">
+                <div class="option__species" @mouseover="mouseOverSpecies" @mouseout="mouseOutSpecies">{{ props.option }}</div>
+            </template>
             </multiselect>
             <div class="progress-bar">
                 <div class="progress-bar-before">Least</div>
@@ -87,8 +90,12 @@ export default {
             layers: [],
             selected: null,
             speciesNames: [],
+            speciesImages: [],
             namingConvention: 'common',
-            mutableSpecies: this.species
+            mutableSpecies: this.species,
+            hoverImage: 'http://via.placeholder.com/150x150',
+            hoverImageTopOffset: 0,
+            hoverImageDisplay: 'none'
         }
     },
     methods: {
@@ -120,8 +127,28 @@ export default {
                         element.innerText = this.selected = this.mutableSpecies[i][2];
                     }
                 }
-                
             }            
+        },
+        mouseOverSpecies: function(e) {
+            if (this.hoverImageDisplay !== 'block') this.hoverImageDisplay = 'block';
+            let speciesName = e.srcElement.innerText;
+            for (let i = 0; i < this.speciesNames.length; i++) {
+                if (this.speciesNames[i] == speciesName) {
+                    console.log(speciesName, this.speciesImages)
+                    this.hoverImage = this.speciesImages[speciesName];
+                    this.hoverImageTopOffset = i * 20;
+                    break;
+                }
+            }
+        },
+        mouseOutSpecies: function(e) {
+            if (   e.pageX >= 840
+                || e.pageX <= 640
+                || e.pageY < 160
+                || e.pageY > (140 + 20 * this.speciesNames.length))
+            {
+                this.hoverImageDisplay = 'none';
+            }
         },
 
         speciesChanged: function(){
@@ -149,6 +176,7 @@ export default {
     {
         this.$root.$on('layerChanged', data => {
             this.speciesNames = [];
+            this.speciesImages = [];
             if (data == 'removeLayer') {
                 this.selected = null;
                 return;
@@ -160,7 +188,10 @@ export default {
                 } else {
                     let speciesName = this.mutableSpecies[species][0].replace(/_/g, ' ');
                     this.speciesNames.push(speciesName);
+                   
                 }
+                this.speciesImages[this.mutableSpecies[species][2]] = this.mutableSpecies[species][4];
+                this.speciesImages[this.mutableSpecies[species][0].replace(/_/g, ' ')] = this.mutableSpecies[species][4];
             }
         });
     },
@@ -173,6 +204,14 @@ export default {
 }
 </script>
 <style>
+.species-hover-thumbnail {
+    position: absolute;
+    left: 855px;
+    width: 100px;
+    height: 100px;
+    z-index: 10000;
+    transition: top 0.1s ease;
+}
 .species-info-box {
     background-color: #EAEAEA;
     width: 290px;
