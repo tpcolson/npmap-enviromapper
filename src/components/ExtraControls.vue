@@ -14,6 +14,8 @@
               :show-labels="false"
               :searchable="false"
               :showPointer="false"
+              data-intro='Change the map background'
+              data-position='right'
             />
             <multiselect
               class="controls"
@@ -27,6 +29,8 @@
               :show-labels="false"
               :searchable="false"
               :showPointer="false"
+              data-intro='Show extra map features'
+              data-position='right'
             >
               <template slot="tag" slot-scope="props"><span class="multiselect__single">Map Overlays</span></template>
             </multiselect>
@@ -43,7 +47,7 @@
             </button>
           </div>
           <div id='search-banner-help-link' class='bordered' tooltip='Get help using the tool'>
-            <button id='search-banner-help-link-button'  onclick='alert("This is a mockup"); return false;' alt='Show the help overlay.'>?</button>
+            <button id='search-banner-help-link-button'  onclick='showHelp();' alt='Show the help overlay.'>?</button>
           </div>
         </div>
 

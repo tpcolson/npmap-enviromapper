@@ -1,7 +1,7 @@
 <template>
     <div class="species-slide box">
         <div id="box">
-            <div class='label'>3. Select an affected species</div>
+            <div class='label' data-intro='Select a species to see how it has been affected' data-position='top'>3. Select an affected species</div>
             <img class="species-hover-thumbnail" :src="hoverImage" :style="{ top: hoverImageTopOffset + 50 + 'px', display: hoverImageDisplay }">
             <multiselect
                 :disabled="speciesNames.length == 0"
@@ -26,8 +26,8 @@
                 <div class="progress-bar-percentage2" style="width: 20%;"></div>
             </div>
 
-            <div id='checkbox-container' tooltip='Toggle the visibility of the predicted habitat' data-intro='Toggle visibility of predicted and observed data' data-position='bottom'>
-              <div id='options-predicted' class='search-checkbox'>
+            <div id='checkbox-container' tooltip='Toggle the visibility of the predicted habitat'>
+              <div id='options-predicted' class='search-checkbox' data-intro='Toggle the visibility of predicted and observed data' data-position='left'>
                 View:&nbsp; 
                 <input type='checkbox' id='options-predicted-checkbox' onkeypress='togglePredicted();' onclick='togglePredicted();' checked disabled />
                 <label for='options-predicted-checkbox'>Predictions</label>&nbsp;&nbsp;
@@ -35,9 +35,9 @@
                 <label for='options-observed-checkbox'>Observations</label>
               </div>
                 <div id='search-initial-switch' class='label' tooltip='Choose to show latin or common species names' data-intro='Choose to show common or latin names' data-position='bottom'>
-                  View name as:&nbsp; 
+                  View name as:
                   <input type='radio' class='search-initial-switch-sides' id='search-name-convention-common' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" checked :disabled="speciesNames.length == 0" />
-                  <label for='search-name-convention-common'>Common</label>&nbsp;&nbsp;
+                  <label for='search-name-convention-common'>Common</label>&nbsp;
                   <input type='radio' class='search-initial-switch-sides' id='search-name-convention-latin' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" :disabled="speciesNames.length == 0" />
                   <label for='search-name-convention-latin'>Latin</label>
                 </div>
@@ -266,5 +266,27 @@ export default {
     -webkit-transition: height 1s ease-out;
     -o-transition: height 1s ease-out;
     transition: height 1s ease-out;
+}
+#search-options {
+  padding-left: 5px;
+  width: 160px;
+}
+.chardinjs-tooltip.chardinjs-right:before, 
+.chardinjs-tooltip.chardinjs-left:after {
+    width: 50px;
+}
+.chardinjs-tooltip.chardinjs-left:after {
+    right: -35px;
+}
+.chardinjs-tooltip.chardinjs-left {
+    margin-left: -70px;
+    padding-right: 10px;
+}
+.chardinjs-tooltip.chardinjs-right {
+    margin-right: -85px;
+    padding-left: 10px;
+}
+.chardinjs-tooltip.chardinjs-right:before {
+    left: -50px;
 }
 </style>

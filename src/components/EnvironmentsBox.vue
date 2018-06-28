@@ -1,6 +1,6 @@
 <template>
-	<div class='box' style="border: none;">
-		<div class='label'>1. Select an environmental attribute</div>   
+	<div class='box' style="border: none;" data-intro='Pick an environmental layer to see it on the map' data-position='top'>
+		<div class='label'>1. Select an environmental attribute</div>
         <multiselect
             v-model="selected"
             :options="layersArray"

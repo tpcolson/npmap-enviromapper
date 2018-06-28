@@ -191,7 +191,7 @@ function toggleTooltips() {
 }
 
 function showHelp() {
-    closeDropdowns();
+  closeDropdowns();
 
   recordAction('showed help overlay');
   if(minimized) {
