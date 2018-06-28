@@ -8,9 +8,8 @@
       
       <li id='legend-species-blue'>
         <div id='legend-blue-controls'>
-          <div alt='Reorder species layers' class='drag-handle' tooltip='Drag this to reorder the layers. To bring this layer to the front, drag this row to the top of the legend'>::</div>
           <label for='toggle-species-three' class='hidden-label'>Toggle Species Visibility</label>
-          <input id='toggle-species-three' type='checkbox' onkeypress='toggleSpecies(2);' onclick='toggleSpecies(2);' checked tooltip='Use this to toggle the visibility of this species' disabled />
+          <input id='toggle-species-three' type='checkbox' onkeypress='toggleSpecies(0);' onclick='toggleSpecies(0);' checked tooltip='Use this to toggle the visibility of this species' />
         </div>
         <div id='legend-blue-contents' tooltip='Percentages correspond to the predicted likelihood of the species living in an area'>
           <div id='legend-blue-contents-name'>Species 1</div>

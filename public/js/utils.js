@@ -85,9 +85,6 @@ window.onload = function() {
   /* prepare search tool */
   prepareSearchTool().done(function () {
 
-    /* prepare color legend dragging */
-    prepareLegendDrag();
-
     /* prepare tooltips */
     $tooltips._initialize(document.body);
   });

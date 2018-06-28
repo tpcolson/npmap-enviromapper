@@ -95,17 +95,3 @@ function reorderLayers() {
 
   recordAction('reordered layers', order[2] + ' ' + order[1] + ' ' + order[0]);
 }
-
-function prepareLegendDrag() {
-  $('#legend-species').sortable({
-    handle: 'div.drag-handle',
-    onDrop: function($item, container, _super) {
-      _super($item, container);
-      $item.css('height', '49px');
-      $item.css('marginBottom', '1px');
-
-      reorderLayers();
-      drawData();
-    }
-  });
-}
