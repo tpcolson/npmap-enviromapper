@@ -82,10 +82,10 @@ export default {
 }
 </script>
 <style>
-  .multiselect.controls > .multiselect__content-wrapper > .multiselect__content > .multiselect__element > .multiselect__option.multiselect__option--selected:before {
-    content: "✔ ";
-  }
-  .multiselect.controls > .multiselect__tags > .multiselect__tags-wrap > .multiselect__single ~ .multiselect__single {
-    display: none;
-  }
+.multiselect.controls > .multiselect__content-wrapper > .multiselect__content > .multiselect__element > .multiselect__option.multiselect__option--selected:before {
+  content: "✔ ";
+}
+.multiselect.controls > .multiselect__tags > .multiselect__tags-wrap > .multiselect__single ~ .multiselect__single {
+  display: none;
+}
 </style>

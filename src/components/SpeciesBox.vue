@@ -209,6 +209,8 @@ export default {
     width: 100px;
     height: 100px;
     z-index: 10000;
+    -webkit-transition: top 0.1s ease;
+    -o-transition: top 0.1s ease;
     transition: top 0.1s ease;
 }
 .species-info-box {
@@ -218,10 +220,13 @@ export default {
     position: relative; 
     z-index: 10000;
     color: #333;
-    box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
+    -webkit-box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
+            box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
     border: 1px solid #999;
     border-top: 0;
-    transform: translate(0, 20px);
+    -webkit-transform: translate(0, 20px);
+        -ms-transform: translate(0, 20px);
+            transform: translate(0, 20px);
 }
 .species-info-box-title {
     font-weight: bold;
@@ -240,7 +245,9 @@ export default {
 }
 .species-info-toggle {
     cursor: pointer;
-    transform: translate(0, 20px);
+    -webkit-transform: translate(0, 20px);
+        -ms-transform: translate(0, 20px);
+            transform: translate(0, 20px);
 }
 .speciecs-info-toggle.clicked > .triangle {
     border-top: 5px solid red;
@@ -249,11 +256,15 @@ export default {
     height: 0;
 }
 .species-info-slide-enter-to {
+    -webkit-transition: height 1s ease-out;
+    -o-transition: height 1s ease-out;
     transition: height 1s ease-out;
     height: 300px;
 }
 .species-info-slide-leave-to {
     height: 0;
+    -webkit-transition: height 1s ease-out;
+    -o-transition: height 1s ease-out;
     transition: height 1s ease-out;
 }
 </style>

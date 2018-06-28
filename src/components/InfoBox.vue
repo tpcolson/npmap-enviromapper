@@ -151,7 +151,9 @@ export default {
 <style>
 .info-toggle {
     cursor: pointer;
-    transform: translate(0, 8px);
+    -webkit-transform: translate(0, 8px);
+        -ms-transform: translate(0, 8px);
+            transform: translate(0, 8px);
 }
 .info-box-cont-title {
     font-weight: bold;
@@ -185,10 +187,14 @@ export default {
 }
 .info-box-subcat-1-enter-to {
     max-width: 100%;
+    -webkit-transition: max-width 1s linear;
+    -o-transition: max-width 1s linear;
     transition: max-width 1s linear;
 }
 .info-box-subcat-1-leave-to {
     max-width: 0%;
+    -webkit-transition: max-width 1s linear;
+    -o-transition: max-width 1s linear;
     transition: max-width 1s linear;
 }
 .info-box-subcat-title-2 {
@@ -211,10 +217,14 @@ export default {
 }
 .info-box-subcat-2-enter-to {
     max-width: 100%;
+    -webkit-transition: max-width 1s linear;
+    -o-transition: max-width 1s linear;
     transition: max-width 1s linear;
 }
 .info-box-subcat-2-leave-to {
     max-width: 0%;
+    -webkit-transition: max-width 1s linear;
+    -o-transition: max-width 1s linear;
     transition: max-width 1s linear;
 }
 .info-box-image {
@@ -228,29 +238,47 @@ export default {
     position: relative; 
     z-index: 10000;
     color: #333;
-    box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
+    -webkit-box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
+            box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
     border: 1px solid #999;
     border-top: 0;
-    transform: translate(0, 8px);
+    -webkit-transform: translate(0, 8px);
+        -ms-transform: translate(0, 8px);
+            transform: translate(0, 8px);
 }
 .info-slide-enter {
     height: 0;
 }
 .info-slide-enter-to {
+    -webkit-transition: height 1s ease-out;
+    -o-transition: height 1s ease-out;
     transition: height 1s ease-out;
     height: 300px;
 }
 .info-slide-leave-to {
     height: 0;
+    -webkit-transition: height 1s ease-out;
+    -o-transition: height 1s ease-out;
     transition: height 1s ease-out;
 }
 .triangle-closed {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transition: -webkit-transform 1s ease-out;
+    transition: -webkit-transform 1s ease-out;
+    -o-transition: transform 1s ease-out;
     transition: transform 1s ease-out;
+    transition: transform 1s ease-out, -webkit-transform 1s ease-out;
 }
 .triangle-open {
-    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-transition: -webkit-transform 1s ease-out;
+    transition: -webkit-transform 1s ease-out;
+    -o-transition: transform 1s ease-out;
     transition: transform 1s ease-out;
+    transition: transform 1s ease-out, -webkit-transform 1s ease-out;
 }
-
 </style>

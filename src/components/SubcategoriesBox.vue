@@ -233,11 +233,15 @@ export default {
     width: 0;
 }
 .subcat-slide-enter-to {
+    -webkit-transition: width 1s ease-out;
+    -o-transition: width 1s ease-out;
     transition: width 1s ease-out;
     width: 220px;
 }
 .subcat-slide-leave-to {
     width: 0;
+    -webkit-transition: width 1s ease-out;
+    -o-transition: width 1s ease-out;
     transition: width 1s ease-out;
 }
 </style>
