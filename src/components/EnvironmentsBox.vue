@@ -86,7 +86,7 @@ export default {
     margin-bottom: 7px;
     font-size: 13px !important;
     border: black;
-    color: white;
+    color: #f5faf2;
     max-height: none;
 }
 .multiselect__tags {
@@ -114,6 +114,7 @@ export default {
     font-size: 10pt;
     font-style: italic;
     line-height: 20px;
+    color: #f5faf2 !important;
 }
 .multiselect__option {
     min-height: 20px;
