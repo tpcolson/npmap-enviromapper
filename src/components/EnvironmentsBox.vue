@@ -4,7 +4,7 @@
         <multiselect
             v-model="selected"
             :options="layersArray"
-            placeholder="Select an environment layer"
+            placeholder="Select a layer"
             @input="layerChanged"
             label="label"
             track-by="label"
@@ -80,6 +80,7 @@ export default {
 }
 </script>
 <style>
+
 .multiselect,
 .multiselect .subcat1 {
     min-height: 18px;
@@ -102,10 +103,29 @@ export default {
 .multiselect__select {
     padding: 0;
     height: 18px;
+    -webkit-transition: -webkit-transform 1s ease;
+    transition: -webkit-transform 1s ease;
+    -o-transition: transform 1s ease;
+    transition: transform 1s ease;
+    transition: transform 1s ease, -webkit-transform 1s ease;
+    display: block;
+}
+.multiselect--active .multiselect__select {
+  -webkit-transform: rotateZ(-180deg);
+      -ms-transform: rotate(-180deg);
+          transform: rotateZ(-180deg);
 }
 .multiselect__select:before {
-    z-index: 1000;
-    top: 16px;
+    z-index: 10000000;
+    top: 12px;
+}
+.multiselect__input,
+.multiselect__single {
+  width: 85%;
+}
+
+.multiselect--disabled > .multiselect__tags > span > .multiselect__single {
+  width: 100%;
 }
 .multiselect__element {
     height: 20px;
@@ -147,6 +167,8 @@ export default {
 }
 .multiselect-enter-active
  {
+    -webkit-transition: max-height 1s ease;
+    -o-transition: max-height 1s ease;
     transition: max-height 1s ease;
     overflow: hidden;
 }
@@ -156,6 +178,8 @@ export default {
     overflow: hidden;
 }
 .multiselect-leave-active {
+    -webkit-transition: max-height 0.1s ease;
+    -o-transition: max-height 0.1s ease;
     transition: max-height 0.1s ease;
 }
 .multiselect-enter-to {

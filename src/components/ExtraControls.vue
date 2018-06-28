@@ -88,4 +88,7 @@ export default {
 .multiselect.controls > .multiselect__tags > .multiselect__tags-wrap > .multiselect__single ~ .multiselect__single {
   display: none;
 }
+.multiselect.controls > .multiselect__tags > span > .multiselect__single {
+  width: 80%;
+}
 </style>
