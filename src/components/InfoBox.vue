@@ -183,19 +183,27 @@ export default {
     border-bottom: none;
 }
 .info-box-subcat-1-enter {
-    max-width: 0%;
+    width: 0%;
 }
 .info-box-subcat-1-enter-to {
-    max-width: 100%;
-    -webkit-transition: max-width 1s linear;
-    -o-transition: max-width 1s linear;
-    transition: max-width 1s linear;
+    width: 100%;
+    -webkit-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
 }
 .info-box-subcat-1-leave-to {
-    max-width: 0%;
-    -webkit-transition: max-width 1s linear;
-    -o-transition: max-width 1s linear;
-    transition: max-width 1s linear;
+    width: 0%;
+    -webkit-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+.info-box-subcat-1-enter-active,
+.info-box-subcat-1-leave-active {
+  overflow: hidden;
+  white-space: nowrap;
 }
 .info-box-subcat-title-2 {
     font-weight: bold;
@@ -213,20 +221,29 @@ export default {
     border-bottom: none;
 }
 .info-box-subcat-2-enter {
-    max-width: 0%;
+    width: 0%;
 }
 .info-box-subcat-2-enter-to {
-    max-width: 100%;
-    -webkit-transition: max-width 1s linear;
-    -o-transition: max-width 1s linear;
-    transition: max-width 1s linear;
+    width: 100%;
+    -webkit-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
 }
 .info-box-subcat-2-leave-to {
-    max-width: 0%;
-    -webkit-transition: max-width 1s linear;
-    -o-transition: max-width 1s linear;
-    transition: max-width 1s linear;
+    width: 0%;
+    -webkit-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
 }
+.info-box-subcat-2-enter-active,
+.info-box-subcat-2-leave-active {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .info-box-image {
     text-align: center;
     clear: both;

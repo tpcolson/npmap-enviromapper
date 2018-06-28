@@ -227,21 +227,32 @@ export default {
   background: #fd8e1f;
 }
 .subcat-slide {
-    width: 220px; 
+    width: 220px;
 }
 .subcat-slide-enter {
     width: 0;
 }
 .subcat-slide-enter-to {
-    -webkit-transition: width 1s ease-out;
-    -o-transition: width 1s ease-out;
-    transition: width 1s ease-out;
+    -webkit-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    transition: all 1s ease-out;
     width: 220px;
 }
 .subcat-slide-leave-to {
-    width: 0;
-    -webkit-transition: width 1s ease-out;
-    -o-transition: width 1s ease-out;
-    transition: width 1s ease-out;
+    width: 0px;
+    padding: 0px;
+    -webkit-transition: all 1s ease-in;
+    -o-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+}
+.subcat-slide-enter-active,
+.subcat-slide-leave-active {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.subcat-slide-enter-active > .multiselect > .multiselect__select,
+.subcat-slide-leave-active > .multiselect > .multiselect__select {
+  display: none;
 }
 </style>
