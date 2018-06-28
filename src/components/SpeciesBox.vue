@@ -134,7 +134,6 @@ export default {
             let speciesName = e.srcElement.innerText;
             for (let i = 0; i < this.speciesNames.length; i++) {
                 if (this.speciesNames[i] == speciesName) {
-                    console.log(speciesName, this.speciesImages)
                     this.hoverImage = this.speciesImages[speciesName];
                     this.hoverImageTopOffset = i * 20;
                     break;
