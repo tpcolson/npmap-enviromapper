@@ -1,8 +1,8 @@
 <template>
-    <div class="species-slide box">
+    <div class="species-slide box" id="species-slide">
         <div id="box">
             <div class='label' data-intro='Select a species to see how it has been affected' data-position='top'>3. Select an affected species</div>
-            <img class="species-hover-thumbnail" :src="hoverImage" :style="{ top: hoverImageTopOffset + 50 + 'px', display: hoverImageDisplay }">
+            <img class="species-hover-thumbnail" :src="hoverImage" :style="{ top: hoverImageTopOffset + 50 + 'px', display: hoverImageDisplay, left: hoverImageLeftOffset + 'px' }">
             <multiselect
                 :disabled="speciesNames.length == 0"
                 v-model="selected"
@@ -95,6 +95,7 @@ export default {
             mutableSpecies: this.species,
             hoverImage: 'http://via.placeholder.com/150x150',
             hoverImageTopOffset: 0,
+            hoverImageLeftOffset: 0,
             hoverImageDisplay: 'none'
         }
     },
@@ -200,13 +201,17 @@ export default {
         species: function() {
             this.mutableSpecies = this.species;
         }
+    },
+    updated: function() {
+      this.$nextTick(function() {
+        this.hoverImageLeftOffset = this.$el.offsetLeft + 235;
+      });
     }
 }
 </script>
 <style>
 .species-hover-thumbnail {
     position: absolute;
-    left: 855px;
     width: 100px;
     height: 100px;
     z-index: 10000;
