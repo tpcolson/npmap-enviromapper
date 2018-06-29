@@ -118,6 +118,7 @@ export default {
 .multiselect__select:before {
     z-index: 10000000;
     top: 12px;
+    margin: 0 auto;
 }
 .multiselect__input,
 .multiselect__single {
