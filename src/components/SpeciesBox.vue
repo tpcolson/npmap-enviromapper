@@ -156,11 +156,12 @@ export default {
                 return;
                 /* need to add removing of species layer */
             }
-            this.$root.$emit('speciesChanged', true);
+            
             for (var i = 0; i < this.mutableSpecies.length; i++)
             {
                 let selected = this.selected;
                 if (selected == this.mutableSpecies[i][2] || selected.replace(/ /g, '_') == this.mutableSpecies[i][0]){
+                    this.$root.$emit('speciesChanged', true, this.mutableSpecies[i][0]);
                     var li = {};
                     li._id = (this.mutableSpecies[i][1]);
                     li._latin = this.mutableSpecies[i][0];

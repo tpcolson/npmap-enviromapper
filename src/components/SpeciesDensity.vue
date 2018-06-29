@@ -19,7 +19,7 @@
             <div id='legend-blue-50'>50-25%</div>
           </div>
         </div>
-        <div id='legend-blue-quality' tooltip='Model confidence represents how correct the shown prediction layer is believed to be'>Placeholder Quality</div>
+        <div id='legend-blue-quality' tooltip='Model confidence represents how correct the shown prediction layer is believed to be'></div>
       </li>
     </ol>
     <div id='legend-blend' tooltip='When on, predicted data layers are shown at 50% opacity to show areas of overlap. When off, predicted layers are shown at 100% opacity'>
@@ -43,10 +43,13 @@ export default {
     }
   },
   mounted: function () {
-    this.$root.$on('speciesChanged', show => {
+    this.$root.$on('speciesChanged', (show, name) => {
       this.show = show;
+      if (show) {
+        findAUC(2, name);
+      }
     });
-  }
+  },
 }
 
 </script>
