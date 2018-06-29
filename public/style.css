@@ -1962,6 +1962,7 @@ button.rectangle {
   text-align: left;
 }
 
+#adblockoverlay,
 #mockupoverlay {
   z-index: 20000;
   width: 100%;
@@ -1975,6 +1976,11 @@ button.rectangle {
   padding-top: 300px;
   font-size: 30px;
   color: white !important;
+}
+
+#adblockoverlay {
+  display: none;
+  z-index: 20001;
 }
 
 .first-env {

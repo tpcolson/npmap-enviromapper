@@ -116,7 +116,7 @@ export default {
           transform: rotateZ(-180deg);
 }
 .multiselect__select:before {
-    z-index: 10000000;
+    z-index: 15000;
     top: 12px;
     margin: 0 auto;
 }
