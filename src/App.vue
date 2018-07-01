@@ -56,10 +56,10 @@ export default {
             layers: [
                 1, 2, 3, 4
             ],
-            overlays: null,
+            overlays: [],
             env: '',
-            subcat: null,
-            species: null,
+            subcat: [],
+            species: '',
             background: 'Park Tiles',
             prediction: true,
             observation: false,
@@ -75,14 +75,92 @@ export default {
           alert('The url you entered is not valid!');
           return;
         }
+
         setTimeout(function() {
-          let envSettings = loadEnvSettings();
-          console.log(envSettings);
-          self.$root.$emit('settingsLoaded', envSettings);
+          let envSettings = self.loadEnvSettings(settings);
+          self.$emit('settingsLoaded', envSettings);
         }, 1000);
       }
     },
     methods: {
+      loadEnvSettings(settings) {
+        let envSettings = {};
+        let errMsg = 'We found some things we couldn\'t load:\n';
+
+        if (typeof settings.env !== 'undefined') {
+          envSettings.env = settings.env;
+        } else {
+          envSettings.env = null;
+          errMsg += 'The environmental layer\n';
+        }
+
+        if (typeof settings.background !== 'undefined') {
+          envSettings.background = settings.background;
+        } else {
+          envSettings.background = null;
+          errMsg += 'The map background\n'
+        }
+
+        if (typeof settings.overlays !== 'undefined') {
+          envSettings.overlays = settings.overlays;
+        } else {
+          envSettings.overlays = null;
+          errMsg += 'The map overlays\n';
+        }
+
+        if (typeof settings.prediction !== 'undefined') {
+          envSettings.prediction = settings.prediction;
+        } else {
+          envSettings.prediction = null;
+          errMsg += 'The prediction setting\n';
+        }
+
+        if (typeof settings.observation !== 'undefined') {
+          envSettings.observation = settings.observation;
+        } else {
+          envSettings.observation = null;
+          errMsg += 'The observation setting\n';
+        }
+
+        if (typeof settings.naming !== 'undefined') {
+          envSettings.naming = settings.naming;
+        } else {
+          envSettings.naming = null;
+          errMsg += 'The naming convention';
+        }
+
+        /* TODO convert this to Vue pipeline */
+        if (settings.blending === false) {
+          toggleBlending();
+        }
+
+        if (typeof settings.bounds !== 'undefined') {
+          NPMap.config.L.fitBounds([settings.bounds._southWest, settings.bounds._northEast]);
+        } else {
+          envSettings.bounds = null;
+          errMsg += 'The map bounds';
+        }
+
+        if (typeof settings.subcat !== 'undefined') {
+          envSettings.subcat = settings.subcat;
+        } else {
+          envSettings.subcat = null;
+          errMsg += 'The subcategory options\n'
+        }
+
+        if (typeof settings.species !== 'undefined') {
+          envSettings.species = settings.species;
+        } else {
+          envSettings.species = null;
+          errMsg += 'The species selection\n';
+        }
+
+        /* TODO display to user at some point */
+        if (errMsg.length > 39) {
+          console.log(errMsg);
+        }
+        return envSettings;
+      },
       updateEnv: function(selectedEnv) {
         this.env = selectedEnv;
       },
@@ -90,27 +168,21 @@ export default {
         this.subcat = selectedSubCat;
       },
       updateSpecies: function(selectedSpecies) {
-        console.log(selectedSpecies);
         this.species = selectedSpecies;
       },
       updateOverlays: function(selectedOverlays) {
-        console.log(selectedOverlays);
         this.overlays = selectedOverlays;
       },
       updateBackground: function (selectedBackground) {
-        console.log(selectedBackground);
         this.background = selectedBackground;
       },
       updatePrediction: function (selectedPrediction) {
-        console.log(selectedPrediction);
         this.prediction = selectedPrediction;
       },
       updateObservation: function (selectedObservation) {
-        console.log(selectedObservation);
         this.observation = selectedObservation;
       },
       updateNameConvention: function (namingConvention) {
-        console.log(namingConvention);
         this.naming = namingConvention;
       }
     }

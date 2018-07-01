@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </span>
-		</div>
+		    </div>
         </transition>
 </template>
 
@@ -116,7 +116,7 @@ export default {
         subcatChanged2: function(value){
             this.subcatChange(value, 2);
             let index, name;
-            if (this.oldSelected2 != '') {
+            if (this.oldSelected2 !== '') {
                 index = this.findSubcatIndex(this.oldSelected2.fullname).index;
                 name = "soil_" + index + "_2";
                 this.updateLayer(name, false);
@@ -142,6 +142,21 @@ export default {
             {
                 NPMap.config.L.removeLayer(this.maps[environment]);
             }
+        },
+        loadSettings: function(envSettings) {
+          if (envSettings.subcat !== null) {
+            for (let i = 0; i < this.mutableSubcategories.length; i++) {
+              let subcat = this.mutableSubcategories[i];
+              if (subcat.fullname == envSettings.subcat[0]) {
+                this.selected1 = subcat;
+                this.subcatChanged1(subcat);
+              }
+              if (subcat.fullname == envSettings.subcat[1]) {
+                this.selected2 = subcat;
+                this.subcatChanged2(subcat);
+              }
+            }
+          }
         }
     },
     watch: {
@@ -190,6 +205,8 @@ export default {
             }
             this.populated = true;
         });
+
+        this.$parent.$on('settingsLoaded', this.loadSettings);
     }
 }
 </script>

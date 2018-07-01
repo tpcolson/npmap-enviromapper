@@ -20,7 +20,7 @@
             <multiselect
               class="controls"
               :multiple="true"
-              v-model="selectedOverlayOption"
+              v-model="selectedOverlayOptions"
               :options="mapOverlayOptions"
               :close-on-select="false"
               placeholder="Map Overlays"
@@ -64,7 +64,7 @@ export default {
     env: String,
     observation: Boolean,
     prediction: Boolean,
-    overlays: Object,
+    overlays: Array,
     species: String,
     subcat: Array,
     naming: String,
@@ -76,20 +76,52 @@ export default {
         layers: [
         ],
         selected: "",
-        selectedBackgroundOption: "",
+        selectedBackgroundOption: "Park Tiles",
         mapBackgroundOptions: ['Park Tiles', 'Mapbox Terrain', 'Esri Topo', 'Esri Imagery'],
-        selectedOverlayOption: "",
+        selectedOverlayOptions: "",
         mapOverlayOptions: ['Trails', 'Visitor Centers', 'Shelters', 'Roads', 'Campsites'],
         mapOverlayOptionState: [0, 0, 0, 0, 0]
     }
   },
   mounted: function() {
+      this.setupShareButton();
+      this.$parent.$on('settingsLoaded', this.loadSettings);
+  },
+  methods: {
+    selectBackground: function(option) {
+      updateBaseLayer(this.mapBackgroundOptions.indexOf(option));
+      this.$emit('updateBackground', option);
+    },
+    selectOverlay: function(option) {
+      toggleOverlay(this.mapOverlayOptions.indexOf(option));
+    },
+    exportEnvSettings: function() {
+      let settings = {};
+
+      settings.env = this.env;
+      settings.background = this.background;
+      settings.prediction = this.prediction;
+      settings.observation = this.observation;
+      settings.naming = this.naming;
+      settings.subcat = this.subcat;
+      settings.overlays = this.overlays;
+      settings.species = this.species;
+
+      if (!blendingActive) {
+        settings.blending = false;
+      }
+
+      settings.bounds = NPMap.config.L.getBounds();
+
+      return settings;
+    },
+    setupShareButton: function() {
       let self = this;
       let envShareButton = document.getElementById('search-banner-env-share-button');
       (new Clipboard(envShareButton, {
         text: function(trigger) {
           var settings = self.exportEnvSettings();
-          console.log('in clip', settings);
+
           // Update window's anchor/hash
           var hash = "#" + encodeURI(JSON.stringify(settings));
           return location.href.split("#")[0] + hash;
@@ -121,53 +153,24 @@ export default {
           $('.messages').toggleClass('hide show');
           //$('.messages').text('');
         }, 310 + 1000 + 310);
-
       });
+    },
+    loadSettings: function(envSettings) {
+      if (envSettings.background !== null) {
+        this.selectedBackgroundOption = envSettings.background;
+        this.selectBackground(envSettings.background);
+      }
+      if (envSettings.overlays !== null) {
+        this.selectedOverlayOptions = envSettings.overlays;
+        for (let i = 0; i < envSettings.overlays.length; i++) {
+          this.selectOverlay(envSettings.overlays[i]);
+        }
+      }
+    }
   },
-  methods: {
-    selectBackground: function(option) {
-      updateBaseLayer(this.mapBackgroundOptions.indexOf(option));
-    },
-    selectOverlay: function(option) {
-      toggleOverlay(this.mapOverlayOptions.indexOf(option));
-    },
-    exportEnvSettings: function() {
-      let settings = {};
-      console.log('in export');
-
-      if (lastBaseIndex !== 0) {
-        settings.mapBackground = lastBaseIndex;
-      }
-
-      if (!showPredicted) {
-        settings.showPredicted = false;
-      }
-
-      if (showObserved) {
-        settings.showObserved = true;
-      }
-      
-      if (whichName) {
-        settings.whichName = whichName;
-      }
-
-      if (!blendingActive) {
-        settings.blendingActive = false;
-      }
-
-      let mapOverlays = NPMap.config.overlays.filter(function(item, index) {
-        return item.visible;
-      }).map(function(item) { return item.name; });
-
-      if (JSON.stringify(mapOverlays) !== '["Park Boundary"]') {
-        settings.mapOverlays = mapOverlays.filter(function (option) {
-          return option !== 'Park Boundary';
-        });
-      }
-
-      settings.bounds = NPMap.config.L.getBounds();
-
-      return settings;
+  watch: {
+    selectedOverlayOptions: function() {
+      this.$emit('updateOverlays', this.selectedOverlayOptions);
     }
   }
 }
@@ -179,7 +182,10 @@ export default {
 .multiselect.controls > .multiselect__tags > .multiselect__tags-wrap > .multiselect__single ~ .multiselect__single {
   display: none;
 }
-.multiselect.controls > .multiselect__tags > span > .multiselect__single {
+.multiselect.controls > .multiselect__tags > .multiselect__single,
+.multiselect.controls > .multiselect__tags > span > .multiselect__single,
+.multiselect.controls > .multiselect__tags > .multiselect__tags-wrap > .multiselect__single {
   width: 80%;
 }
+
 </style>

@@ -48,9 +48,6 @@ export default {
         info:{
             default: "",
             type: String
-        },
-        layer: {
-            type: Object
         }
     },
     data: function() {
@@ -83,6 +80,7 @@ export default {
                 this.type = null;
                 if (data == 'removeLayer') return;
             }
+            this.layer = data;
             this.type = data.type;
             this.name = data.name;
             this.mutableInfo = data.info;
@@ -98,7 +96,7 @@ export default {
                 }
                 this.toggleActive(true, false);
                 this.subcatName1 = name;
-                if (this.layer != undefined) {
+                if (typeof this.layer !== 'undefined') {
                     let subcat = this.layer.subcategories;
                     for (let key in subcat) {
                         if (subcatName == subcat[key].name) {
@@ -119,7 +117,7 @@ export default {
                 }
                 this.toggleActive(false, true);
                 this.subcatName2 = name;
-                if (this.layer != undefined) {
+                if (typeof this.layer !== 'undefined') {
                     let subcat = this.layer.subcategories;
                     for (let key in subcat) {
                         if (subcatName == subcat[key].name) {

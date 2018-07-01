@@ -29,16 +29,16 @@
             <div id='checkbox-container' tooltip='Toggle the visibility of the predicted habitat'>
               <div id='options-predicted' class='search-checkbox' data-intro='Toggle the visibility of predicted and observed data' data-position='left'>
                 View:&nbsp; 
-                <input type='checkbox' id='options-predicted-checkbox' onkeypress='togglePredicted();' onclick='togglePredicted();' checked disabled />
+                <input type='checkbox' id='options-predicted-checkbox' onkeypress='togglePredicted();' onclick='togglePredicted();' @click="updatePrediction" checked disabled />
                 <label for='options-predicted-checkbox'>Predictions</label>&nbsp;&nbsp;
-                <input type='checkbox' id='options-observed-checkbox' onkeypress='toggleObserved();' onclick='toggleObserved();' disabled />
+                <input type='checkbox' id='options-observed-checkbox' onkeypress='toggleObserved();' onclick='toggleObserved();' @click="updateObservation" disabled />
                 <label for='options-observed-checkbox'>Observations</label>
               </div>
                 <div id='search-initial-switch' class='label' tooltip='Choose to show latin or common species names' data-intro='Choose to show common or latin names' data-position='bottom'>
                   View name as:
-                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-common' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" checked /> <!-- :disabled="speciesNames.length == 0" /> -->
+                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-common' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' @click="switchNameConvention($event)" checked :disabled="speciesNames.length == 0" />
                   <label for='search-name-convention-common'>Common</label>&nbsp;
-                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-latin' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" /> <!-- :disabled="speciesNames.length == 0" /> -->
+                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-latin' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' @click="switchNameConvention($event)" :disabled="speciesNames.length == 0" />
                   <label for='search-name-convention-latin'>Latin</label>
                 </div>
             </div>
@@ -96,18 +96,24 @@ export default {
             hoverImage: 'http://via.placeholder.com/150x150',
             hoverImageTopOffset: 0,
             hoverImageLeftOffset: 0,
-            hoverImageDisplay: 'none'
+            hoverImageDisplay: 'none',
+            prediction: true,
+            observation: false
         }
     },
     methods: {
-        changeNames: function(e) {
-            if (e.target.id == 'search-name-convention-latin' && this.namingConvention == 'latin') return;
-            if (e.target.id == 'search-name-convention-common' && this.namingConvention == 'common') return;
-            if (this.namingConvention == 'common') {
-                this.namingConvention = 'latin';
-            } else {
-                this.namingConvention = 'common';
-            }
+        switchNameConvention: function(e) {
+          if (e.target.id == 'search-name-convention-latin' && this.namingConvention == 'latin') return;
+          if (e.target.id == 'search-name-convention-common' && this.namingConvention == 'common') return;
+          if (this.namingConvention == 'common') {
+              this.namingConvention = 'latin';
+          } else {
+              this.namingConvention = 'common';
+          }
+          this.updateNameConvention();
+        },
+        updateNameConvention: function() {
+            this.$emit('updateNameConvention', this.namingConvention);
             if (typeof this.mutableSpecies == 'undefined' || typeof this.mutableSpecies.length == 'undefined') return;
             let element = document.getElementsByClassName('species-multiselect')[0].getElementsByClassName('multiselect__single')[0];
             let currentSpeciesName = element.innerText;
@@ -128,7 +134,8 @@ export default {
                         element.innerText = this.selected = this.mutableSpecies[i][2];
                     }
                 }
-            }            
+            }
+            this.$emit('updateSpecies', this.selected);
         },
         mouseOverSpecies: function(e) {
             if (this.hoverImageDisplay !== 'block') this.hoverImageDisplay = 'block';
@@ -151,19 +158,21 @@ export default {
             this.hoverImageDisplay = 'none';
           }
         },
-
         speciesChanged: function(){
+            this.hoverImageDisplay = 'none';
             if (this.selected == null) {
                 this.$root.$emit('speciesChanged', false);
+                this.$emit('updateSpecies', '');
                 return;
                 /* need to add removing of species layer */
             }
-            
+
+            let selected = this.selected;
             for (var i = 0; i < this.mutableSpecies.length; i++)
             {
-                let selected = this.selected;
                 if (selected == this.mutableSpecies[i][2] || selected.replace(/ /g, '_') == this.mutableSpecies[i][0]){
                     this.$root.$emit('speciesChanged', true, this.mutableSpecies[i][0]);
+                    this.$emit('updateSpecies', selected);
                     var li = {};
                     li._id = (this.mutableSpecies[i][1]);
                     li._latin = this.mutableSpecies[i][0];
@@ -172,6 +181,47 @@ export default {
                     break;
                 }
             }
+        },
+        updateObservation: function(observation) {
+          if (typeof observation !== 'undefined') {
+            this.observation = observation;
+          } else {
+            this.observation = !this.observation;
+          }
+          this.$emit('updateObservation', this.observation);
+        },
+        updatePrediction: function(prediction) {
+          if (typeof prediction !== 'undefined') {
+            this.prediction = prediction;
+          } else {
+            this.prediction = !this.prediction;
+          }
+          this.$emit('updatePrediction', this.prediction);
+        },
+        loadSettings: function(envSettings) {
+          if (envSettings.prediction !== null) {
+            document.getElementById('options-predicted-checkbox').checked = envSettings.prediction;
+            this.updatePrediction(envSettings.prediction);
+          }
+          if (envSettings.observation !== null) {
+            document.getElementById('options-observed-checkbox') .checked = envSettings.observation;
+            this.updateObservation(envSettings.observation);
+          }
+          if (envSettings.naming !== null) {
+            this.namingConvention = envSettings.naming;
+            if (envSettings.naming == 'common') {
+              document.getElementById('search-name-convention-common').checked =  true;
+              document.getElementById('search-name-convention-latin') .checked = false;
+            } else {
+              document.getElementById('search-name-convention-common').checked = false;
+              document.getElementById('search-name-convention-latin') .checked =  true;
+            }
+            this.updateNameConvention();
+          }
+          if (envSettings.species !== null) {
+            this.selected = envSettings.species;
+            this.speciesChanged();
+          }
         }
     },
     mounted: function()
@@ -196,18 +246,7 @@ export default {
                 this.speciesImages[this.mutableSpecies[species][0].replace(/_/g, ' ')] = this.mutableSpecies[species][4];
             }
         });
-        this.$root.$on('settingsLoaded', envSettings => {
-          document.getElementById('options-predicted-checkbox').checked = envSettings.showPredicted;
-          document.getElementById('options-observed-checkbox') .checked = envSettings .showObserved;
-
-          if (envSettings.whichName == 'common') {
-            document.getElementById('search-name-convention-common').checked =  true;
-            document.getElementById('search-name-convention-latin') .checked = false;
-          } else {
-            document.getElementById('search-name-convention-common').checked = false;
-            document.getElementById('search-name-convention-latin') .checked =  true;
-          }
-        });
+        this.$parent.$on('settingsLoaded', this.loadSettings);
     },
     watch:
     {

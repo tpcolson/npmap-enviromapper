@@ -11,7 +11,7 @@
             :showLabels="false"
             :showPointer="false"
         />
-		<InfoBox :layer="layersForSubCat" />
+		<InfoBox/>
 	</div>
 </template>
 
@@ -27,13 +27,11 @@ export default {
         return {
             layersArray: [],
             layersObject: {},
-            selected: "",
-            layersForSubCat: {}
+            selected: ""
         }
     },
     methods: {
         layerChanged: function(){
-            
             if (this.$data.selected == null) {
                 this.$root.$emit('layerChanged', 'removeLayer', null);
                 this.$emit('updateEnv', '');
@@ -48,37 +46,47 @@ export default {
             }
             for (let key in this.$data.layersObject) {
                 if (this.$data.layersArray[selected].name == this.$data.layersObject[key].name) {
-                    this.layersForSubCat = this.$data.layersArray[selected];
                     this.$root.$emit('layerChanged', this.$data.layersArray[selected], 
                         key);
                     this.$emit('updateEnv', this.$data.layersArray[selected].name);
                     break;
                 }
             }
-            
+        },
+        loadSettings: function (envSettings) {
+          if (envSettings.env !== null) {
+            for (let i = 0; i < this.layersArray.length; i++) {
+              if (this.layersArray[i].name == envSettings.env) {
+                this.selected = this.layersArray[i];
+                this.layerChanged();
+                break;
+              }
+            }
+          }
         }
     },
     mounted: function()
     {
-        var self = this;
-        $.ajax({
-            url: 'data.json',
-            method: 'GET',
-            success: function(data)
-            {
-                self.layersArray = Object.values(data);
-                self.layersObject = data;
-                for (let key in self.layersArray) { 
-                    let layer = self.layersArray[key]; 
-                    if (layer.subcategories.length > 0 || layer.type == 'continuous') { 
-                        self.layersArray[key].label = layer.name;
-                    } 
-                    if (layer.subcategories.length == 0 && layer.type == 'categorical') { 
-                        self.layersArray[key].label = '-' + layer.name;
-                    }
-                }
-            }
+      var self = this;
+      $.ajax({
+          url: 'data.json',
+          method: 'GET',
+          success: function(data)
+          {
+              self.layersArray = Object.values(data);
+              self.layersObject = data;
+              for (let key in self.layersArray) { 
+                  let layer = self.layersArray[key]; 
+                  if (layer.subcategories.length > 0 || layer.type == 'continuous') { 
+                      self.layersArray[key].label = layer.name;
+                  } 
+                  if (layer.subcategories.length == 0 && layer.type == 'categorical') { 
+                      self.layersArray[key].label = '-' + layer.name;
+                  }
+              }
+          }
       });
+      this.$parent.$on('settingsLoaded', this.loadSettings);
     }
 }
 </script>
