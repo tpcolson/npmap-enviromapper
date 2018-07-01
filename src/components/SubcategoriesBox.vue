@@ -94,6 +94,9 @@ export default {
         subcatChange: function (value, subcatNumber) {
             if (value == null) value = { fullname: 'null' };
             this.$root.$emit('subcatChanged', value.fullname, subcatNumber);
+            let s1 = (this.selected1 == null) ? '' : this.selected1.fullname;
+            let s2 = (this.selected2 == null) ? '' : this.selected2.fullname;
+            this.$emit('updateSubCat', [s1, s2]);
         },
         subcatChanged1: function(value){
             this.subcatChange(value, 1);

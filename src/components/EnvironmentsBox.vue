@@ -33,8 +33,10 @@ export default {
     },
     methods: {
         layerChanged: function(){
+            
             if (this.$data.selected == null) {
                 this.$root.$emit('layerChanged', 'removeLayer', null);
+                this.$emit('updateEnv', '');
                 return;
             }
             let selected;
@@ -49,6 +51,7 @@ export default {
                     this.layersForSubCat = this.$data.layersArray[selected];
                     this.$root.$emit('layerChanged', this.$data.layersArray[selected], 
                         key);
+                    this.$emit('updateEnv', this.$data.layersArray[selected].name);
                     break;
                 }
             }
@@ -158,6 +161,8 @@ export default {
 .multiselect__single {
     background: rgb(64, 64, 61);
     color: #f5faf2;
+    max-height: 20px;
+    overflow: hidden;
 }
 .multiselect__input {
     background: rgb(64, 64, 61);

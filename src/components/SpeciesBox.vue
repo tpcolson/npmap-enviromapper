@@ -36,9 +36,9 @@
               </div>
                 <div id='search-initial-switch' class='label' tooltip='Choose to show latin or common species names' data-intro='Choose to show common or latin names' data-position='bottom'>
                   View name as:
-                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-common' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" checked :disabled="speciesNames.length == 0" />
+                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-common' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" checked /> <!-- :disabled="speciesNames.length == 0" /> -->
                   <label for='search-name-convention-common'>Common</label>&nbsp;
-                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-latin' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" :disabled="speciesNames.length == 0" />
+                  <input type='radio' class='search-initial-switch-sides' id='search-name-convention-latin' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' v-on:click="changeNames($event)" /> <!-- :disabled="speciesNames.length == 0" /> -->
                   <label for='search-name-convention-latin'>Latin</label>
                 </div>
             </div>
@@ -143,14 +143,13 @@ export default {
         },
         mouseOutSpecies: function(e) {
           let elem = document.getElementsByClassName('species-multiselect')[0];
-          console.log(document.getElementsByClassName('species-slide')[0].offsetTop)
-            if (   e.pageX >= elem.offsetLeft + elem.offsetWidth - 10
-                || e.pageX <= elem.offsetLeft
-                || e.pageY <= 160
-                || e.pageY >= (140 + 20 * this.speciesNames.length))
-            {
-                this.hoverImageDisplay = 'none';
-            }
+          if (   e.pageX >= elem.offsetLeft + elem.offsetWidth - 10
+              || e.pageX <= elem.offsetLeft
+              || e.pageY <= 160
+              || e.pageY >= (140 + 20 * this.speciesNames.length))
+          {
+            this.hoverImageDisplay = 'none';
+          }
         },
 
         speciesChanged: function(){
@@ -196,6 +195,18 @@ export default {
                 this.speciesImages[this.mutableSpecies[species][2]] = this.mutableSpecies[species][4];
                 this.speciesImages[this.mutableSpecies[species][0].replace(/_/g, ' ')] = this.mutableSpecies[species][4];
             }
+        });
+        this.$root.$on('settingsLoaded', envSettings => {
+          document.getElementById('options-predicted-checkbox').checked = envSettings.showPredicted;
+          document.getElementById('options-observed-checkbox') .checked = envSettings .showObserved;
+
+          if (envSettings.whichName == 'common') {
+            document.getElementById('search-name-convention-common').checked =  true;
+            document.getElementById('search-name-convention-latin') .checked = false;
+          } else {
+            document.getElementById('search-name-convention-common').checked = false;
+            document.getElementById('search-name-convention-latin') .checked =  true;
+          }
         });
     },
     watch:

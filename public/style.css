@@ -143,6 +143,7 @@ body.dragging * {
   height: 30px;
 }
 
+#search-banner-env-share-button,
 #search-banner-help-share-button,
 #search-banner-help-link-button {
   width: 100%;
@@ -1865,10 +1866,12 @@ button {
   }
 }
 
+#search-banner-env-share-button,
 #search-banner-help-share-button {
   position: relative;
 }
 
+#search-banner-env-share-button .fa-check-circle,
 #search-banner-help-share-button .fa-check-circle {
   /* ZURB Foundation Success button background color */
   color: #3adb76;

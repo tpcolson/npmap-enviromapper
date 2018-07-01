@@ -2,6 +2,7 @@
 /**
  * Export non default application settings.
  */
+
 function exportSettings() {
   var settings = {};
 
@@ -66,6 +67,60 @@ function exportSettings() {
 
 }
 
+function loadEnvSettings() {
+  console.log('in load');
+  let    settings = {};
+  let envSettings = {};
+
+  let anchor = location.hash.slice(1);
+  if (anchor.length) {
+    settings = JSON.parse(decodeURI(anchor));
+  } else {
+    return;
+  }
+
+  if (settings.mapBackground) {
+    updateBaseLayer(settings.mapBackground);
+  }
+
+  if (settings.mapOverlays) {
+    envSettings.overlay = {};
+    NPMap.config.overlays.forEach(function (overlay, index) {
+      if (settings.mapOverlays.includes(overlay.name)) {
+        envSettings.overlay[overlay.name] = 'true';
+      } else {
+        envSettings.overlay[overlay.name] = 'false';
+      }
+    });
+  }
+
+  if (settings.showPredicted === false) {
+    envSettings.showPredicted = false;
+  } else {
+    envSettings.showPredicted = true;
+  }
+
+  if (settings.showObserved) {
+    envSettings.showObserved = true;
+  } else {
+    envSettings.showObserved = false;
+  }
+
+  if (settings.whichName) {
+    envSettings.whichName = settings.whichName;
+  }
+
+  if (settings.blendingActive && settings.blendingActive === false) {
+    toggleBlending();
+  }
+
+  if (settings.bounds) {
+    NPMap.config.L.fitBounds([settings.bounds._southWest, settings.bounds._northEast]);
+  }
+
+  return envSettings;
+}
+
 function loadSettings() {
   var settings = {};
 
@@ -76,7 +131,7 @@ function loadSettings() {
   // The order that these occur is very important. This application is
   // quite brittle. Same reason that I'm using jquery to click on elements.
 
-  if (settings.tooltips === false && $tooltips._active)
+  if (settings.tooltips && settings.tooltips === false && $tooltips._active)
     toggleTooltips();
 
   if (settings.mapBackground)
@@ -106,7 +161,7 @@ function loadSettings() {
   if (settings.showObserved)
     $('#options-observed-checkbox').trigger('click');
 
-  if (settings.whichName && settings.whichName !== 'common')
+  if (settings.whichName !== 'common')
     toggleName();
 
   if (settings.blendingActive === false)
