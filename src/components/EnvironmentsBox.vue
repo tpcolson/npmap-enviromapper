@@ -63,29 +63,31 @@ export default {
               }
             }
           }
+        },
+        loadData: function (data) {
+          this.layersArray = Object.values(data);
+          this.layersObject = data;
+          for (let key in this.layersArray) { 
+            let layer = this.layersArray[key]; 
+            if (layer.subcategories.length > 0 || layer.type == 'continuous') { 
+              this.layersArray[key].label = layer.name;
+            } 
+            if (layer.subcategories.length == 0 && layer.type == 'categorical') { 
+              this.layersArray[key].label = '-' + layer.name;
+            }
+          }
         }
     },
     mounted: function()
     {
-      var self = this;
-      $.ajax({
-          url: 'data.json',
-          method: 'GET',
-          success: function(data)
-          {
-              self.layersArray = Object.values(data);
-              self.layersObject = data;
-              for (let key in self.layersArray) { 
-                  let layer = self.layersArray[key]; 
-                  if (layer.subcategories.length > 0 || layer.type == 'continuous') { 
-                      self.layersArray[key].label = layer.name;
-                  } 
-                  if (layer.subcategories.length == 0 && layer.type == 'categorical') { 
-                      self.layersArray[key].label = '-' + layer.name;
-                  }
-              }
-          }
-      });
+      axios.get('data.json')
+        .then(response => {
+          this.loadData(response.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
       this.$parent.$on('settingsLoaded', this.loadSettings);
     }
 }

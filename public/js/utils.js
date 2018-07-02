@@ -1,6 +1,5 @@
 $(document).ready(function() {
     setTimeout(hacks, 2000);
-//  $('#search-tool').one('loaded', function () { loadSettings(); });
 });
 
 window.onload = function() {

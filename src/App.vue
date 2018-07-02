@@ -4,21 +4,21 @@
       <div id='search-tool-contents'>
             <div id="app">
                 <EnvironmentsBox 
-                  v-on:updateEnv="updateEnv"
+                  @updateEnv="updateEnv"
                 />
                 <SubcategoriesBox 
                   :subcategories="layers" 
-                  v-on:updateSubCat="updateSubCat"
+                  @updateSubCat="updateSubCat"
                 />
                 <SpeciesBox
-                  v-on:updateSpecies="updateSpecies"
-                  v-on:updatePrediction="updatePrediction"
-                  v-on:updateObservation="updateObservation"
-                  v-on:updateNameConvention="updateNameConvention"
+                  @updateSpecies="updateSpecies"
+                  @updatePrediction="updatePrediction"
+                  @updateObservation="updateObservation"
+                  @updateNameConvention="updateNameConvention"
                 />
                 <ExtraControls
-                  v-on:updateOverlays="updateOverlays"
-                  v-on:updateBackground="updateBackground"
+                  @updateOverlays="updateOverlays"
+                  @updateBackground="updateBackground"
                   :background.sync="background"
                   :env.sync="env"
                   :observation.sync="observation"
