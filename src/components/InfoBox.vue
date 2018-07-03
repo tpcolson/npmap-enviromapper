@@ -14,8 +14,8 @@
                 <div :class="{'info-box-subcat-title-2': true, 'info-box-subcat-title-2-inactive': !subcatActive2 }" v-show="subcatExists2" @click="subcatActive1 = false; subcatActive2 = true;">{{ subcatName2 }}</div>
                 </transition>
                 <div style="" class="info-box-image environment-image">
-                    <img v-if="subcatImg1 !== '' && subcatActive1" :src="subcatImg1" />
-                    <img v-else-if="subcatImg2 !== '' && subcatActive2" :src="subcatImg2" />
+                    <img v-if="subcatImg1 !== '' && subcatActive1" :src="subcatImg1" @click="toggleLargeImage(subcatImg1)" />
+                    <img v-else-if="subcatImg2 !== '' && subcatActive2" :src="subcatImg2" @click="toggleLargeImage(subcatImg2)"/>
                 </div>
                 <div class="info-box-info" v-if="subcatInfo1 !== '' && subcatActive1">{{ subcatInfo1 }}</div>
                 <div class="info-box-info" v-else-if="subcatInfo2 !== '' && subcatActive2">{{ subcatInfo2 }}</div>
@@ -30,7 +30,7 @@
             <div v-show="continousOpen" class="info-box">
                 <div class="info-box-cont-title">{{ name }}</div>
                 <div style="" class="info-box-image environment-image">
-                    <img src="http://via.placeholder.com/150x150" />
+                    <img src="http://via.placeholder.com/150x150" @click="toggleLargeImage('http://via.placeholder.com/150x150')"/>
                 </div>
                 <div class="info-box-info">Placeholder text about {{name}}</div>
             </div>
@@ -39,6 +39,10 @@
                 <div :class="{ 'triangle-closed': !continousOpen, 'triangle-open': continousOpen }" class="triangle"></div>
             </div>
         </span>
+
+        <div id="info-box-large-image">
+          <img :src="largeImageSource" :class="{ 'large-image-closed': !showLargeImage, 'large-image-open': showLargeImage }" @click="toggleLargeImage()">
+        </div>
     </div>
 </template>
 <script>
@@ -67,7 +71,9 @@ export default {
             subcatExists1: false,
             subcatExists2: false,
             selected: '',
-            type: null
+            type: null,
+            largeImageSource: '',
+            showLargeImage: false
         }
     },
     mounted: function(){
@@ -136,6 +142,15 @@ export default {
         toggleActive: function(subcatActive1, subcatActive2) {
             this.subcatActive1 = subcatActive1;
             this.subcatActive2 = subcatActive2;
+        },
+        toggleLargeImage: function(img) {
+          if (this.showLargeImage) {
+            this.showLargeImage = false;
+            this.largeImageSource = '';
+          } else {
+            this.showLargeImage = true;
+            this.largeImageSource = img;
+          }
         }
     },
     watch: {
@@ -295,5 +310,18 @@ export default {
     -o-transition: transform 1s ease-out;
     transition: transform 1s ease-out;
     transition: transform 1s ease-out, -webkit-transform 1s ease-out;
+}
+
+.large-image-closed {
+  display: none;
+}
+.large-image-open {
+  z-index: 10000;
+  display: block;
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  height: calc(50%);
+  width: calc(50%);
 }
 </style>

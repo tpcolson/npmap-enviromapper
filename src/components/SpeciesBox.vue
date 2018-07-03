@@ -54,7 +54,7 @@
             <div v-show="open" class="species-info-box">
                 <div class="species-info-box-title">{{ selected }}</div>
                 <div style="" class="species-info-box-image">
-                    <img src="http://via.placeholder.com/150x150" />
+                    <img src="http://via.placeholder.com/150x150" @click="toggleLargeImage('http://via.placeholder.com/150x150')" />
                 </div>
                 <div class="info-box-info" style="">
                    <!-- The top 3 attributes that most affect this species are: -->
@@ -73,6 +73,9 @@
                 <div :class="{ 'triangle-closed': !open, 'triangle-open': open }" class="triangle"></div>
             </div>
         </span>
+        <div class="species-info-box-large-image">
+          <img :src="largeImageSource" :class="{ 'large-image-closed': !showLargeImage, 'large-image-open': showLargeImage }" @click="toggleLargeImage()">
+        </div>
     </div>
 </template>
 
@@ -102,7 +105,9 @@ export default {
             hoverImageDisplay: 'none',
             prediction: true,
             observation: false,
-            selectedLayer: "..."
+            selectedLayer: "...",
+            largeImageSource: '',
+            showLargeImage: false
         }
     },
     methods: {
@@ -231,6 +236,15 @@ export default {
           if (envSettings.species !== null) {
             this.selected = envSettings.species;
             this.speciesChanged();
+          }
+        },
+        toggleLargeImage: function(img) {
+          if (this.showLargeImage) {
+            this.showLargeImage = false;
+            this.largeImageSource = '';
+          } else {
+            this.showLargeImage = true;
+            this.largeImageSource = img;
           }
         }
     },
