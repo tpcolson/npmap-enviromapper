@@ -929,34 +929,6 @@
     "subcategories": [],
     "name": "Slope",
     "related-species": [
-      [
-        "Hylocichla_mustelina",
-        "0020188",
-        "Wood Thrush",
-        "",
-        "http://via.placeholder.com/150x150"
-      ],
-      [
-        "Oxalis_montana",
-        "0028172",
-        "Wood-Sorrel",
-        "",
-        "http://via.placeholder.com/150x150"
-      ],
-      [
-        "Sedum_ternatum",
-        "0036236",
-        "Woodland Stonecrop",
-        "",
-        "http://via.placeholder.com/150x150"
-      ],
-      [
-        "Nais_communis",
-        "0024518",
-        "Worm",
-        "",
-        "http://via.placeholder.com/150x150"
-      ]
     ],
     "ranges": [[0, 26.7], [26.7, 53.4], [53.4, 80.1]],
     "type": "continuous"
