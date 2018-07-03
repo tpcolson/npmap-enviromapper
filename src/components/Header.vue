@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     appSelect: function (selection) {
-      if (selection == 'Species Mapper') appChange();
+      if (selection == 'Species Mapper') window.location = 'https://science.nature.nps.gov/parks/grsm/species/';
     }
   }
 }
