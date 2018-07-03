@@ -352,22 +352,24 @@ function clearSearch() {
   $('#color-legend').hide();
 }
 
-function selectInitialSpecies(li) {
-  recordAction('added species', li._latin.replace(/_/g, ' '));
+function selectInitialSpecies(li, remove) {
+  
   clearComparisons();
 
   //document.getElementById('search-initial-dropdown').style.backgroundColor = 'rgb(202, 24, 146)';
 
   // Populate Species Density box legend item
-  if(whichName === 'latin') {
-    document.getElementById('legend-blue-contents-name').innerHTML = li._latin.replace(/_/g, ' ');
-    document.getElementById('legend-blue-contents-name').title = li._common.replace(/_/g, ' ');
-  } else {
-    document.getElementById('legend-blue-contents-name').innerHTML = li._common.replace(/_/g, ' ');
-    document.getElementById('legend-blue-contents-name').title = li._latin.replace(/_/g, ' ');
+  if (typeof remove == 'undefined') {
+    recordAction('added species', li._latin.replace(/_/g, ' '));
+    if(whichName === 'latin') {
+      document.getElementById('legend-blue-contents-name').innerHTML = li._latin.replace(/_/g, ' ');
+      document.getElementById('legend-blue-contents-name').title = li._common.replace(/_/g, ' ');
+    } else {
+      document.getElementById('legend-blue-contents-name').innerHTML = li._common.replace(/_/g, ' ');
+      document.getElementById('legend-blue-contents-name').title = li._latin.replace(/_/g, ' ');
+    }
+    $('#legend-species-blue').addClass('populated');
   }
-  $('#legend-species-blue').addClass('populated');
-
   if(control._selectedSpecies[0] !== undefined && control._selectedSpecies[0].visible) {
     recordAction('removed species', control._selectedSpecies[0]._latin.replace(/_/g, ' '));
 
@@ -378,7 +380,9 @@ function selectInitialSpecies(li) {
     if(showObserved) {
       NPMap.config.L.removeLayer(control._selectedSpecies[0].observed);
     }
+    control._selectedSpecies[0].visible = false;
   }
+  if (typeof remove !== 'undefined' && remove === true) return;
 
   control._selectedSpecies[0] = {};
   control._selectedSpecies[0]._id = li._id;

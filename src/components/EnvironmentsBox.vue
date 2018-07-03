@@ -32,6 +32,7 @@ export default {
     },
     methods: {
         layerChanged: function(){
+            this.$root.$emit('speciesChanged', false);
             if (this.$data.selected == null) {
                 this.$root.$emit('layerChanged', 'removeLayer', null);
                 this.$emit('updateEnv', '');

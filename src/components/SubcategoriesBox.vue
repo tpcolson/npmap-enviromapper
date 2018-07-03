@@ -2,6 +2,7 @@
         <div class='subcat-slide box'>
             &nbsp;
             <multiselect
+                v-if="mutableType !== 'continuous'"
                 class="subcat1"
                 v-model="selected1"
                 :options="mutableSubcategories"
@@ -16,6 +17,7 @@
             />
             
             <multiselect
+                v-if="mutableType !== 'continuous'"
                 class="subcat2"
                 v-model="selected2"
                 :options="mutableSubcategories"
@@ -158,13 +160,19 @@ export default {
     },
     watch: {
         range1: function(val) {
-            this.updateLayer(this.selected_layer_name + "_0", val);
+            if (val !== false) {
+              this.updateLayer(this.selected_layer_name + "_0", val);
+            }
         },
         range2: function(val) {
-            this.updateLayer(this.selected_layer_name + "_1", val);
+            if (val !== false) {
+              this.updateLayer(this.selected_layer_name + "_1", val);
+            }
         },
         range3: function(val) {
-            this.updateLayer(this.selected_layer_name + "_2", val);
+            if (val !== false) {
+              this.updateLayer(this.selected_layer_name + "_2", val);
+            }
         },
         subcategories: function() {
             this.mutableSubcategories = this.subcategories;
@@ -183,6 +191,10 @@ export default {
                 this.populated = false;
                 return;
             }
+            this.selected1 = "";
+            this.selected2 = "";
+            this.oldSelected1 = "";
+            this.oldSelected2 = "";
             // for example "con_slope"
             this.selected_layer_name = id;
             if (data.type == 'categorical')
@@ -200,8 +212,6 @@ export default {
                 NPMap.config.L.removeLayer(this.maps[i]);
                 this.range1 = this.range2 = this.range3 = false;
             }
-            // increase the size of the search-tool-contents
-            //document.querySelector("#search-tool-contents").style.width = "1050px";            
 
             this.populated = true;
         });

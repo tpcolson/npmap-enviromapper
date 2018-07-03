@@ -230,8 +230,9 @@ export default {
         this.$root.$on('layerChanged', data => {
             this.speciesNames = [];
             this.speciesImages = [];
+            this.selected = "";
+            selectInitialSpecies(null,true);
             if (data == 'removeLayer') {
-                this.selected = null;
                 return;
             }
             this.selectedLayer = data['label'];
