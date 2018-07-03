@@ -29,9 +29,9 @@
             <div id='checkbox-container' tooltip='Toggle the visibility of the predicted habitat'>
               <div id='options-predicted' class='search-checkbox' data-intro='Toggle the visibility of predicted and observed data.' data-position='left'>
                 View:&nbsp; 
-                <input type='checkbox' id='options-predicted-checkbox' onkeypress='togglePredicted();' onclick='togglePredicted();' @click="updatePrediction" checked :disabled="speciesNames.length == 0" />
+                <input type='checkbox' id='options-predicted-checkbox' onkeypress='togglePredicted();' onclick='togglePredicted();' @click="updatePrediction" checked :disabled="selected == '' || selected == null" />
                 <label for='options-predicted-checkbox'>Predictions</label>&nbsp;&nbsp;
-                <input type='checkbox' id='options-observed-checkbox' onkeypress='toggleObserved();' onclick='toggleObserved();' @click="updateObservation" :disabled="speciesNames.length == 0" />
+                <input type='checkbox' id='options-observed-checkbox' onkeypress='toggleObserved();' onclick='toggleObserved();' @click="updateObservation" :disabled="selected == '' || selected == null" />
                 <label for='options-observed-checkbox'>Observations</label>
               </div>
                 <div id='search-initial-switch' class='label' tooltip='Choose to show latin or common species names' data-intro='Choose to show common or latin names.' data-position='bottom'>
