@@ -49,21 +49,24 @@
         </div>
 
 
-        <span v-if="selected !== null">
+        <span v-if="selected !== ''">
             <transition name="species-info-slide">
             <div v-show="open" class="species-info-box">
                 <div class="species-info-box-title">{{ selected }}</div>
                 <div style="" class="species-info-box-image">
                     <img src="http://via.placeholder.com/150x150" />
                 </div>
-                <div class="info-box-info">
-                    The top 3 attributes that most affect this species are: 
+                <div class="info-box-info" style="">
+                   <!-- The top 3 attributes that most affect this species are: -->
+                   This is placeholder info about {{ selected }}
                 </div>
+                <!--
                 <ul>
                     <li>Env. Attr. 1</li>
                     <li>Env. Attr. 2</li>
                     <li>Env. Attr. 3</li>
                 </ul>
+                -->
             </div>
             </transition>
             <div @click="open=!open" class="species-info-toggle">
@@ -88,7 +91,7 @@ export default {
         return {
             open: false,
             layers: [],
-            selected: null,
+            selected: '',
             speciesNames: [],
             speciesImages: [],
             namingConvention: 'common',
@@ -301,7 +304,7 @@ export default {
 }
 .species-info-box-image {
     text-align: center;
-    height: 150px;
+    height: 200px;
     width: 150px;
 }
 .species-info-toggle {
