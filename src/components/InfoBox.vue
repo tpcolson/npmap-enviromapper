@@ -84,6 +84,7 @@ export default {
                 this.subcatExists2 = false;
                 this.selected = null;
                 this.type = null;
+                this.mutableInfo = '';
                 if (data == 'removeLayer') return;
             }
             this.layer = data;

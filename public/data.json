@@ -277,6 +277,7 @@
     ]
   },
   "density": {
+    "info": "The thickness of shrubs underneath the forest trees.",
     "subcategories": [
       {
         "name": "Heavy",
@@ -370,10 +371,10 @@
         "10.8255",
         "http://via.placeholder.com/150x150"
       ]
-    ],
-    "info": "This is placeholder info about Understory Density"
+    ]
   },
   "con_avg_yearly_rainfall": {
+    "info": "The average amount of rain that falls in a year.",
     "subcategories": [],
     "type": "continuous",
     "name": "Avg Yearly Rainfall",
@@ -449,10 +450,10 @@
         "http://via.placeholder.com/150x150"
       ]
     ],
-    "ranges": [[49, 64.3], [64.3, 79.7], [79.7, 95]],
-    "info": "This is placeholder info about Avg Yearly Rainfall"
+    "ranges": [[49, 64.3], [64.3, 79.7], [79.7, 95]]
   },
   "vegetation": {
+    "info": "Types of forests.",
     "subcategories": [
       {
         "name": "Alluvial vegetation",
@@ -618,10 +619,10 @@
         "27.0818",
         "http://via.placeholder.com/150x150"
       ]
-    ],
-    "info": "This is placeholder info about Vegetation"
+    ]
   },
   "dist": {
+    "info": "The type of disturbance (fire, wind, insect) that has happened sometime in the past.",
     "subcategories": [
       {
         "name": "Insects",
@@ -715,10 +716,10 @@
         "4.5453",
         "http://via.placeholder.com/150x150"
       ]
-    ],
-    "info": "This is placeholder info about Type of Disturbance"
+    ]
   },
   "cat_years_since_fire": {
+    "info": "Years since a forest fire occured at the site.",
     "subcategories": [],
     "type": "categorical",
     "name": "Years Since Fire",
@@ -794,10 +795,10 @@
         "14.9959",
         "http://via.placeholder.com/150x150"
       ]
-    ],
-    "info": "This is placeholder info about Years Since Fire"
+    ]
   },
   "soil": {
+    "info": "Drainage Class (natural) refers to the frequency and duration of wet periods under conditions similar to those under which the soil formed.",
     "subcategories": [
       {
         "name": "Excessively drained",
@@ -921,11 +922,10 @@
         "6.7004",
         "http://via.placeholder.com/150x150"
       ]
-    ],
-    "info": "This is placeholder info about Soil Drainage Class"
+    ]
   },
   "con_slope": {
-    "info": "This is placeholder info about Slope",
+    "info": "The steepness of a surface of the earth.",
     "subcategories": [],
     "name": "Slope",
     "related-species": [
@@ -934,6 +934,7 @@
     "type": "continuous"
   },
   "con_solar_rad": {
+    "info": "The amount of light traveling in a straight line from the sun down to the surface of the earth.",
     "ranges": [[1015.1, 700845.4], [700845.4, 1400675.7], [1400675.7, 2100506]],
     "subcategories": [],
     "type": "continuous",
@@ -1009,11 +1010,10 @@
         "1.3408",
         "http://via.placeholder.com/150x150"
       ]
-    ],
-    "info": "This is placeholder info about Direct Solar Radiation"
+    ]
   },
   "con_elevation": {
-    "info": "This is placeholder info about Elevation",
+    "info": "Height above sea level.",
     "subcategories": [],
     "name": "Elevation",
     "related-species": [
@@ -1092,6 +1092,7 @@
     "type": "continuous"
   },
   "con_aspect": {
+    "info": "The compass bearing a given slope is facing from 0-360.",
     "ranges": [[0, 120], [120, 240], [240, 360]],
     "subcategories": [],
     "type": "continuous",
@@ -1167,7 +1168,6 @@
         "6.6515",
         "http://via.placeholder.com/150x150"
       ]
-    ],
-    "info": "This is placeholder info about Aspect"
+    ]
   }
 }
