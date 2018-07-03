@@ -39,7 +39,7 @@ footer {
 }
 
 li:hover {
-  background-color: #aaa !important;
+  /*background-color: #aaa !important;*/
 }
 
 h1 {
@@ -107,8 +107,9 @@ body.dragging * {
 }
 
 #search-tool-contents {
-  width: 1050px;
+  width: 725px;
   height: 100%;
+  transition: width .2s;
   margin: 0 auto;
   font-family: 'Source Sans Pro', sans-serif;
 }

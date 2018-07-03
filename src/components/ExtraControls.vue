@@ -14,7 +14,7 @@
               :show-labels="false"
               :searchable="false"
               :showPointer="false"
-              data-intro='Change the map background'
+              data-intro='Change the map background.'
               data-position='right'
             />
             <multiselect
@@ -29,7 +29,7 @@
               :show-labels="false"
               :searchable="false"
               :showPointer="false"
-              data-intro='Show extra map features'
+              data-intro='Show extra map features.'
               data-position='right'
             >
               <template slot="tag" slot-scope="props"><span class="multiselect__single">Map Overlays</span></template>

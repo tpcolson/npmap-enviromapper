@@ -1,15 +1,15 @@
 <template>
         <transition name="subcat-slide"> 
         <div class='subcat-slide box' v-if="populated">
-            <div v-if="mutableType=='categorical'" class='label'>2. Select up to two sub-categories</div>
-            <div v-if="mutableType=='continuous'" class='label'>2. Select a range of values</div>
+            <div v-if="mutableType=='categorical'" class='label'>&nbsp;</div>
+            <div v-if="mutableType=='continuous'" class='label'>&nbsp;</div>
             <multiselect
                 v-if="mutableType=='categorical'"
                 class="subcat1"
                 v-model="selected1"
                 :options="mutableSubcategories"
                 :close-on-select="true"
-                placeholder="Select a subcategory"
+                placeholder="Select a subtype"
                 label="fullname"
                 track-by="fullname"
                 @input="subcatChanged1"
@@ -23,7 +23,7 @@
                 v-model="selected2"
                 :options="mutableSubcategories"
                 :close-on-select="true"
-                placeholder="Select a subcategory"
+                placeholder="Select another subtype"
                 label="fullname"
                 track-by="fullname"
                 @input="subcatChanged2"
@@ -33,13 +33,13 @@
 
             <span v-if="mutableType=='continuous'"> 
                 <div id="continuous-spectrum">
-                    <div class="label continuous-block" style="background-color: rgb(231, 115, 163)">
+                    <div class="label continuous-block" style="background-color: rgb(231, 115, 163); border-radius: 3px 0 0 3px;">
                         <input type="checkbox" v-model="range1">{{ mutableRanges[0] }}
                     </div>
                     <div class="label continuous-block" style="background-color: rgb(180, 51, 139)">
                         <input type="checkbox" v-model="range2">{{ mutableRanges[1] }}
                     </div>
-                    <div class="label continuous-block" style="width: 73px; background-color: rgb(110, 23, 119)">
+                    <div class="label continuous-block" style="width: 73px; background-color: rgb(110, 23, 119); border-radius: 0 3px 3px 0;">
                         <input type="checkbox" v-model="range3">{{ mutableRanges[2] }}
                     </div>
                 </div>
@@ -203,6 +203,9 @@ export default {
                 NPMap.config.L.removeLayer(this.maps[i]);
                 this.range1 = this.range2 = this.range3 = false;
             }
+            // increase the size of the search-tool-contents
+            document.querySelector("#search-tool-contents").style.width = "1050px";            
+
             this.populated = true;
         });
 

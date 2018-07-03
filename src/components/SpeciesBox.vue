@@ -1,7 +1,7 @@
 <template>
     <div class="species-slide box" id="species-slide">
         <div id="box">
-            <div class='label' data-intro='Select a species to see how it has been affected' data-position='top'>3. Select an affected species</div>
+            <div class='label' data-intro='Select a species to see how it is affected by the attribute.' data-position='top'>2. Select species affected by {{ selectedLayer }}</div>
             <img class="species-hover-thumbnail" :src="hoverImage" :style="{ top: hoverImageTopOffset + 50 + 'px', display: hoverImageDisplay, left: hoverImageLeftOffset + 'px' }">
             <multiselect
                 :disabled="speciesNames.length == 0"
@@ -27,15 +27,15 @@
             </div>
 
             <div id='checkbox-container' tooltip='Toggle the visibility of the predicted habitat'>
-              <div id='options-predicted' class='search-checkbox' data-intro='Toggle the visibility of predicted and observed data' data-position='left'>
+              <div id='options-predicted' class='search-checkbox' data-intro='Toggle the visibility of predicted and observed data.' data-position='left'>
                 View:&nbsp; 
                 <input type='checkbox' id='options-predicted-checkbox' onkeypress='togglePredicted();' onclick='togglePredicted();' @click="updatePrediction" checked disabled />
                 <label for='options-predicted-checkbox'>Predictions</label>&nbsp;&nbsp;
                 <input type='checkbox' id='options-observed-checkbox' onkeypress='toggleObserved();' onclick='toggleObserved();' @click="updateObservation" disabled />
                 <label for='options-observed-checkbox'>Observations</label>
               </div>
-                <div id='search-initial-switch' class='label' tooltip='Choose to show latin or common species names' data-intro='Choose to show common or latin names' data-position='bottom'>
-                  View name as:
+                <div id='search-initial-switch' class='label' tooltip='Choose to show latin or common species names' data-intro='Choose to show common or latin names.' data-position='bottom'>
+                  Name convention: 
                   <input type='radio' class='search-initial-switch-sides' id='search-name-convention-common' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' @click="switchNameConvention($event)" checked :disabled="speciesNames.length == 0" />
                   <label for='search-name-convention-common'>Common</label>&nbsp;
                   <input type='radio' class='search-initial-switch-sides' id='search-name-convention-latin' name='search-name-convention' onkeypress='toggleName();' onclick='toggleName();' @click="switchNameConvention($event)" :disabled="speciesNames.length == 0" />
@@ -98,7 +98,8 @@ export default {
             hoverImageLeftOffset: 0,
             hoverImageDisplay: 'none',
             prediction: true,
-            observation: false
+            observation: false,
+            selectedLayer: "..."
         }
     },
     methods: {
@@ -233,6 +234,7 @@ export default {
                 this.selected = null;
                 return;
             }
+            this.selectedLayer = data['label'];
             this.mutableSpecies = data['related-species'];
             for (let species in this.mutableSpecies) {
                 if (this.namingConvention == 'common') {
@@ -324,6 +326,9 @@ export default {
     -webkit-transition: height 1s ease-out;
     -o-transition: height 1s ease-out;
     transition: height 1s ease-out;
+}
+.species-slide {
+    width: 300px;
 }
 #search-options {
   padding-left: 5px;

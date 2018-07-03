@@ -1,10 +1,10 @@
 <template>
-	<div class='box' style="border: none;" data-intro='Pick an environmental layer to see it on the map' data-position='top'>
-		<div class='label'>1. Select an environmental attribute</div>
+	<div class='box' style="border: none;" data-intro='Pick an environmental attribute to view it on the map. The attribute may have additional subtypes or ranges.' data-position='bottom'>
+		<div class='label' style="width: 500px;">1. Select an environmental attribute and view its subtype or range</div>
         <multiselect
             v-model="selected"
             :options="layersArray"
-            placeholder="Select a layer"
+            placeholder="Select an attribute"
             @input="layerChanged"
             label="label"
             track-by="label"
@@ -116,11 +116,11 @@ export default {
 .multiselect__select {
     padding: 0;
     height: 20px;
-    -webkit-transition: -webkit-transform 1s ease;
-    transition: -webkit-transform 1s ease;
-    -o-transition: transform 1s ease;
-    transition: transform 1s ease;
-    transition: transform 1s ease, -webkit-transform 1s ease;
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: -webkit-transform .5s ease;
+    -o-transition: transform .5s ease;
+    transition: transform .5s ease;
+    transition: transform .5s ease, -webkit-transform .5s ease;
     display: block;
 }
 .multiselect--active .multiselect__select {
@@ -194,6 +194,10 @@ export default {
 }
 .multiselect--disabled {
     background: rgb(64, 64, 61);
+    border-radius: 3px;
+}
+.multiselect--disabled .multiselect__select {
+    background: transparent;
 }
 .multiselect-enter-active
  {
