@@ -295,6 +295,9 @@ export default {
     -webkit-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
             transform: rotate(0deg);
+    -webkit-transform-origin: 50% 40%;
+        -ms-transform-origin: 50% 40%;
+            transform-origin: 50% 40%;
     -webkit-transition: -webkit-transform 1s ease-out;
     transition: -webkit-transform 1s ease-out;
     -o-transition: transform 1s ease-out;
@@ -305,6 +308,9 @@ export default {
     -webkit-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
             transform: rotate(180deg);
+    -webkit-transform-origin: 50% 40%;
+        -ms-transform-origin: 50% 40%;
+            transform-origin: 50% 40%;
     -webkit-transition: -webkit-transform 1s ease-out;
     transition: -webkit-transform 1s ease-out;
     -o-transition: transform 1s ease-out;
@@ -316,7 +322,7 @@ export default {
   display: none;
 }
 .large-image-open {
-  z-index: 10000;
+  z-index: 10001;
   display: block;
   position: fixed;
   top: 25%;
