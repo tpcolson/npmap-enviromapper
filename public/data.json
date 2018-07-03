@@ -233,8 +233,24 @@
       ]
     ]
   },
-  "cat_understory_density_class": {
-    "subcategories": [],
+  "density": {
+    "subcategories": [
+      {
+        "name": "Heavy",
+        "img": "http://via.placeholder.com/150x150",
+        "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+      },
+      {
+        "name": "Light",
+        "img": "http://via.placeholder.com/150x150",
+        "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+      },
+      {
+        "name": "Medium",
+        "img": "http://via.placeholder.com/150x150",
+        "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+      }
+    ],
     "type": "categorical",
     "name": "Understory Density",
     "related-species": [
@@ -301,7 +317,7 @@
     ],
     "info": "This is placeholder info about Understory Density"
   },
-  "cat_avg_yearly_rainfall": {
+  "con_avg_yearly_rainfall": {
     "subcategories": [],
     "type": "continuous",
     "name": "Avg Yearly Rainfall",
@@ -367,10 +383,100 @@
         "17.4513"
       ]
     ],
+    "ranges": [
+        [
+            49.0,
+            64.3
+        ],
+        [
+            64.3,
+            79.7
+        ],
+        [
+            79.7,
+            95.0
+        ]
+    ],
     "info": "This is placeholder info about Avg Yearly Rainfall"
   },
-  "cat_vegetation": {
-    "subcategories": [],
+  "vegetation": {
+    "subcategories": [
+        {
+            "name": "Alluvial vegetation",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Chestnut oak",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Evergreen Shrub",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Floodplain",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Hemlock",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "High elevation beech",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "High elevation red/white oak",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Montane cave",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Montane oak-hickory",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Northern acid hardwood",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Northern boulderfield",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Spruce-fir",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Successional",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "White pine",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        },
+        {
+            "name": "Yellow pine",
+            "img": "http://via.placeholder.com/150x150",
+            "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+        }
+    ],
     "type": "categorical",
     "name": "Vegetation",
     "related-species": [
@@ -437,8 +543,24 @@
     ],
     "info": "This is placeholder info about Vegetation"
   },
-  "cat_type_disturbance": {
-    "subcategories": [],
+  "dist": {
+    "subcategories": [
+      {
+        "name": "Insects",
+        "img": "http://via.placeholder.com/150x150",
+        "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+      },
+      {
+        "name": "Abiotic",
+        "img": "http://via.placeholder.com/150x150",
+        "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+      },
+      {
+        "name": "Fire",
+        "img": "http://via.placeholder.com/150x150",
+        "info": "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+      }
+    ],
     "type": "categorical",
     "name": "Type of Disturbance",
     "related-species": [
@@ -573,7 +695,7 @@
     ],
     "info": "This is placeholder info about Years Since Fire"
   },
-  "cat_soil_drainage_class": {
+  "soil": {
     "subcategories": [
       {
         "name": "Excessively drained",
