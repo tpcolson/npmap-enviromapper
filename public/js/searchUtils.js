@@ -360,13 +360,13 @@ function selectInitialSpecies(li) {
 
   // Populate Species Density box legend item
   if(whichName === 'latin') {
-    document.getElementById('legend-pink-contents-name').innerHTML = li._latin.replace(/_/g, ' ');
-    document.getElementById('legend-pink-contents-name').title = li._common.replace(/_/g, ' ');
+    document.getElementById('legend-blue-contents-name').innerHTML = li._latin.replace(/_/g, ' ');
+    document.getElementById('legend-blue-contents-name').title = li._common.replace(/_/g, ' ');
   } else {
-    document.getElementById('legend-pink-contents-name').innerHTML = li._common.replace(/_/g, ' ');
-    document.getElementById('legend-pink-contents-name').title = li._latin.replace(/_/g, ' ');
+    document.getElementById('legend-blue-contents-name').innerHTML = li._common.replace(/_/g, ' ');
+    document.getElementById('legend-blue-contents-name').title = li._latin.replace(/_/g, ' ');
   }
-  $('#legend-species-pink').addClass('populated');
+  $('#legend-species-blue').addClass('populated');
 
   if(control._selectedSpecies[0] !== undefined && control._selectedSpecies[0].visible) {
     recordAction('removed species', control._selectedSpecies[0]._latin.replace(/_/g, ' '));

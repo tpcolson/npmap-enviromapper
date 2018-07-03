@@ -1,6 +1,5 @@
 $(document).ready(function() {
     setTimeout(hacks, 2000);
-  $('#search-tool').one('loaded', function () { loadSettings(); });
 });
 
 window.onload = function() {
@@ -84,9 +83,6 @@ window.onload = function() {
 
   /* prepare search tool */
   prepareSearchTool().done(function () {
-
-    /* prepare color legend dragging */
-    prepareLegendDrag();
 
     /* prepare tooltips */
     $tooltips._initialize(document.body);
@@ -194,7 +190,7 @@ function toggleTooltips() {
 }
 
 function showHelp() {
-    closeDropdowns();
+  closeDropdowns();
 
   recordAction('showed help overlay');
   if(minimized) {
@@ -360,21 +356,6 @@ function toggleName() {
   }
 
   populateResults();
-
-  var el = document.getElementById('legend-blue-contents-name'),
-    tmp = el.innerHTML;
-  el.innerHTML = el.title;
-  el.title = tmp;
-
-  var el = document.getElementById('legend-pink-contents-name'),
-    tmp = el.innerHTML;
-  el.innerHTML = el.title;
-  el.title = tmp;
-
-  var el = document.getElementById('legend-orange-contents-name'),
-    tmp = el.innerHTML;
-  el.innerHTML = el.title;
-  el.title = tmp;
 
   tmp = $('.dropdown-input', '#search-initial-dropdown').val();
   $('.dropdown-input', '#search-initial-dropdown').val($('#search-initial-altname').html());

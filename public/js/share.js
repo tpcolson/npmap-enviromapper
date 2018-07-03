@@ -2,6 +2,7 @@
 /**
  * Export non default application settings.
  */
+
 function exportSettings() {
   var settings = {};
 
@@ -76,7 +77,7 @@ function loadSettings() {
   // The order that these occur is very important. This application is
   // quite brittle. Same reason that I'm using jquery to click on elements.
 
-  if (settings.tooltips === false && $tooltips._active)
+  if (settings.tooltips && settings.tooltips === false && $tooltips._active)
     toggleTooltips();
 
   if (settings.mapBackground)
@@ -106,7 +107,7 @@ function loadSettings() {
   if (settings.showObserved)
     $('#options-observed-checkbox').trigger('click');
 
-  if (settings.whichName && settings.whichName !== 'common')
+  if (settings.whichName !== 'common')
     toggleName();
 
   if (settings.blendingActive === false)

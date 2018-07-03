@@ -14,6 +14,7 @@
                 track-by="fullname"
                 @input="subcatChanged1"
                 :show-labels="false"
+                :showPointer="false"
             />
             
             <multiselect
@@ -27,6 +28,7 @@
                 track-by="fullname"
                 @input="subcatChanged2"
                 :show-labels="false"
+                :showPointer="false"
             />
 
             <span v-if="mutableType=='continuous'"> 
@@ -37,12 +39,12 @@
                     <div class="label continuous-block" style="background-color: rgb(180, 51, 139)">
                         <input type="checkbox" v-model="range2">{{ mutableRanges[1] }}
                     </div>
-                    <div class="label continuous-block" style="background-color: rgb(110, 23, 119)">
+                    <div class="label continuous-block" style="width: 73px; background-color: rgb(110, 23, 119)">
                         <input type="checkbox" v-model="range3">{{ mutableRanges[2] }}
                     </div>
                 </div>
             </span>
-		</div>
+		    </div>
         </transition>
 </template>
 
@@ -59,7 +61,6 @@ export default {
     props: [
         'subcategories',
         'type', 'ranges',
-        'range1', 'range2', 'range3',
         'firstflag'
     ],
     data: function(){
@@ -72,7 +73,10 @@ export default {
             populated: false,
             mutableSubcategories: this.subcategories,
             mutableType: this.type,
-            mutableRanges: this.ranges
+            mutableRanges: this.ranges,
+            range1: null,
+            range2: null,
+            range3: null
         }
     },
     methods: {
@@ -90,6 +94,9 @@ export default {
         subcatChange: function (value, subcatNumber) {
             if (value == null) value = { fullname: 'null' };
             this.$root.$emit('subcatChanged', value.fullname, subcatNumber);
+            let s1 = (this.selected1 == null) ? '' : this.selected1.fullname;
+            let s2 = (this.selected2 == null) ? '' : this.selected2.fullname;
+            this.$emit('updateSubCat', [s1, s2]);
         },
         subcatChanged1: function(value){
             this.subcatChange(value, 1);
@@ -102,8 +109,8 @@ export default {
                 index = this.findSubcatIndex(this.oldSelected1.fullname).index;
                 name = this.selected_layer_name + "_" + index + "_1";
                 this.updateLayer(name, false);
+                this.oldSelected1 = this.selected1;
             }
-            if (value !== null) this.oldSelected1 = this.selected1;
         },
         subcatChanged2: function(value){
             this.subcatChange(value, 2);
@@ -116,8 +123,8 @@ export default {
                 index = this.findSubcatIndex(this.oldSelected2.fullname).index;
                 name = this.selected_layer_name + "_" + index + "_2";
                 this.updateLayer(name, false);
+                this.oldSelected2 = this.selected2;
             }
-            if (value !== null) this.oldSelected2 = this.selected2;
         },
         updateLayer: function(environment, add){
             if (add)
@@ -133,6 +140,21 @@ export default {
             {
                 NPMap.config.L.removeLayer(this.maps[environment]);
             }
+        },
+        loadSettings: function(envSettings) {
+          if (envSettings.subcat !== null) {
+            for (let i = 0; i < this.mutableSubcategories.length; i++) {
+              let subcat = this.mutableSubcategories[i];
+              if (subcat.fullname == envSettings.subcat[0]) {
+                this.selected1 = subcat;
+                this.subcatChanged1(subcat);
+              }
+              if (subcat.fullname == envSettings.subcat[1]) {
+                this.selected2 = subcat;
+                this.subcatChanged2(subcat);
+              }
+            }
+          }
         }
     },
     watch: {
@@ -158,6 +180,10 @@ export default {
     mounted: function()
     {
         this.$root.$on('layerChanged', (data, id) =>{
+            if (data == 'removeLayer') {
+                this.populated = false;
+                return;
+            }
             // for example "con_slope"
             this.selected_layer_name = id;
             if (data.type == 'categorical')
@@ -177,6 +203,8 @@ export default {
             }
             this.populated = true;
         });
+
+        this.$parent.$on('settingsLoaded', this.loadSettings);
     }
 }
 </script>
@@ -216,18 +244,33 @@ export default {
 .subcat2 > .multiselect__tags > .multiselect__input {
   background: #fd8e1f;
 }
-.subcat-slide{
-    width: 220px; 
-}
-.subcat-slide-enter{
-    width: 0;
-}
-.subcat-slide-enter-to{
-    transition: height .5s ease-out;
+.subcat-slide {
     width: 220px;
 }
-.subcat-slide-leave-to{
+.subcat-slide-enter {
     width: 0;
-    transition: width .5s ease-out;
+}
+.subcat-slide-enter-to {
+    -webkit-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+    width: 220px;
+}
+.subcat-slide-leave-to {
+    width: 0px;
+    padding: 0px;
+    -webkit-transition: all 1s ease-in;
+    -o-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+}
+.subcat-slide-enter-active,
+.subcat-slide-leave-active {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.subcat-slide-enter-active > .multiselect > .multiselect__select,
+.subcat-slide-leave-active > .multiselect > .multiselect__select {
+  display: none;
 }
 </style>

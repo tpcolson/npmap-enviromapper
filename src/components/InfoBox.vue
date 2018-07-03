@@ -6,7 +6,7 @@
 
         <span style="display: block;" v-if="subcatExists1 || subcatExists2">
             <transition name="info-slide">
-            <div v-show="open" class="species-info-box">
+            <div v-show="categoricalOpen" class="info-box">
                 <transition name="info-box-subcat-1">
                 <div :class="{'info-box-subcat-title-1': true, 'info-box-subcat-title-1-inactive': !subcatActive1 }" v-show="subcatExists1" @click="subcatActive1 = true; subcatActive2 = false;">{{ subcatName1 }}</div>
                 </transition>
@@ -21,8 +21,22 @@
                 <div class="info-box-info" v-else-if="subcatInfo2 !== '' && subcatActive2">{{ subcatInfo2 }}</div>
             </div>
             </transition>
-            <div @click="open=!open" class="species-info-toggle" style="margin-left: 200px; margin-top: 0px;">
-                <div :class="{ 'triangle-closed': !open, 'triangle-open': open }" class="triangle"></div>
+            <div @click="categoricalOpen=!categoricalOpen" class="info-toggle" style="margin-left: 200px; margin-top: 0px;">
+                <div :class="{ 'triangle-closed': !categoricalOpen, 'triangle-open': categoricalOpen }" class="triangle"></div>
+            </div>
+        </span>
+        <span style="display: block;" v-else-if="type=='continuous'">
+            <transition name="info-slide">
+            <div v-show="continousOpen" class="info-box">
+                <div class="info-box-cont-title">{{ name }}</div>
+                <div style="" class="info-box-image environment-image">
+                    <img src="http://via.placeholder.com/150x150" />
+                </div>
+                <div class="info-box-info">Placeholder text about {{name}}</div>
+            </div>
+            </transition>
+            <div @click="continousOpen=!continousOpen" class="info-toggle" style="margin-left: 200px; margin-top: 0px;">
+                <div :class="{ 'triangle-closed': !continousOpen, 'triangle-open': continousOpen }" class="triangle"></div>
             </div>
         </span>
     </div>
@@ -34,15 +48,14 @@ export default {
         info:{
             default: "",
             type: String
-        },
-        layer: {
-            type: Object
         }
     },
     data: function() {
         return {
-            open: false,
+            categoricalOpen: false,
+            continousOpen: false,
             mutableInfo: this.info,
+            name: '',
             subcatName1: '',
             subcatName2: '',
             subcatImg1: '',
@@ -53,11 +66,23 @@ export default {
             subcatActive2: false,
             subcatExists1: false,
             subcatExists2: false,
-            selected: ''
+            selected: '',
+            type: null
         }
     },
     mounted: function(){
         this.$root.$on('layerChanged', data =>{
+            if (data == 'removeLayer' || data.name !== this.name) {
+                this.toggleActive(false, false);
+                this.subcatExists1 = false;
+                this.subcatExists2 = false;
+                this.selected = null;
+                this.type = null;
+                if (data == 'removeLayer') return;
+            }
+            this.layer = data;
+            this.type = data.type;
+            this.name = data.name;
             this.mutableInfo = data.info;
         });
         this.$root.$on('subcatChanged', (subcatName, subcatNumber) => {
@@ -71,7 +96,7 @@ export default {
                 }
                 this.toggleActive(true, false);
                 this.subcatName1 = name;
-                if (this.layer != undefined) {
+                if (typeof this.layer !== 'undefined') {
                     let subcat = this.layer.subcategories;
                     for (let key in subcat) {
                         if (subcatName == subcat[key].name) {
@@ -92,7 +117,7 @@ export default {
                 }
                 this.toggleActive(false, true);
                 this.subcatName2 = name;
-                if (this.layer != undefined) {
+                if (typeof this.layer !== 'undefined') {
                     let subcat = this.layer.subcategories;
                     for (let key in subcat) {
                         if (subcatName == subcat[key].name) {
@@ -122,6 +147,24 @@ export default {
 </script>
 
 <style>
+.info-toggle {
+    cursor: pointer;
+    -webkit-transform: translate(0, 8px);
+        -ms-transform: translate(0, 8px);
+            transform: translate(0, 8px);
+}
+.info-box-cont-title {
+    font-weight: bold;
+    border-bottom: 5px solid black;
+    width: 100px;
+    max-width: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    float: left;
+    cursor: pointer;
+    text-align: center;
+}
 .info-box-subcat-title-1 {
     font-weight: bold;
     border-bottom: 5px solid magenta;
@@ -131,20 +174,34 @@ export default {
     margin-bottom: 10px;
     margin-right: 10px;
     float: left;
+    cursor: pointer;
+    text-align: center;
 }
 .info-box-subcat-title-1-inactive {
     border-bottom: none;
 }
 .info-box-subcat-1-enter {
-    max-width: 0%;
+    width: 0%;
 }
 .info-box-subcat-1-enter-to {
-    max-width: 100%;
-    transition: max-width 1s linear;
+    width: 100%;
+    -webkit-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
 }
 .info-box-subcat-1-leave-to {
-    max-width: 0%;
-    transition: max-width 1s linear;
+    width: 0%;
+    -webkit-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+.info-box-subcat-1-enter-active,
+.info-box-subcat-1-leave-active {
+  overflow: hidden;
+  white-space: nowrap;
 }
 .info-box-subcat-title-2 {
     font-weight: bold;
@@ -155,54 +212,88 @@ export default {
     margin-bottom: 10px;
     margin-right: 10px;
     float: left;
+    cursor: pointer;
+    text-align: center;
 }
 .info-box-subcat-title-2-inactive {
     border-bottom: none;
 }
 .info-box-subcat-2-enter {
-    max-width: 0%;
+    width: 0%;
 }
 .info-box-subcat-2-enter-to {
-    max-width: 100%;
-    transition: max-width 1s linear;
+    width: 100%;
+    -webkit-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
 }
 .info-box-subcat-2-leave-to {
-    max-width: 0%;
-    transition: max-width 1s linear;
+    width: 0%;
+    -webkit-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
 }
+.info-box-subcat-2-enter-active,
+.info-box-subcat-2-leave-active {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .info-box-image {
     text-align: center;
     clear: both;
 }
-.species-info-box {
+.info-box {
     background-color: #EAEAEA;
     width: 470px; 
     height: 300px;
     position: relative; 
     z-index: 10000;
     color: #333;
-    box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
+    -webkit-box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
+            box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
     border: 1px solid #999;
     border-top: 0;
+    -webkit-transform: translate(0, 8px);
+        -ms-transform: translate(0, 8px);
+            transform: translate(0, 8px);
 }
 .info-slide-enter {
     height: 0;
 }
 .info-slide-enter-to {
+    -webkit-transition: height 1s ease-out;
+    -o-transition: height 1s ease-out;
     transition: height 1s ease-out;
     height: 300px;
 }
 .info-slide-leave-to {
     height: 0;
+    -webkit-transition: height 1s ease-out;
+    -o-transition: height 1s ease-out;
     transition: height 1s ease-out;
 }
 .triangle-closed {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transition: -webkit-transform 1s ease-out;
+    transition: -webkit-transform 1s ease-out;
+    -o-transition: transform 1s ease-out;
     transition: transform 1s ease-out;
+    transition: transform 1s ease-out, -webkit-transform 1s ease-out;
 }
 .triangle-open {
-    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-transition: -webkit-transform 1s ease-out;
+    transition: -webkit-transform 1s ease-out;
+    -o-transition: transform 1s ease-out;
     transition: transform 1s ease-out;
+    transition: transform 1s ease-out, -webkit-transform 1s ease-out;
 }
-
 </style>
