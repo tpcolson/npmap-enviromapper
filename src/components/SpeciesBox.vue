@@ -303,9 +303,9 @@ export default {
 }
 .species-info-toggle {
     cursor: pointer;
-    -webkit-transform: translate(0, 20px);
-        -ms-transform: translate(0, 20px);
-            transform: translate(0, 20px);
+    -webkit-transform: translate(0, 18px);
+        -ms-transform: translate(0, 18px);
+            transform: translate(0, 18px);
 }
 .speciecs-info-toggle.clicked > .triangle {
     border-top: 5px solid red;

@@ -98,7 +98,7 @@ export default {
 .multiselect .subcat1 {
     min-height: 18px;
     margin-bottom: 7px;
-    font-size: 13px !important;
+    font-size: 10pt !important;
     border: black;
     color: #f5faf2;
     max-height: none;
@@ -106,7 +106,7 @@ export default {
 .multiselect__tags {
     padding: 0;
     min-height: 18px;
-    max-height: 25px;
+    max-height: 20px;
     border-radius: 3px;
     background-color: rgb(64, 64, 61);
     border: black;
@@ -115,7 +115,7 @@ export default {
 }
 .multiselect__select {
     padding: 0;
-    height: 18px;
+    height: 20px;
     -webkit-transition: -webkit-transform 1s ease;
     transition: -webkit-transform 1s ease;
     -o-transition: transform 1s ease;
@@ -132,10 +132,19 @@ export default {
     z-index: 15000;
     top: 12px;
     margin: 0 auto;
+    color: white;
+    border-color: white transparent transparent;
 }
 .multiselect__input,
 .multiselect__single {
   width: 85%;
+  color: #f5faf2;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 10pt;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 18px;
+  min-height: 18px;
 }
 
 .multiselect--disabled > .multiselect__tags > span > .multiselect__single {
@@ -147,7 +156,7 @@ export default {
     cursor: pointer;
     font-size: 10pt;
     font-style: italic;
-    line-height: 20px;
+    line-height: 18px;
     color: #f5faf2 !important;
 }
 .multiselect__option {
@@ -155,9 +164,12 @@ export default {
     margin: 0px;
     cursor: pointer;
     color: #f5faf2;
+    font-family: "Source Sans Pro", sans-serif;
     font-size: 10pt;
     font-style: italic;
+    font-weight: 600;
     padding: 0px;
+    padding-left: 5px;
     border-top: 1px dotted #f5faf2;
     background: rgb(64, 64, 61);
 }
@@ -173,10 +185,12 @@ export default {
     color: #f5faf2;
     max-height: 20px;
     overflow: hidden;
+    line-height: 18px;
 }
 .multiselect__input {
     background: rgb(64, 64, 61);
     color: #f5faf2;
+    line-height: 18px;
 }
 .multiselect--disabled {
     background: rgb(64, 64, 61);

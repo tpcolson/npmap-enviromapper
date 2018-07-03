@@ -21,7 +21,7 @@
                 <div class="info-box-info" v-else-if="subcatInfo2 !== '' && subcatActive2">{{ subcatInfo2 }}</div>
             </div>
             </transition>
-            <div @click="categoricalOpen=!categoricalOpen" class="info-toggle" style="margin-left: 200px; margin-top: 0px;">
+            <div @click="categoricalOpen=!categoricalOpen" class="info-toggle" style="margin-left: 200px; margin-top: -2px;">
                 <div :class="{ 'triangle-closed': !categoricalOpen, 'triangle-open': categoricalOpen }" class="triangle"></div>
             </div>
         </span>
@@ -35,7 +35,7 @@
                 <div class="info-box-info">Placeholder text about {{name}}</div>
             </div>
             </transition>
-            <div @click="continousOpen=!continousOpen" class="info-toggle" style="margin-left: 200px; margin-top: 0px;">
+            <div @click="continousOpen=!continousOpen" class="info-toggle" style="margin-left: 200px; margin-top: -2px;">
                 <div :class="{ 'triangle-closed': !continousOpen, 'triangle-open': continousOpen }" class="triangle"></div>
             </div>
         </span>
