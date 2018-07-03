@@ -65,7 +65,8 @@ if __name__ == '__main__':
                 out.write(a + '\n')
 
             # patch the data file
-            data[layer_name]['ranges'] = ranges
+            if layer_name in data:
+                data[layer_name]['ranges'] = ranges
 
             out.close()
             inp.close()
