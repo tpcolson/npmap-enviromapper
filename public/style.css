@@ -2238,11 +2238,13 @@ select {
 }
 
 .continuous-block {
-  width: 72px;
+  width: 220px;
   height: 19px;
   background-color: red;
-  border-right: 1px solid #333;
   display: inline-block;
+  border-radius: 3px 3px 3px 3px;
+  text-align: center;
+  font-size: 12px;
 }
 
 .label {

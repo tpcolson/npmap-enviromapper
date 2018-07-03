@@ -33,13 +33,13 @@
 
             <span v-if="mutableType=='continuous'"> 
                 <div id="continuous-spectrum">
-                    <div class="label continuous-block" style="background-color: rgb(231, 115, 163); border-radius: 3px 0 0 3px;">
+                    <div class="label continuous-block" style="background-color: rgb(231, 115, 163);">
                         <input type="checkbox" v-model="range1">{{ mutableRanges[0] }}
                     </div>
                     <div class="label continuous-block" style="background-color: rgb(180, 51, 139)">
                         <input type="checkbox" v-model="range2">{{ mutableRanges[1] }}
                     </div>
-                    <div class="label continuous-block" style="width: 73px; background-color: rgb(110, 23, 119); border-radius: 0 3px 3px 0;">
+                    <div class="label continuous-block" style="background-color: rgb(110, 23, 119);">
                         <input type="checkbox" v-model="range3">{{ mutableRanges[2] }}
                     </div>
                 </div>
@@ -160,19 +160,13 @@ export default {
     },
     watch: {
         range1: function(val) {
-            if (val !== false) {
               this.updateLayer(this.selected_layer_name + "_0", val);
-            }
         },
         range2: function(val) {
-            if (val !== false) {
-              this.updateLayer(this.selected_layer_name + "_1", val);
-            }
+          this.updateLayer(this.selected_layer_name + "_1", val);
         },
         range3: function(val) {
-            if (val !== false) {
-              this.updateLayer(this.selected_layer_name + "_2", val);
-            }
+          this.updateLayer(this.selected_layer_name + "_2", val);
         },
         subcategories: function() {
             this.mutableSubcategories = this.subcategories;
@@ -205,7 +199,7 @@ export default {
             }
             else
             {
-                this.mutableRanges = ["0-33%", "34-66%", "67-100%"]; //data.ranges;
+                this.mutableRanges = data.ranges; //data.ranges;
             }
             this.mutableType = data.type;
             for (let i in this.maps){
