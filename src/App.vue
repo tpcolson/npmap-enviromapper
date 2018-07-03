@@ -197,4 +197,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+#search-tool-contents {
+  width: 1050px;
+}
 </style>

@@ -1,10 +1,7 @@
 <template>
-        <transition name="subcat-slide"> 
         <div class='subcat-slide box'>
-            <div v-if="mutableType=='categorical'" class='label'>&nbsp;</div>
-            <div v-if="mutableType=='continuous'" class='label'>&nbsp;</div>
+            &nbsp;
             <multiselect
-                v-if="mutableType=='categorical'"
                 class="subcat1"
                 v-model="selected1"
                 :options="mutableSubcategories"
@@ -15,10 +12,10 @@
                 @input="subcatChanged1"
                 :show-labels="false"
                 :showPointer="false"
+                :disabled="!populated"
             />
             
             <multiselect
-                v-if="mutableType=='categorical'"
                 class="subcat2"
                 v-model="selected2"
                 :options="mutableSubcategories"
@@ -29,6 +26,7 @@
                 @input="subcatChanged2"
                 :show-labels="false"
                 :showPointer="false"
+                :disabled="!populated"
             />
 
             <span v-if="mutableType=='continuous'"> 
@@ -45,7 +43,6 @@
                 </div>
             </span>
 		    </div>
-        </transition>
 </template>
 
 <script>
@@ -204,7 +201,7 @@ export default {
                 this.range1 = this.range2 = this.range3 = false;
             }
             // increase the size of the search-tool-contents
-            document.querySelector("#search-tool-contents").style.width = "1050px";            
+            //document.querySelector("#search-tool-contents").style.width = "1050px";            
 
             this.populated = true;
         });
@@ -248,34 +245,5 @@ export default {
 }
 .subcat2 > .multiselect__tags > .multiselect__input {
   background: #fd8e1f;
-}
-.subcat-slide {
-    width: 220px;
-}
-.subcat-slide-enter {
-    width: 0;
-}
-.subcat-slide-enter-to {
-    -webkit-transition: all 1s ease-out;
-    -o-transition: all 1s ease-out;
-    transition: all 1s ease-out;
-    width: 220px;
-}
-.subcat-slide-leave-to {
-    width: 0px;
-    padding: 0px;
-    -webkit-transition: all 1s ease-in;
-    -o-transition: all 1s ease-in;
-    transition: all 1s ease-in;
-}
-.subcat-slide-enter-active,
-.subcat-slide-leave-active {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.subcat-slide-enter-active > .multiselect > .multiselect__select,
-.subcat-slide-leave-active > .multiselect > .multiselect__select {
-  display: none;
 }
 </style>
