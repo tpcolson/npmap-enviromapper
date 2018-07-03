@@ -54,7 +54,7 @@
             <div v-show="open" class="species-info-box">
                 <div class="species-info-box-title">{{ selected }}</div>
                 <div style="" class="species-info-box-image">
-                    <img src="http://via.placeholder.com/150x150" @click="toggleLargeImage('http://via.placeholder.com/150x150')" />
+                    <img src="http://via.placeholder.com/150x150" @click="largeImageSource = 'http://via.placeholder.com/150x150'; showLargeImage = true;" />
                 </div>
                 <div class="info-box-info" style="">
                    <!-- The top 3 attributes that most affect this species are: -->
@@ -73,19 +73,19 @@
                 <div :class="{ 'triangle-closed': !open, 'triangle-open': open }" class="triangle"></div>
             </div>
         </span>
-        <div class="species-info-box-large-image">
-          <img :src="largeImageSource" :class="{ 'large-image-closed': !showLargeImage, 'large-image-open': showLargeImage }" @click="toggleLargeImage()">
-        </div>
+        <LargeImage :url.sync="largeImageSource" :show.sync="showLargeImage" @toggleImage="showLargeImage = false"/>
     </div>
 </template>
 
 <script>
 import InfoBox from './InfoBox.vue';
+import LargeImage from './LargeImage.vue';
 
 export default {
     name: 'SpeciesBox',
     components: {
-        InfoBox
+        InfoBox,
+        LargeImage
     },
     props: [
         'species'
