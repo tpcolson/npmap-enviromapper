@@ -722,6 +722,7 @@
     "subcategories": [],
     "type": "categorical",
     "name": "Years Since Fire",
+    "remove": "true",
     "related-species": [
       [
         "Hypoxis_hirsuta",

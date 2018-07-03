@@ -1,6 +1,6 @@
 <template>
         <transition name="subcat-slide"> 
-        <div class='subcat-slide box' v-if="populated">
+        <div class='subcat-slide box'>
             <div v-if="mutableType=='categorical'" class='label'>&nbsp;</div>
             <div v-if="mutableType=='continuous'" class='label'>&nbsp;</div>
             <multiselect

@@ -107,7 +107,7 @@ body.dragging * {
 }
 
 #search-tool-contents {
-  width: 725px;
+  width: 1050px;
   height: 100%;
   transition: width .2s;
   margin: 0 auto;

@@ -69,6 +69,11 @@ export default {
           this.layersObject = data;
           for (let key in this.layersArray) { 
             let layer = this.layersArray[key]; 
+            if (layer.hasOwnProperty("remove") && layer.remove == 'true') {
+                delete this.layersArray[key];
+                continue;
+            }
+
             if (layer.subcategories.length > 0 || layer.type == 'continuous') { 
               this.layersArray[key].label = layer.name;
             } 
