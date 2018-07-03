@@ -187,18 +187,24 @@ export default {
             }
         },
         updateObservation: function(observation) {
-          if (typeof observation !== 'undefined') {
-            this.observation = observation;
+          if (typeof observation.path !== 'undefined' && typeof observation.path[0].checked !== 'undefined') {
+            this.observation = observation.path[0].checked;
           } else {
-            this.observation = !this.observation;
+            if (observation) {
+              toggleObserved();
+            }
+            this.observation = observation;
           }
           this.$emit('updateObservation', this.observation);
         },
         updatePrediction: function(prediction) {
-          if (typeof prediction !== 'undefined') {
-            this.prediction = prediction;
+          if (typeof prediction.path !== 'undefined' && typeof prediction.path[0].checked !== 'undefined') {
+            this.prediction = prediction.path[0].checked;
           } else {
-            this.prediction = !this.prediction;
+            if (!prediction) {
+              togglePredicted();
+            }
+            this.prediction = prediction;
           }
           this.$emit('updatePrediction', this.prediction);
         },
