@@ -120,38 +120,46 @@ export default {
       let envShareButton = document.getElementById('search-banner-env-share-button');
       (new Clipboard(envShareButton, {
         text: function(trigger) {
-          var settings = self.exportEnvSettings();
-
-          // Update window's anchor/hash
-          var hash = "#" + encodeURI(JSON.stringify(settings));
+          let settings = self.exportEnvSettings();
+          let hash = "#" + encodeURI(JSON.stringify(settings));
           return location.href.split("#")[0] + hash;
         }
       })).on('success', function () {
-        // Show success tooltip or icon change. These icons have 300ms transitions
+        let shareIcon = document.getElementsByClassName('fa-share-alt')[0];
+        let shareCircle = document.getElementsByClassName('fa-check-circle')[0];
 
-        $('.messages').text('Share link copied to clipboard');
-        $('.messages').toggleClass('hide show');
+        shareIcon.classList.toggle('hide');
+        shareIcon.classList.toggle('show');
+        envShareButton.classList.toggle('hide');
+        envShareButton.classList.toggle('show');
 
-        // Hide share icon
-        $('.fa-share-alt', envShareButton).toggleClass('hide show');
-
-        // Show success icon
-        window.setTimeout(function () {
-          $('.fa-share-alt', envShareButton).hide();
-          $('.fa-check-circle', envShareButton).show().toggleClass('hide show');
+        setTimeout(function () {
+          shareIcon.style.display = 'none';
+          envShareButton.style.display = 'none';
+          shareCircle.style.display = 'inline-block';
+          shareCircle.classList.toggle('hide');
+          shareCircle.classList.toggle('show');
+          envShareButton.style.display = 'inline-block';
+          envShareButton.classList.toggle('hide');
+          envShareButton.classList.toggle('show');
         }, 310);
 
-        // After 1s, hide success icon
-        window.setTimeout(function () {
-          $('.fa-check-circle', envShareButton).toggleClass('hide show');
+        setTimeout(function () {
+          shareCircle.classList.toggle('hide');
+          shareCircle.classList.toggle('show');
+          envShareButton.classList.toggle('hide');
+          envShareButton.classList.toggle('show');
         }, 310 + 1000);
 
-        // Show share icon
-        window.setTimeout(function () {
-          $('.fa-check-circle', envShareButton).hide();
-          $('.fa-share-alt', envShareButton).show().toggleClass('hide show');
-          $('.messages').toggleClass('hide show');
-          //$('.messages').text('');
+        setTimeout(function () {
+          shareCircle.style.display = 'none';
+          envShareButton.style.display = 'none';
+          shareIcon.style.display = 'inline-block';
+          shareIcon.classList.toggle('hide');
+          shareIcon.classList.toggle('show');
+          envShareButton.style.display = 'inline-block';
+          envShareButton.classList.toggle('hide');
+          envShareButton.classList.toggle('show');
         }, 310 + 1000 + 310);
       });
     },
