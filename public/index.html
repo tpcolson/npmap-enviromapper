@@ -42,11 +42,10 @@
         {
             font-size: 13px !important;
         }
-
     </style>
   </head>
   <body>
-  <div id="adblockoverlay">Please consider whitelisting our website.<br />Not all of the features work if adblock is enabled.<br />(Click anywhere to continue)</div>
+  <div id="adblockoverlay" onclick="document.getElementById('adblockoverlay').style.display = 'none';">Please consider whitelisting our website.<br />Not all of the features work if adblock is enabled.<br />(Click anywhere to continue)</div>
   <div id="mockupoverlay">Loading...</div>
   <iframe src="https://science.nature.nps.gov/parks/grsm/species/" class="species-mapper-iframe"></iframe>
     <header>
@@ -124,17 +123,7 @@
     -->
     </rest>
 
-    <!--
-    <footer>
-      <ul>
-        <li class="home-link"><a href="https://www.nps.gov/" id="anch_0">Home</a></li>
-        <li><a href="https://www.nps.gov/faqs.htm" id="anch_1">Frequently Asked Questions</a></li>
-        <li><a href="https://www.nps.gov/aboutus/website-policies.htm" id="anch_2">Website Policies</a></li>
-        <li><a href="https://www.nps.gov/contacts.htm" id="anch_3">Contact Us</a></li>
-      </ul>
-      <span class="tag-line ir">Experience Your America</span>
-    </footer>
-    -->
+
     <div id="species-info">
         <ul class='species-list'>
             <li class='first-env'>Species Name</li>
@@ -165,11 +154,17 @@
     <script src="js/adframe.js"></script>
     <script>
       if (window.canRunAds === undefined) {
-        $('#adblockoverlay').show();
+        document.getElementById('adblockoverlay').style.display = 'block';
       }
-      $('#adblockoverlay').click(function() {
-        $('#adblockoverlay').hide();
-      });
     </script>
   </body>
+  <footer>
+    <ul>
+      <li class="home-link"><a href="https://www.nps.gov/" id="anch_0">Home</a></li>
+      <li><a href="https://www.nps.gov/faqs.htm" id="anch_1">Frequently Asked Questions</a></li>
+      <li><a href="https://www.nps.gov/aboutus/website-policies.htm" id="anch_2">Website Policies</a></li>
+      <li><a href="https://www.nps.gov/contacts.htm" id="anch_3">Contact Us</a></li>
+    </ul>
+    <span class="tag-line ir">Experience Your America</span>
+  </footer>
 </html>
