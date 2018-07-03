@@ -36,7 +36,6 @@ option {
 
 footer {
   position: fixed;
-  z-index: 10000;
   bottom: 0;
   min-width: 1246px;
 }
@@ -1316,9 +1315,8 @@ body.dragging * {
 
 #color-legend {
   display: none;
-  /* it should be hidden initially */
   position: absolute;
-  z-index: 1000;
+  z-index: 1;
   right: 5px;
   bottom: 60px;
   overflow: hidden;

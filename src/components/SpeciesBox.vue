@@ -237,15 +237,6 @@ export default {
             this.selected = envSettings.species;
             this.speciesChanged();
           }
-        },
-        toggleLargeImage: function(img) {
-          if (this.showLargeImage) {
-            this.showLargeImage = false;
-            this.largeImageSource = '';
-          } else {
-            this.showLargeImage = true;
-            this.largeImageSource = img;
-          }
         }
     },
     mounted: function()
