@@ -247,6 +247,7 @@ export default {
             this.selectedLayer = data['label'];
             this.mutableSpecies = data['related-species'];
             for (let species in this.mutableSpecies) {
+              if (this.mutableSpecies[species][2] !== 'Unspecified') {
                 if (this.namingConvention == 'common') {
                     this.speciesNames.push(this.mutableSpecies[species][2]);
                 } else {
@@ -256,6 +257,7 @@ export default {
                 }
                 this.speciesImages[this.mutableSpecies[species][2]] = this.mutableSpecies[species][4];
                 this.speciesImages[this.mutableSpecies[species][0].replace(/_/g, ' ')] = this.mutableSpecies[species][4];
+              }
             }
         });
         this.$parent.$on('settingsLoaded', this.loadSettings);
