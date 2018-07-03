@@ -154,8 +154,8 @@ export default {
         },
         mouseOutSpecies: function(e) {
           let elem = document.getElementsByClassName('species-multiselect')[0];
-          if (   e.pageX >= elem.offsetLeft + elem.offsetWidth - 10
-              || e.pageX <= elem.offsetLeft
+          if (   e.pageX >= elem.offsetLeft + elem.offsetWidth - 20
+              || e.pageX <= elem.offsetLeft + 20
               || e.pageY <= 160
               || e.pageY >= (140 + 20 * this.speciesNames.length))
           {
@@ -262,7 +262,7 @@ export default {
     },
     updated: function() {
       this.$nextTick(function() {
-        this.hoverImageLeftOffset = this.$el.offsetLeft + 235;
+        this.hoverImageLeftOffset = this.$el.offsetLeft + 315;
       });
     }
 }
