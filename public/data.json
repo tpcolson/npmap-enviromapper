@@ -1003,7 +1003,148 @@
         "info": "The steepness of a surface of the earth.",
         "subcategories": [],
         "name": "Slope",
-        "related-species": [],
+        "related-species": [
+            [
+                "Euchlaena_amoenaria",
+                "0015135",
+                "Unspecified",
+                "24.7393",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Spilosoma_virginica",
+                "0037883",
+                "Yellow Woolly Bear",
+                "23.9527",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Tetracis_cachexiata",
+                "0039820",
+                "Unspecified",
+                "23.7404",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Vitula_edmandsii",
+                "0042394",
+                "Unspecified",
+                "23.6265",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Paonias_myops",
+                "0028618",
+                "Small-Eyed Sphinx ",
+                "23.4767",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Thysanopyga_intractata",
+                "0040088",
+                "Unspecified",
+                "22.6590",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Antepione_thisoaria",
+                "0002539",
+                "Variable Antepione",
+                "22.4594",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Feralia_comstocki",
+                "0016564",
+                "Unspecified",
+                "22.3114",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Callosamia_angulifera",
+                "0006226",
+                "Tulip-Tree Silkmoth",
+                "22.0926",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Protoboarmia_porcelaria",
+                "0032939",
+                "Unspecified",
+                "22.0150",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Acronicta_hasta",
+                "0000724",
+                "Cherry Dagger Moth",
+                "21.9974",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Catocala_vidua",
+                "0007421",
+                "Widow Underwing Moth",
+                "21.3210",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Pantographa_limata",
+                "0028604",
+                "Unspecified",
+                "21.2076",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Clemensia_albata",
+                "0009033",
+                "Little White Lichen Moth ",
+                "21.1938",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Udea_rubigalis",
+                "0041610",
+                "Unspecified",
+                "21.0103",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Elaphria_grata",
+                "0013356",
+                "Unspecified",
+                "20.8792",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Metarranthis_hypocharia",
+                "0024934",
+                "Unspecified",
+                "20.7817",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Iridopsis_larvaria",
+                "0019575",
+                "Bent-Lined Gray",
+                "20.7333",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Heterocampa_umbrata",
+                "0017663",
+                "White-Blotched Heterocampa Moth",
+                "20.6197",
+                "http://via.placeholder.com/150x150"
+            ],
+            [
+                "Feltia_herilis",
+                "0016553",
+                "Unspecified",
+                "20.5296",
+                "http://via.placeholder.com/150x150"
+            ]
+        ],
         "ranges": [
             [
                 0,

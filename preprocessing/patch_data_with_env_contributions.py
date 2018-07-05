@@ -20,7 +20,8 @@ short_to_long_name = {
         "cat_years_since_fire": "cat_years_since_fire",
         "con_aspect": "con_aspect",
         "con_solar_rad": "con_direct_solar_radiation",
-        "con_elevation": "con_elevation"
+        "con_elevation": "con_elevation",
+        "con_slope": "con_slope"
     }
 
 if __name__ == '__main__':
