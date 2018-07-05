@@ -54,7 +54,7 @@
             <div v-show="open" class="species-info-box">
                 <div class="species-info-box-title">{{ selected }}</div>
                 <div style="" class="species-info-box-image">
-                    <img src="http://via.placeholder.com/150x150" @click="largeImageSource = 'http://via.placeholder.com/150x150'; showLargeImage = true;" />
+                    <img :src="selectedImage" @click="showLargeImage = true;" />
                 </div>
                 <div class="info-box-info" style="">
                    <!-- The top 3 attributes that most affect this species are: -->
@@ -97,6 +97,7 @@ export default {
             selected: '',
             speciesNames: [],
             speciesImages: [],
+            speciesTaxonomyImages: [],
             namingConvention: 'common',
             mutableSpecies: this.species,
             hoverImage: 'http://via.placeholder.com/150x150',
@@ -151,7 +152,11 @@ export default {
             let speciesName = e.srcElement.innerText;
             for (let i = 0; i < this.speciesNames.length; i++) {
                 if (this.speciesNames[i] == speciesName) {
-                    this.hoverImage = this.speciesImages[speciesName];
+                    if (this.speciesImages[speciesName] == 'http://via.placeholder.com/150x150') {
+                        this.hoverImage = this.speciesTaxonomyImages[speciesName];
+                    } else {
+                        this.hoverImage = this.speciesImages[speciesName];
+                    }
                     this.hoverImageTopOffset = i * 20;
                     break;
                 }
@@ -169,6 +174,7 @@ export default {
         },
         speciesChanged: function(){
             this.hoverImageDisplay = 'none';
+            this.selectedImage = '';
             if (this.selected == null) {
                 this.$root.$emit('speciesChanged', false);
                 this.$emit('updateSpecies', '');
@@ -182,6 +188,13 @@ export default {
                 if (selected == this.mutableSpecies[i][2] || selected.replace(/ /g, '_') == this.mutableSpecies[i][0]){
                     this.$root.$emit('speciesChanged', true, this.mutableSpecies[i][0]);
                     this.$emit('updateSpecies', selected);
+                    if (this.speciesImages[selected] == 'http://via.placeholder.com/150x150') {
+                        this.selectedImage = this.speciesTaxonomyImages[selected];
+                        this.largeImageSource = this.speciesTaxonomyImages[selected].slice(0, this.speciesTaxonomyImages[selected].length - 9) + '800px.jpg'
+                    } else {
+                        this.selectedImage = this.speciesImages[selected];
+                        this.largeImageSource = 'http://via.placeholder.com/150x150'
+                    }
                     var li = {};
                     li._id = (this.mutableSpecies[i][1]);
                     li._latin = this.mutableSpecies[i][0];
@@ -244,6 +257,7 @@ export default {
         this.$root.$on('layerChanged', data => {
             this.speciesNames = [];
             this.speciesImages = [];
+            this.speciesTaxonomyImages = [];
             this.selected = "";
             selectInitialSpecies(null,true);
             if (data == 'removeLayer') {
@@ -252,16 +266,19 @@ export default {
             this.selectedLayer = data['label'];
             this.mutableSpecies = data['related-species'];
             for (let species in this.mutableSpecies) {
-              if (this.mutableSpecies[species][2] !== 'Unspecified') {
+              let common = this.mutableSpecies[species][2];
+              let latin = this.mutableSpecies[species][0].replace(/_/g, ' ');
+              if (common !== 'Unspecified') {
                 if (this.namingConvention == 'common') {
-                    this.speciesNames.push(this.mutableSpecies[species][2]);
+                    this.speciesNames.push(common);
                 } else {
-                    let speciesName = this.mutableSpecies[species][0].replace(/_/g, ' ');
-                    this.speciesNames.push(speciesName);
+                    this.speciesNames.push(latin);
                    
                 }
-                this.speciesImages[this.mutableSpecies[species][2]] = this.mutableSpecies[species][4];
-                this.speciesImages[this.mutableSpecies[species][0].replace(/_/g, ' ')] = this.mutableSpecies[species][4];
+                this.speciesImages[common] = this.mutableSpecies[species][4];
+                this.speciesImages[latin] = this.mutableSpecies[species][4];
+                this.speciesTaxonomyImages[common] = '/Taxonomy_Images/' + this.mutableSpecies[species][5] + '_110px.jpg';
+                this.speciesTaxonomyImages[latin] = '/Taxonomy_Images/' + this.mutableSpecies[species][5] + '_110px.jpg';
               }
             }
         });
