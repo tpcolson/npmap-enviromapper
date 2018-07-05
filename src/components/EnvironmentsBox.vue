@@ -128,6 +128,10 @@ export default {
     transition: transform .5s ease;
     transition: transform .5s ease, -webkit-transform .5s ease;
     display: block;
+
+    -webkit-transform-origin: 50% 40%;
+        -ms-transform-origin: 50% 40%;
+            transform-origin: 50% 40%;
 }
 .multiselect--active .multiselect__select {
   -webkit-transform: rotateZ(-180deg);
