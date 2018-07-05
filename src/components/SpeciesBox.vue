@@ -131,6 +131,7 @@ export default {
             this.speciesNames = [];
             for (var i = 0; i < this.mutableSpecies.length; i++) 
             {
+              if (this.mutableSpecies[i][2] !== 'Unspecified') {
                 if (this.namingConvention !== 'common') {
                     let speciesName = this.mutableSpecies[i][0].replace(/_/g, ' ');
                     this.speciesNames.push(speciesName);
@@ -145,6 +146,7 @@ export default {
                         element.innerText = this.selected = this.mutableSpecies[i][2];
                     }
                 }
+              }
             }
             this.$emit('updateSpecies', this.selected);
         },
