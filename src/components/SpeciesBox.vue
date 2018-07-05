@@ -56,6 +56,7 @@
                 <div class="species-info-box-title">{{ selected }}</div>
                 <div style="" class="species-info-box-image">
                     <img :src="selectedImage" @click="showLargeImage = true;" />
+                    <i class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="showLargeImage = true;" />
                 </div>
                 <div class="info-box-info" style="">
                    <!-- The top 3 attributes that most affect this species are: -->
@@ -301,6 +302,15 @@ export default {
 }
 </script>
 <style>
+.species-info-box-image-magnifier {
+    left: 183px;
+    color: white;
+    background-color: black;
+    padding: 3px;
+    border-radius: 0 0 0 3px;
+    opacity: 0.5;
+    position: absolute;
+}
 .species-hover-thumbnail {
     position: absolute;
     width: 100px;
