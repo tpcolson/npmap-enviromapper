@@ -277,8 +277,8 @@ export default {
                 }
                 this.speciesImages[common] = this.mutableSpecies[species][4];
                 this.speciesImages[latin] = this.mutableSpecies[species][4];
-                this.speciesTaxonomyImages[common] = '/static/' + this.mutableSpecies[species][5] + '_110px.jpg';
-                this.speciesTaxonomyImages[latin] = '/static/' + this.mutableSpecies[species][5] + '_110px.jpg';
+                this.speciesTaxonomyImages[common] = '/Taxonomy_Images/' + this.mutableSpecies[species][5] + '_110px.jpg';
+                this.speciesTaxonomyImages[latin] = '/Taxonomy_Images/' + this.mutableSpecies[species][5] + '_110px.jpg';
               }
             }
         });

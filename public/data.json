@@ -1,105 +1,275 @@
 {  
-    "dist":{
-        "info":"The type of disturbance (fire, wind, insect) that has happened sometime in the past.",
+    "geology":{  
+        "info":"The type of rock underneath the trees and soil.",
         "subcategories":[  
             {  
-                "info":"Here is some information about Insects. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Insects",
+                "info":"Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Amphibolite",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Anakeesta Formation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Anakeesta Formation",
                 "img":"http://via.placeholder.com/150x150"
             },
             {  
-                "info":"Here is some information about Abiotic. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Abiotic",
+                "info":"Here is some information about Biotite augen gneiss. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Biotite augen gneiss",
                 "img":"http://via.placeholder.com/150x150"
             },
             {  
-                "info":"Here is some information about Fire. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Fire",
+                "info":"Here is some information about Blockhouse Shale. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Blockhouse Shale",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Cades Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Cades Sandstone",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Cochran Formation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Cochran Formation",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Copperhill Formation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Copperhill Formation",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Elkmont Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Elkmont Sandstone",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Helenmode Formation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Helenmode Formation",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Hesse Quartzite. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Hesse Quartzite",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Hornblende-biotite gneiss. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Hornblende-biotite gneiss",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Jonesboro Limestone. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Jonesboro Limestone",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Licklog Formation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Licklog Formation",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Longarm Quartzite. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Longarm Quartzite",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Metadiorite and metadiabase, and altered rocks. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Metadiorite and metadiabase, and altered rocks",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Metcalf Phyllite. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Metcalf Phyllite",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Migmatitic biotite gneiss. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Migmatitic biotite gneiss",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Monzogranite gneiss. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Monzogranite gneiss",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Murray Shale. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Murray Shale",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Nebo Quartzite. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Nebo Quartzite",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Nichols Shale. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Nichols Shale",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Pigeon Siltstone. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Pigeon Siltstone",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Rich Butt Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Rich Butt Sandstone",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Roaring Fork Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Roaring Fork Sandstone",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Shady Dolomite. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Shady Dolomite",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Shields Formation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Shields Formation",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Tellico Formation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Tellico Formation",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Thunderhead Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Thunderhead Sandstone",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Ultramafic rock. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Ultramafic rock",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Upper Part of Chilhowee Group, undifferentiated. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Upper Part of Chilhowee Group, undifferentiated",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Wading Branch Formation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Wading Branch Formation",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Wehutty Formation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Wehutty Formation",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Wilhite Formation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Wilhite Formation",
                 "img":"http://via.placeholder.com/150x150"
             }
         ],
         "type":"categorical",
-        "name":"Type of Disturbance",
+        "name":"Geology",
         "related-species":[  
             [  
-                "Packera_anonyma",
-                "0028378",
-                "Yellow Ragwort ",
-                "9.8273",
+                "Smilax_tamnoides_variety",
+                "0037289",
+                "Chinaroot",
+                "44.8651",
                 "http://via.placeholder.com/150x150",
                 "Vascular Plants"
             ],
             [  
-                "Tephrosia_virginiana",
-                "0039757",
-                "Goat\u2019s-Rue",
-                "7.1107",
+                "Eupatorium_purpureum_v_purpureum",
+                "0015691",
+                "Sweet Joe-Pye-Weed",
+                "42.4846",
                 "http://via.placeholder.com/150x150",
                 "Vascular Plants"
             ],
             [  
-                "Ischnosoma_lecontei",
-                "0019702",
-                "Leconte`s Rove Beetle",
-                "7.0959",
+                "Catharus_ustulatus",
+                "0007287",
+                "Swainson's Thrush",
+                "42.3107",
                 "http://via.placeholder.com/150x150",
-                "Insect"
+                "Bird"
             ],
             [  
-                "Solidago_odora",
-                "0037384",
-                "Anise-Scented Goldenrod",
-                "6.5713",
+                "Galium_lanceolatum",
+                "0017019",
+                "Lanceleaf Wild Licorice",
+                "41.2869",
                 "http://via.placeholder.com/150x150",
                 "Vascular Plants"
             ],
             [  
-                "Quercus_marilandica",
-                "0034374",
-                "Blackjack Oak",
-                "5.5742",
+                "Anaxyrus_americanus",
+                "0002088",
+                "American Toad",
+                "40.9908",
+                "http://via.placeholder.com/150x150",
+                "Amphibian"
+            ],
+            [  
+                "Eutrochium_purpureum_v_pupureum",
+                "0015973",
+                "Purple-Node Joe-Pye-Weed",
+                "40.4850",
                 "http://via.placeholder.com/150x150",
                 "Vascular Plants"
             ],
             [  
-                "Symphyotrichum_undulatum",
-                "0039094",
-                "Wavy-Leaf American-Aster",
-                "5.4568",
+                "Strix_varia",
+                "0038526",
+                "Barred Owl",
+                "40.3924",
+                "http://via.placeholder.com/150x150",
+                "Bird"
+            ],
+            [  
+                "Eurybia_surculosa",
+                "0014731",
+                "Creeping Aster",
+                "39.4316",
                 "http://via.placeholder.com/150x150",
                 "Vascular Plants"
             ],
             [  
-                "Vaccinium_arboreum",
-                "0042011",
-                "Tree Sparkle-Berry",
-                "4.8641",
+                "Silene_stellata",
+                "0036999",
+                "Widow\u2019s-Frill",
+                "39.0367",
                 "http://via.placeholder.com/150x150",
                 "Vascular Plants"
             ],
             [  
-                "Baetis_intercalaris",
-                "0003441",
-                "Lesser Small Minnow Mayfly",
-                "4.6526",
+                "Epifagus_virginiana",
+                "0014105",
+                "Beechdrops",
+                "38.7929",
                 "http://via.placeholder.com/150x150",
-                "Insect"
-            ],
-            [  
-                "Machaerodes_carinatus",
-                "0023647",
-                "Carinate Antloving Rove Beetle",
-                "4.5551",
-                "http://via.placeholder.com/150x150",
-                "Insect"
-            ],
-            [  
-                "Ephemerella_excrucians",
-                "0014006",
-                "Tormented Spiny Crawler  Mayfly",
-                "4.5453",
-                "http://via.placeholder.com/150x150",
-                "Insect"
+                "Vascular Plants"
             ]
         ]
     },
@@ -204,6 +374,470 @@
                 "10.8255",
                 "http://via.placeholder.com/150x150",
                 "Vascular Plants"
+            ]
+        ]
+    },
+    "con_avg_yearly_rainfall":{  
+        "info":"The average amount of rain that falls in a year.",
+        "subcategories":[  
+
+        ],
+        "name":"Avg Yearly Rainfall",
+        "related-species":[  
+            [  
+                "Leucothoe_recurva",
+                "0022462",
+                "Red-Twig Doghobble",
+                "26.4345",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Hypsibius_cf_dujardini",
+                "0020552",
+                "Unspecified",
+                "22.7665",
+                "http://via.placeholder.com/150x150",
+                "Misc"
+            ],
+            [  
+                "Carya_ovata",
+                "0007197",
+                "Shag-Bark Hickory",
+                "21.8053",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Odontopus_calceatus",
+                "0027121",
+                "Yellow Poplar Weevil",
+                "21.0466",
+                "http://via.placeholder.com/150x150",
+                "Insect"
+            ],
+            [  
+                "Virbia_opella",
+                "0042360",
+                "Unspecified",
+                "20.5009",
+                "http://via.placeholder.com/150x150",
+                "Insect"
+            ],
+            [  
+                "Eunotia_exigua",
+                "0015580",
+                "Meager Enotia Diatom",
+                "20.1137",
+                "http://via.placeholder.com/150x150",
+                "Algae"
+            ],
+            [  
+                "Panopoda_carneicosta",
+                "0028554",
+                "Unspecified",
+                "19.8764",
+                "http://via.placeholder.com/150x150",
+                "Insect"
+            ],
+            [  
+                "Phlogophora_periculosa",
+                "0030728",
+                "Unspecified",
+                "18.4593",
+                "http://via.placeholder.com/150x150",
+                "Insect"
+            ],
+            [  
+                "Sonoma_tolulae",
+                "0037441",
+                "Tallulah Falls Antloving Rove Beetle",
+                "17.9745",
+                "http://via.placeholder.com/150x150",
+                "Insect"
+            ],
+            [  
+                "Odontota_dorsalis",
+                "0027127",
+                "Locust Leaf Miner",
+                "17.4513",
+                "http://via.placeholder.com/150x150",
+                "Insect"
+            ]
+        ],
+        "ranges":[  
+            [  
+                49,
+                64.3
+            ],
+            [  
+                64.3,
+                79.7
+            ],
+            [  
+                79.7,
+                95
+            ]
+        ],
+        "type":"continuous"
+    },
+    "vegetation":{  
+        "info":"Types of forests.",
+        "subcategories":[  
+            {  
+                "info":"Here is some information about Alluvial vegetation. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Alluvial vegetation",
+                "img":"http://via.placeholder.com/150x150",
+                "remove": "true"
+            },
+            {  
+                "info":"Here is some information about Chestnut oak. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Chestnut oak",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Evergreen Shrub. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Evergreen Shrub",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Floodplain. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Floodplain",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Hemlock. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Hemlock",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about High elevation beech. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"High elevation beech",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about High elevation red/white oak. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"High elevation red/white oak",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Montane cave. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Montane cave",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Montane oak-hickory. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Montane oak-hickory",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Northern acid hardwood. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Northern acid hardwood",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Northern boulderfield. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Northern boulderfield",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Spruce-fir. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Spruce-fir",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Successional. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Successional",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about White pine. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"White pine",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Yellow pine. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Yellow pine",
+                "img":"http://via.placeholder.com/150x150"
+            }
+        ],
+        "type":"categorical",
+        "name":"Vegetation",
+        "related-species":[  
+            [  
+                "Solidago_speciosa_v_rigidiuscula",
+                "0037397",
+                "Showy Goldenrod",
+                "38.3096",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Gamochaeta_purpurea",
+                "0017042",
+                "Spoon-Leaf Purple Everlasting",
+                "37.0234",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Junonia_coenia",
+                "0021184",
+                "Buckeye",
+                "34.6427",
+                "http://via.placeholder.com/150x150",
+                "Insect"
+            ],
+            [  
+                "Rhus_glabra",
+                "0035112",
+                "Smooth Sumac",
+                "34.1681",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Potentilla_simplex",
+                "0032520",
+                "Oldfield Cinquefoil",
+                "34.1490",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Hypericum_punctatum",
+                "0020324",
+                "Spotted St. John\u2019S-Wort",
+                "33.8006",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Solidago_altissima_v_altissima",
+                "0037360",
+                "Canada Goldenrod",
+                "29.5313",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Vicia_caroliniana",
+                "0042287",
+                "Carolina Vetch",
+                "28.5577",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Monarda_didyma",
+                "0025564",
+                "Scarlet Beebalm",
+                "27.2382",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Spizella_passerina",
+                "0037969",
+                "Chipping Sparrow",
+                "27.0818",
+                "http://via.placeholder.com/150x150",
+                "Bird"
+            ]
+        ]
+    },
+    "cat_years_since_fire":{  
+        "info":"Years since a forest fire occured at the site.",
+        "subcategories":[  
+
+        ],
+        "name":"Years Since Fire",
+        "remove":"true",
+        "related-species":[  
+            [  
+                "Hypoxis_hirsuta",
+                "0020518",
+                "Eastern Yellow Star-Grass",
+                "26.2975",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Antennaria_Vascular Plantsaginifolia",
+                "0002528",
+                "Woman\u2019S-Tobacco",
+                "24.9317",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Aureolaria_laevigata",
+                "0004492",
+                "Entire-Leaf Yellow False Foxglove",
+                "20.3149",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Eurybia_surculosa",
+                "0014731",
+                "Creeping Aster",
+                "19.1631",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Gaylussacia_baccata",
+                "0017107",
+                "Black Huckleberry",
+                "17.2965",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Campanula_divaricata",
+                "0005276",
+                "Southern Harebell ",
+                "16.5118",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Eurybia_macrophylla",
+                "0014728",
+                "Large-Leaf Wood-Aster",
+                "16.4413",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Uvularia_puberula",
+                "0042003",
+                "Mountain Bellwort",
+                "15.7253",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Schizachyrium_scoparium_v_scoparium",
+                "0035757",
+                "Little False Bluestem",
+                "15.5777",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Uvularia_perfoliata",
+                "0042002",
+                "Perfoliate Bellwort",
+                "14.9959",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ]
+        ],
+        "type":"categorical"
+    },
+    "dist":{
+        "info":"The type of disturbance (fire, wind, insect) that has happened sometime in the past.",
+        "subcategories":[  
+            {  
+                "info":"Here is some information about Insects. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Insects",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Abiotic. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Abiotic",
+                "img":"http://via.placeholder.com/150x150"
+            },
+            {  
+                "info":"Here is some information about Fire. For example, where it encompasses, how important it is to species in general, etc.",
+                "name":"Fire",
+                "img":"http://via.placeholder.com/150x150"
+            }
+        ],
+        "type":"categorical",
+        "name":"Type of Disturbance",
+        "related-species":[  
+            [  
+                "Packera_anonyma",
+                "0028378",
+                "Yellow Ragwort ",
+                "9.8273",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Tephrosia_virginiana",
+                "0039757",
+                "Goat\u2019s-Rue",
+                "7.1107",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Ischnosoma_lecontei",
+                "0019702",
+                "Leconte`s Rove Beetle",
+                "7.0959",
+                "http://via.placeholder.com/150x150",
+                "Insect"
+            ],
+            [  
+                "Solidago_odora",
+                "0037384",
+                "Anise-Scented Goldenrod",
+                "6.5713",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Quercus_marilandica",
+                "0034374",
+                "Blackjack Oak",
+                "5.5742",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Symphyotrichum_undulatum",
+                "0039094",
+                "Wavy-Leaf American-Aster",
+                "5.4568",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Vaccinium_arboreum",
+                "0042011",
+                "Tree Sparkle-Berry",
+                "4.8641",
+                "http://via.placeholder.com/150x150",
+                "Vascular Plants"
+            ],
+            [  
+                "Baetis_intercalaris",
+                "0003441",
+                "Lesser Small Minnow Mayfly",
+                "4.6526",
+                "http://via.placeholder.com/150x150",
+                "Insect"
+            ],
+            [  
+                "Machaerodes_carinatus",
+                "0023647",
+                "Carinate Antloving Rove Beetle",
+                "4.5551",
+                "http://via.placeholder.com/150x150",
+                "Insect"
+            ],
+            [  
+                "Ephemerella_excrucians",
+                "0014006",
+                "Tormented Spiny Crawler  Mayfly",
+                "4.5453",
+                "http://via.placeholder.com/150x150",
+                "Insect"
             ]
         ]
     },
@@ -336,351 +970,6 @@
             ]
         ]
     },
-    "geology":{  
-        "info":"The type of rock underneath the trees and soil.",
-        "subcategories":[  
-            {  
-                "info":"Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Amphibolite",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Anakeesta Formation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Anakeesta Formation",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Biotite augen gneiss. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Biotite augen gneiss",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Blockhouse Shale. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Blockhouse Shale",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Cades Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Cades Sandstone",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Cochran Formation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Cochran Formation",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Copperhill Formation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Copperhill Formation",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Elkmont Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Elkmont Sandstone",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Helenmode Formation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Helenmode Formation",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Hesse Quartzite. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Hesse Quartzite",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Hornblende-biotite gneiss. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Hornblende-biotite gneiss",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Jonesboro Limestone. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Jonesboro Limestone",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Licklog Formation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Licklog Formation",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Longarm Quartzite. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Longarm Quartzite",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Metadiorite and metadiabase, and altered rocks. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Metadiorite and metadiabase, and altered rocks",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Metcalf Phyllite. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Metcalf Phyllite",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Migmatitic biotite gneiss. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Migmatitic biotite gneiss",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Monzogranite gneiss. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Monzogranite gneiss",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Murray Shale. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Murray Shale",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Nebo Quartzite. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Nebo Quartzite",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Nichols Shale. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Nichols Shale",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Pigeon Siltstone. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Pigeon Siltstone",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Rich Butt Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Rich Butt Sandstone",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Roaring Fork Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Roaring Fork Sandstone",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Shady Dolomite. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Shady Dolomite",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Shields Formation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Shields Formation",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Tellico Formation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Tellico Formation",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Thunderhead Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Thunderhead Sandstone",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Ultramafic rock. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Ultramafic rock",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Upper Part of Chilhowee Group, undifferentiated. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Upper Part of Chilhowee Group, undifferentiated",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Wading Branch Formation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Wading Branch Formation",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Wehutty Formation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Wehutty Formation",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Wilhite Formation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Wilhite Formation",
-                "img":"http://via.placeholder.com/150x150"
-            }
-        ],
-        "type":"categorical",
-        "name":"Geology",
-        "related-species":[  
-            [  
-                "Smilax_tamnoides_variety",
-                "0037289",
-                "Chinaroot",
-                "44.8651",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Eupatorium_purpureum_v_purpureum",
-                "0015691",
-                "Sweet Joe-Pye-Weed",
-                "42.4846",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Catharus_ustulatus",
-                "0007287",
-                "Swainson's Thrush",
-                "42.3107",
-                "http://via.placeholder.com/150x150",
-                "Bird"
-            ],
-            [  
-                "Galium_lanceolatum",
-                "0017019",
-                "Lanceleaf Wild Licorice",
-                "41.2869",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Anaxyrus_americanus",
-                "0002088",
-                "American Toad",
-                "40.9908",
-                "http://via.placeholder.com/150x150",
-                "Amphibian"
-            ],
-            [  
-                "Eutrochium_purpureum_v_pupureum",
-                "0015973",
-                "Purple-Node Joe-Pye-Weed",
-                "40.4850",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Strix_varia",
-                "0038526",
-                "Barred Owl",
-                "40.3924",
-                "http://via.placeholder.com/150x150",
-                "Bird"
-            ],
-            [  
-                "Eurybia_surculosa",
-                "0014731",
-                "Creeping Aster",
-                "39.4316",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Silene_stellata",
-                "0036999",
-                "Widow\u2019s-Frill",
-                "39.0367",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Epifagus_virginiana",
-                "0014105",
-                "Beechdrops",
-                "38.7929",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ]
-        ]
-    },
-    "cat_years_since_fire":{  
-        "info":"Years since a forest fire occured at the site.",
-        "subcategories":[  
-
-        ],
-        "name":"Years Since Fire",
-        "remove":"true",
-        "related-species":[  
-            [  
-                "Hypoxis_hirsuta",
-                "0020518",
-                "Eastern Yellow Star-Grass",
-                "26.2975",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Antennaria_Vascular Plantsaginifolia",
-                "0002528",
-                "Woman\u2019S-Tobacco",
-                "24.9317",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Aureolaria_laevigata",
-                "0004492",
-                "Entire-Leaf Yellow False Foxglove",
-                "20.3149",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Eurybia_surculosa",
-                "0014731",
-                "Creeping Aster",
-                "19.1631",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Gaylussacia_baccata",
-                "0017107",
-                "Black Huckleberry",
-                "17.2965",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Campanula_divaricata",
-                "0005276",
-                "Southern Harebell ",
-                "16.5118",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Eurybia_macrophylla",
-                "0014728",
-                "Large-Leaf Wood-Aster",
-                "16.4413",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Uvularia_puberula",
-                "0042003",
-                "Mountain Bellwort",
-                "15.7253",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Schizachyrium_scoparium_v_scoparium",
-                "0035757",
-                "Little False Bluestem",
-                "15.5777",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Uvularia_perfoliata",
-                "0042002",
-                "Perfoliate Bellwort",
-                "14.9959",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ]
-        ],
-        "type":"categorical"
-    },
     "con_slope":{  
         "info":"The steepness of a surface of the earth.",
         "subcategories":[  
@@ -702,110 +991,6 @@
             [  
                 53.4,
                 80.1
-            ]
-        ],
-        "type":"continuous"
-    },
-    "con_avg_yearly_rainfall":{  
-        "info":"The average amount of rain that falls in a year.",
-        "subcategories":[  
-
-        ],
-        "name":"Avg Yearly Rainfall",
-        "related-species":[  
-            [  
-                "Leucothoe_recurva",
-                "0022462",
-                "Red-Twig Doghobble",
-                "26.4345",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Hypsibius_cf_dujardini",
-                "0020552",
-                "Unspecified",
-                "22.7665",
-                "http://via.placeholder.com/150x150",
-                "Misc"
-            ],
-            [  
-                "Carya_ovata",
-                "0007197",
-                "Shag-Bark Hickory",
-                "21.8053",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Odontopus_calceatus",
-                "0027121",
-                "Yellow Poplar Weevil",
-                "21.0466",
-                "http://via.placeholder.com/150x150",
-                "Insect"
-            ],
-            [  
-                "Virbia_opella",
-                "0042360",
-                "Unspecified",
-                "20.5009",
-                "http://via.placeholder.com/150x150",
-                "Insect"
-            ],
-            [  
-                "Eunotia_exigua",
-                "0015580",
-                "Meager Enotia Diatom",
-                "20.1137",
-                "http://via.placeholder.com/150x150",
-                "Algae"
-            ],
-            [  
-                "Panopoda_carneicosta",
-                "0028554",
-                "Unspecified",
-                "19.8764",
-                "http://via.placeholder.com/150x150",
-                "Insect"
-            ],
-            [  
-                "Phlogophora_periculosa",
-                "0030728",
-                "Unspecified",
-                "18.4593",
-                "http://via.placeholder.com/150x150",
-                "Insect"
-            ],
-            [  
-                "Sonoma_tolulae",
-                "0037441",
-                "Tallulah Falls Antloving Rove Beetle",
-                "17.9745",
-                "http://via.placeholder.com/150x150",
-                "Insect"
-            ],
-            [  
-                "Odontota_dorsalis",
-                "0027127",
-                "Locust Leaf Miner",
-                "17.4513",
-                "http://via.placeholder.com/150x150",
-                "Insect"
-            ]
-        ],
-        "ranges":[  
-            [  
-                49,
-                64.3
-            ],
-            [  
-                64.3,
-                79.7
-            ],
-            [  
-                79.7,
-                95
             ]
         ],
         "type":"continuous"
@@ -1017,170 +1202,6 @@
             ]
         ],
         "type":"continuous"
-    },
-    "vegetation":{  
-        "info":"Types of forests.",
-        "subcategories":[  
-            {  
-                "info":"Here is some information about Alluvial vegetation. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Alluvial vegetation",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Chestnut oak. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Chestnut oak",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Evergreen Shrub. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Evergreen Shrub",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Floodplain. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Floodplain",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Hemlock. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Hemlock",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about High elevation beech. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"High elevation beech",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about High elevation red/white oak. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"High elevation red/white oak",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Montane cave. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Montane cave",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Montane oak-hickory. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Montane oak-hickory",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Northern acid hardwood. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Northern acid hardwood",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Northern boulderfield. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Northern boulderfield",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Spruce-fir. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Spruce-fir",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Successional. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Successional",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about White pine. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"White pine",
-                "img":"http://via.placeholder.com/150x150"
-            },
-            {  
-                "info":"Here is some information about Yellow pine. For example, where it encompasses, how important it is to species in general, etc.",
-                "name":"Yellow pine",
-                "img":"http://via.placeholder.com/150x150"
-            }
-        ],
-        "type":"categorical",
-        "name":"Vegetation",
-        "related-species":[  
-            [  
-                "Solidago_speciosa_v_rigidiuscula",
-                "0037397",
-                "Showy Goldenrod",
-                "38.3096",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Gamochaeta_purpurea",
-                "0017042",
-                "Spoon-Leaf Purple Everlasting",
-                "37.0234",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Junonia_coenia",
-                "0021184",
-                "Buckeye",
-                "34.6427",
-                "http://via.placeholder.com/150x150",
-                "Insect"
-            ],
-            [  
-                "Rhus_glabra",
-                "0035112",
-                "Smooth Sumac",
-                "34.1681",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Potentilla_simplex",
-                "0032520",
-                "Oldfield Cinquefoil",
-                "34.1490",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Hypericum_punctatum",
-                "0020324",
-                "Spotted St. John\u2019S-Wort",
-                "33.8006",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Solidago_altissima_v_altissima",
-                "0037360",
-                "Canada Goldenrod",
-                "29.5313",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Vicia_caroliniana",
-                "0042287",
-                "Carolina Vetch",
-                "28.5577",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Monarda_didyma",
-                "0025564",
-                "Scarlet Beebalm",
-                "27.2382",
-                "http://via.placeholder.com/150x150",
-                "Vascular Plants"
-            ],
-            [  
-                "Spizella_passerina",
-                "0037969",
-                "Chipping Sparrow",
-                "27.0818",
-                "http://via.placeholder.com/150x150",
-                "Bird"
-            ]
-        ]
     },
     "con_aspect":{  
         "info":"The compass bearing a given slope is facing from 0-360.",
