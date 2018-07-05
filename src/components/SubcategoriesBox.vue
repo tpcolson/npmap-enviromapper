@@ -194,7 +194,15 @@ export default {
             if (data.type == 'categorical')
             {
                 this.mutableSubcategories = data.subcategories.map(function(d, i){
-                    return {name: d.name.substring(0, 30) + "...", fullname: d.name, index: i};
+                    return {
+                        name: d.name.substring(0, 30) + "...", 
+                        fullname: d.name, 
+                        index: i, 
+                        remove: 'remove' in d ? d.remove : "false"
+                    };
+                });
+                this.mutableSubcategories = this.mutableSubcategories.filter(function(d){
+                    return d.remove != "true";
                 });
             }
             else

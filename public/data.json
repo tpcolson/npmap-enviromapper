@@ -6,7 +6,8 @@
         "name": "Amphibolite",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Amphibolite. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Anakeesta Formation",
@@ -24,7 +25,8 @@
         "name": "Blockhouse Shale",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Blockhouse Shale. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Blockhouse Shale. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Cades Sandstone",
@@ -36,7 +38,8 @@
         "name": "Cochran Formation",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Cochran Formation. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Cochran Formation. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Copperhill Formation",
@@ -54,19 +57,22 @@
         "name": "Helenmode Formation",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Helenmode Formation. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Helenmode Formation. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Hesse Quartzite",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Hesse Quartzite. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Hesse Quartzite. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Hornblende-biotite gneiss",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Hornblende-biotite gneiss. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Hornblende-biotite gneiss. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Jonesboro Limestone",
@@ -78,7 +84,8 @@
         "name": "Licklog Formation",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Licklog Formation. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Licklog Formation. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Longarm Quartzite",
@@ -90,7 +97,8 @@
         "name": "Metadiorite and metadiabase, and altered rocks",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Metadiorite and metadiabase, and altered rocks. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Metadiorite and metadiabase, and altered rocks. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Metcalf Phyllite",
@@ -102,31 +110,36 @@
         "name": "Migmatitic biotite gneiss",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Migmatitic biotite gneiss. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Migmatitic biotite gneiss. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Monzogranite gneiss",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Monzogranite gneiss. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Monzogranite gneiss. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Murray Shale",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Murray Shale. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Murray Shale. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Nebo Quartzite",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Nebo Quartzite. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Nebo Quartzite. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Nichols Shale",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Nichols Shale. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Nichols Shale. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Pigeon Siltstone",
@@ -150,43 +163,50 @@
         "name": "Shady Dolomite",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Shady Dolomite. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Shady Dolomite. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Shields Formation",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Shields Formation. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Shields Formation. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Tellico Formation",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Tellico Formation. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Tellico Formation. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Thunderhead Sandstone",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Thunderhead Sandstone. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Thunderhead Sandstone. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Ultramafic rock",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Ultramafic rock. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Ultramafic rock. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Upper Part of Chilhowee Group, undifferentiated",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Upper Part of Chilhowee Group, undifferentiated. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Upper Part of Chilhowee Group, undifferentiated. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Wading Branch Formation",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Wading Branch Formation. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Wading Branch Formation. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Wehutty Formation",
@@ -459,7 +479,8 @@
         "name": "Alluvial vegetation",
         "img": "http://via.placeholder.com/150x150",
         "info":
-          "Here is some information about Alluvial vegetation. For example, where it encompasses, how important it is to species in general, etc."
+          "Here is some information about Alluvial vegetation. For example, where it encompasses, how important it is to species in general, etc.",
+        "remove": "true"
       },
       {
         "name": "Chestnut oak",
