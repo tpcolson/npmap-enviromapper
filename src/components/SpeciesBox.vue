@@ -11,8 +11,9 @@
                 placeholder="Select or type a species"
                 @input="speciesChanged"
                 :show-labels="false"
-                class="species-multiselect"
                 :showPointer="false"
+                :optionsLimit="10"
+                class="species-multiselect"
             >
             <p slot="noResult">No species found. Consider changing your search.</p>
             <template slot="option" slot-scope="props">
