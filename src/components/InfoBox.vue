@@ -16,6 +16,8 @@
                 <div style="" class="info-box-image environment-image">
                     <img v-if="subcatImg1 !== '' && subcatActive1" :src="subcatImg1" @click="largeImageSource = subcatImg1; showLargeImage = true;" />
                     <img v-else-if="subcatImg2 !== '' && subcatActive2" :src="subcatImg2" @click="largeImageSource = subcatImg2; showLargeImage = true;"/>
+                    <i v-if="subcatImg1 !== '' && subcatActive1" class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = subcatImg1; showLargeImage = true;" />
+                    <i v-if="subcatImg2 !== '' && subcatActive2" class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = subcatImg2; showLargeImage = true;" />
                 </div>
                 <div class="info-box-info" v-if="subcatInfo1 !== '' && subcatActive1">{{ subcatInfo1 }}</div>
                 <div class="info-box-info" v-else-if="subcatInfo2 !== '' && subcatActive2">{{ subcatInfo2 }}</div>
@@ -31,6 +33,7 @@
                 <div class="info-box-cont-title">{{ name }}</div>
                 <div style="" class="info-box-image environment-image">
                     <img src="http://via.placeholder.com/150x150" @click="largeImageSource = 'http://via.placeholder.com/150x150'; showLargeImage = true;"/>
+                    <i class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = 'http://via.placeholder.com/150x150'; showLargeImage = true;" />
                 </div>
                 <div class="info-box-info">Placeholder text about {{name}}</div>
             </div>
