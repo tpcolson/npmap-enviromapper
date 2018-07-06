@@ -303,13 +303,12 @@ export default {
 </script>
 <style>
 .species-info-box-image-magnifier {
-    left: 183px;
     color: white;
     background-color: black;
     padding: 3px;
-    border-radius: 0 0 0 3px;
+    border-radius: 3px 0 0 0;
     opacity: 0.5;
-    position: absolute;
+    transform: translate(-18px, -5px)
 }
 .species-hover-thumbnail {
     position: absolute;
