@@ -33,13 +33,13 @@
 
             <span v-if="mutableType=='continuous'"> 
                 <div id="continuous-spectrum">
-                    <div class="label continuous-block" style="background-color: rgb(231, 115, 163);">
+                    <div class="label continuous-block" style="background-color: rgb(231, 115, 163); border-radius: 3px 3px 0 0">
                         <input type="checkbox" v-model="range1">{{ mutableRanges[0] }}
                     </div>
-                    <div class="label continuous-block" style="background-color: rgb(180, 51, 139)">
+                    <div class="label continuous-block" style="background-color: rgb(180, 51, 139); border-radius: 0;">
                         <input type="checkbox" v-model="range2">{{ mutableRanges[1] }}
                     </div>
-                    <div class="label continuous-block" style="background-color: rgb(110, 23, 119);">
+                    <div class="label continuous-block" style="background-color: rgb(110, 23, 119); border-radius: 0 0 3px 3px">
                         <input type="checkbox" v-model="range3">{{ mutableRanges[2] }}
                     </div>
                 </div>
@@ -257,5 +257,9 @@ export default {
 }
 .subcat2 > .multiselect__tags > .multiselect__input {
   background: #fd8e1f;
+}
+.continuous-block
+{
+    text-align: left;
 }
 </style>
