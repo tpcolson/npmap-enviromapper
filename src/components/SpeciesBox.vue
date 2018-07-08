@@ -12,7 +12,7 @@
                 @input="speciesChanged"
                 :show-labels="false"
                 :showPointer="false"
-                :optionsLimit="10"
+                :optionsLimit="speciesOptionsLimit"
                 class="species-multiselect"
             >
             <p slot="noResult">No species found. Consider changing your search.</p>
@@ -110,7 +110,8 @@ export default {
             observation: false,
             selectedLayer: "...",
             largeImageSource: '',
-            showLargeImage: false
+            showLargeImage: false,
+            speciesOptionsLimit: 10
         }
     },
     methods: {
@@ -171,7 +172,7 @@ export default {
           if (   e.pageX >= elem.offsetLeft + elem.offsetWidth - 20
               || e.pageX <= elem.offsetLeft + 20
               || e.pageY <= 160
-              || e.pageY >= (140 + 20 * this.speciesNames.length))
+              || e.pageY >= (140 + 20 * this.speciesOptionsLimit))
           {
             this.hoverImageDisplay = 'none';
           }
