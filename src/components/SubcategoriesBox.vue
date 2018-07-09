@@ -133,7 +133,7 @@ export default {
                 let temp = L.npmap.layer.mapbox({
                     name: environment,
                     opacity: .5, //blendingActive ? .5 : 1,
-                    id: 'mahmadza.GRSM_' + environment
+                    id: (process.env.NODE_ENV == 'development' ? 'mahmadza.GRSM_' : 'nps.GRSM_') + environment
                 });
                 this.maps[environment] = temp.addTo(NPMap.config.L)
             }
@@ -160,12 +160,15 @@ export default {
     },
     watch: {
         range1: function(val) {
-              this.updateLayer(this.selected_layer_name + "_0", val);
+          if (val == null) return;
+          this.updateLayer(this.selected_layer_name + "_0", val);
         },
         range2: function(val) {
+          if (val == null) return;
           this.updateLayer(this.selected_layer_name + "_1", val);
         },
         range3: function(val) {
+          if (val == null) return;
           this.updateLayer(this.selected_layer_name + "_2", val);
         },
         subcategories: function() {
@@ -212,7 +215,7 @@ export default {
             this.mutableType = data.type;
             for (let i in this.maps){
                 NPMap.config.L.removeLayer(this.maps[i]);
-                this.range1 = this.range2 = this.range3 = false;
+                this.range1 = this.range2 = this.range3 = null;
             }
 
             this.populated = true;

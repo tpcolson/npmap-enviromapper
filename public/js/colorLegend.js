@@ -19,12 +19,14 @@ var order = [
   0
 ];
 
+/* never called - replaced in SubcategoriesBox.vue */
+/*
 function addEnviro(environment)
 {
-    /*
-    if (lastEnvironmentLayer != null)
-        NPMap.config.L.removeLayer(lastEnvironmentLayer);
-        */
+    
+//    if (lastEnvironmentLayer != null)
+//        NPMap.config.L.removeLayer(lastEnvironmentLayer);
+
     blendingActive = true;
     temp = L.npmap.layer.mapbox({
         name: environment,
@@ -33,7 +35,7 @@ function addEnviro(environment)
     });
     lastEnvironmentLayer = temp.addTo(NPMap.config.L);
 }
-
+*/
 function drawData() {
   for(var i = 0; i < order.length; i++) {
     var idx = order[i],

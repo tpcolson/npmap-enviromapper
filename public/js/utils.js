@@ -433,6 +433,8 @@ function hacks()
         });
     }
 
+    /* not used - the dropdowns were removed with the inclusion of Multiselect */
+    /*
     $("#search-initial-dropdown-select.environments li").on("click", function(){
         $("#dropdown-initial-input").val($(this).text());
         toggleSearchList(0);
@@ -475,9 +477,9 @@ function hacks()
             counter++;
             $(this).css("background-color", color); 
         });
-        */
+        *//*
     });
-
+*/
     $(".species-list").on("click", "li", function(){
         var parent = $(this).parent().parent().parent();
         parent.children(".species-info-box").show();
