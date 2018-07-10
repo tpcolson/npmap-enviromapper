@@ -1,18 +1,19 @@
 {
   "dist": {
     "info":
-      "The type of disturbance (fire, wind, insect) that has happened sometime in the past.",
+      "The type of disturbance (wind, fire) that has happened sometime in the past.",
     "subcategories": [
       {
         "info":
           "Here is some information about Insects. For example, where it encompasses, how important it is to species in general, etc.",
         "name": "Insects",
-        "img": "http://via.placeholder.com/150x150"
+        "img": "http://via.placeholder.com/150x150",
+        "remove": "true"
       },
       {
         "info":
           "Here is some information about Abiotic. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Abiotic",
+        "name": "Wind",
         "img": "http://via.placeholder.com/150x150"
       },
       {
@@ -629,6 +630,7 @@
     ],
     "type": "categorical",
     "name": "Soil Drainage Class",
+    "remove": "true",
     "related-species": [
       [
         "Calopteryx_maculata",
