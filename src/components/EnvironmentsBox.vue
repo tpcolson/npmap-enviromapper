@@ -99,6 +99,11 @@ export default {
 }
 </script>
 <style>
+.multiselect--disabled > .multiselect__tags,
+.multiselect--disabled > .multiselect__tags > .multiselect__single,
+.multiselect--disabled > .multiselect__tags > span > .multiselect__single {
+  background: gray !important;
+}
 
 .multiselect,
 .multiselect .subcat1 {

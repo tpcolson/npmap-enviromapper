@@ -184,14 +184,15 @@ export default {
     mounted: function()
     {
         this.$root.$on('layerChanged', (data, id) =>{
-            if (data == 'removeLayer') {
-                this.populated = false;
-                return;
-            }
             this.selected1 = "";
             this.selected2 = "";
             this.oldSelected1 = "";
             this.oldSelected2 = "";
+            if (data == 'removeLayer') {
+                this.populated = false;
+                return;
+            }
+            
             // for example "con_slope"
             this.selected_layer_name = id;
             if (data.type == 'categorical')
@@ -239,12 +240,8 @@ export default {
   border: 1px solid black;
   background:  #c41c8e;
 }
-.subcat1 > .multiselect__tags > .multiselect__single {
-  background: #c41c8e;
-}
-.subcat1 > .multiselect__tags > span > .multiselect__single {
-  background: #c41c8e;
-}
+.subcat1 > .multiselect__tags > .multiselect__single,
+.subcat1 > .multiselect__tags > span > .multiselect__single,
 .subcat1 > .multiselect__tags > .multiselect__input {
   background: #c41c8e;
 }
@@ -252,12 +249,8 @@ export default {
   border: 1px solid black;
   background:  #fd8e1f;
 }
-.subcat2 > .multiselect__tags > .multiselect__single {
-  background: #fd8e1f;
-}
-.subcat2 > .multiselect__tags > span > .multiselect__single {
-  background: #fd8e1f;
-}
+.subcat2 > .multiselect__tags > .multiselect__single,
+.subcat2 > .multiselect__tags > span > .multiselect__single,
 .subcat2 > .multiselect__tags > .multiselect__input {
   background: #fd8e1f;
 }
