@@ -33,23 +33,24 @@ export default {
     methods: {
         layerChanged: function(){
             this.$root.$emit('speciesChanged', false);
-            if (this.$data.selected == null) {
+            if (this.selected == null || this.selected.label == 'Clear Selection') {
+                this.selected = null;
                 this.$root.$emit('layerChanged', 'removeLayer', null);
                 this.$emit('updateEnv', '');
                 return;
             }
             let selected;
             for (let key in this.layersArray) {
-                if (this.layersArray[key].name == this.$data.selected.name) { 
+                if (this.layersArray[key].name == this.selected.name) { 
                     selected = key; 
                     break;
                 } 
             }
-            for (let key in this.$data.layersObject) {
-                if (this.$data.layersArray[selected].name == this.$data.layersObject[key].name) {
-                    this.$root.$emit('layerChanged', this.$data.layersArray[selected], 
+            for (let key in this.layersObject) {
+                if (this.layersArray[selected].name == this.layersObject[key].name) {
+                    this.$root.$emit('layerChanged', this.layersArray[selected], 
                         key);
-                    this.$emit('updateEnv', this.$data.layersArray[selected].name);
+                    this.$emit('updateEnv', this.layersArray[selected].name);
                     break;
                 }
             }
@@ -82,6 +83,7 @@ export default {
               this.layersArray[key].label = '-' + layer.name;
             }
           }
+          this.layersArray.unshift({label: 'Clear Selection'})
         }
     },
     mounted: function()

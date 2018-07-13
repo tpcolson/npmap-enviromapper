@@ -98,6 +98,11 @@ export default {
             this.$emit('updateSubCat', [s1, s2]);
         },
         subcatChanged1: function(value){
+            let clear = false;
+            if (value !== null && value.fullname == 'Clear Selection') {
+              clear = true;
+              value = null;
+            }
             this.subcatChange(value, 1);
             let index, name;
             if (this.oldSelected1 !== '') {
@@ -111,8 +116,14 @@ export default {
             let add = (value == null) ? false : true;
             this.updateLayer(name, add);
             if (value !== null) this.oldSelected1 = this.selected1;
+            if (clear) this.selected1 = '';
         },
         subcatChanged2: function(value){
+            let clear = false;
+            if (value !== null && value.fullname == 'Clear Selection') {
+              clear = true;
+              value = null;
+            }
             this.subcatChange(value, 2);
             let index, name;
             if (this.oldSelected2 !== '') {
@@ -126,6 +137,7 @@ export default {
             let add = (value == null) ? false : true;
             this.updateLayer(name, add);
             if (value !== null) this.oldSelected2 = this.selected2;
+            if (clear) this.selected2 = '';
         },
         updateLayer: function(environment, add){
             if (add)
@@ -184,14 +196,16 @@ export default {
     mounted: function()
     {
         this.$root.$on('layerChanged', (data, id) =>{
+            if (data == 'removeLayer') {
+              this.populated = false;
+              this.subcatChanged1(null);
+              this.subcatChanged2(null);
+            }
             this.selected1 = "";
             this.selected2 = "";
             this.oldSelected1 = "";
             this.oldSelected2 = "";
-            if (data == 'removeLayer') {
-                this.populated = false;
-                return;
-            }
+            if (data == 'removeLayer') return;
             
             // for example "con_slope"
             this.selected_layer_name = id;
@@ -208,6 +222,7 @@ export default {
                 this.mutableSubcategories = this.mutableSubcategories.filter(function(d){
                     return d.remove != "true";
                 });
+                this.mutableSubcategories.unshift({fullname: 'Clear Selection'});
             }
             else
             {

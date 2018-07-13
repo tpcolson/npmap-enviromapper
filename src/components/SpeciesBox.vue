@@ -153,8 +153,12 @@ export default {
             this.$emit('updateSpecies', this.selected);
         },
         mouseOverSpecies: function(e) {
-            if (this.hoverImageDisplay !== 'block') this.hoverImageDisplay = 'block';
             let speciesName = e.srcElement.innerText;
+            if (speciesName == 'Clear Selection') {
+              this.hoverImageDisplay = 'none';
+              return;
+            }
+            if (this.hoverImageDisplay !== 'block') this.hoverImageDisplay = 'block';
             for (let i = 0; i < this.speciesNames.length; i++) {
                 if (this.speciesNames[i] == speciesName) {
                     if (this.speciesImages[speciesName] == 'http://via.placeholder.com/150x150') {
@@ -180,7 +184,8 @@ export default {
         speciesChanged: function(){
             this.hoverImageDisplay = 'none';
             this.selectedImage = '';
-            if (this.selected == null) {
+            if (this.selected == null || this.selected == 'Clear Selection') {
+                this.selected = null;
                 this.$root.$emit('speciesChanged', false);
                 this.$emit('updateSpecies', '');
                 return;
@@ -286,6 +291,7 @@ export default {
                 this.speciesTaxonomyImages[latin] = '/Taxonomy_Images/' + this.mutableSpecies[species][5] + '_110px.jpg';
               }
             }
+            this.speciesNames.unshift('Clear Selection');
         });
         this.$parent.$on('settingsLoaded', this.loadSettings);
     },
