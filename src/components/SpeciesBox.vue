@@ -188,8 +188,8 @@ export default {
                 this.selected = null;
                 this.$root.$emit('speciesChanged', false);
                 this.$emit('updateSpecies', '');
+                selectInitialSpecies(null, true);
                 return;
-                /* need to add removing of species layer */
             }
 
             let selected = this.selected;
