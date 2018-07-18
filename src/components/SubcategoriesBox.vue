@@ -114,7 +114,7 @@ export default {
             index = this.findSubcatIndex(fullname).index;
             name = this.selected_layer_name + "_" + index + "_1";
             let add = (value == null) ? false : true;
-            this.updateLayer(name, add);
+            if (index !== undefined) this.updateLayer(name, add);
             if (value !== null) this.oldSelected1 = this.selected1;
             if (clear) this.selected1 = '';
         },
@@ -135,7 +135,7 @@ export default {
             index = this.findSubcatIndex(fullname).index;
             name = this.selected_layer_name + "_" + index + "_2";
             let add = (value == null) ? false : true;
-            this.updateLayer(name, add);
+            if (index !== undefined) this.updateLayer(name, add);
             if (value !== null) this.oldSelected2 = this.selected2;
             if (clear) this.selected2 = '';
         },

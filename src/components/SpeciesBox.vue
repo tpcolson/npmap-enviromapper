@@ -58,9 +58,12 @@
                     <img :src="selectedImage" @click="showLargeImage = true;" />
                     <i class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="showLargeImage = true;" />
                 </div>
-                <div class="info-box-info" style="">
-                   <!-- The top 3 attributes that most affect this species are: -->
-                   This is placeholder info about {{ selected }}
+                <div class="info-box-info">
+                  <div v-if='namingConvention == "common"' style="margin: none;">Latin name: {{selectedNames.latin}}</div>
+                  <div v-if='namingConvention == "latin"'>Common name: {{selectedNames.common}}</div>
+                  <br><br>
+                  <!-- The top 3 attributes that most affect this species are: -->
+                  This is placeholder info about {{ selected }}
                 </div>
                 <!--
                 <ul>
@@ -97,6 +100,7 @@ export default {
             open: false,
             layers: [],
             selected: '',
+            selectedNames: {},
             speciesNames: [],
             speciesImages: [],
             speciesTaxonomyImages: [],
@@ -130,7 +134,7 @@ export default {
             if (typeof this.mutableSpecies == 'undefined' || typeof this.mutableSpecies.length == 'undefined') return;
             let element = document.getElementsByClassName('species-multiselect')[0].getElementsByClassName('multiselect__single')[0];
             let currentSpeciesName = element.innerText;
-            this.speciesNames = [];
+            this.speciesNames = ['Clear Selection'];
             for (var i = 0; i < this.mutableSpecies.length; i++) 
             {
               if (this.mutableSpecies[i][2] !== 'Unspecified') {
@@ -196,6 +200,8 @@ export default {
             for (var i = 0; i < this.mutableSpecies.length; i++)
             {
                 if (selected == this.mutableSpecies[i][2] || selected.replace(/ /g, '_') == this.mutableSpecies[i][0]){
+                    this.selectedNames.common = this.mutableSpecies[i][2];
+                    this.selectedNames.latin = this.mutableSpecies[i][0].replace(/_/g, ' ');
                     this.$root.$emit('speciesChanged', true, this.mutableSpecies[i][0]);
                     this.$emit('updateSpecies', selected);
                     if (this.speciesImages[selected] == 'http://via.placeholder.com/150x150') {
@@ -353,7 +359,7 @@ export default {
 }
 .species-info-box-image {
     text-align: center;
-    height: 200px;
+    height: auto;
     width: 150px;
 }
 .species-info-toggle {
