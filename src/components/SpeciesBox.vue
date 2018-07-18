@@ -277,6 +277,7 @@ export default {
             this.selected = "";
             selectInitialSpecies(null,true);
             if (data == 'removeLayer') {
+                this.selectedLayer = '...';
                 return;
             }
             this.selectedLayer = data['label'];
