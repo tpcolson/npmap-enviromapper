@@ -1,7 +1,7 @@
 <template>
     <div class="species-slide box" id="species-slide">
         <div id="box">
-            <div class='label' data-intro='Select a species to see how it is affected by the attribute.' data-position='top'>2. Select species affected by {{ selectedLayer }}</div>
+            <div class='label' data-intro='Select a species to see how it is affected by the attribute.' data-position='top'>2. Select species affected by {{ selectedLayer | Shorten }}</div>
             <img class="species-hover-thumbnail" :src="hoverImage" :style="{ top: hoverImageTopOffset + 50 + 'px', display: hoverImageDisplay, left: hoverImageLeftOffset + 'px' }">
             <multiselect
                 :disabled="speciesNames.length == 0"
@@ -312,6 +312,15 @@ export default {
       this.$nextTick(function() {
         this.hoverImageLeftOffset = this.$el.offsetLeft + 315;
       });
+    },
+    filters: {
+        Shorten(value) {
+            let max_text_len = 15;
+            if (value.length > max_text_len) {
+                return value.substr(0, max_text_len) + "...";
+            }
+            return value;
+        }
     }
 }
 </script>
