@@ -3,7 +3,7 @@
         <div id='search-options' class='bordered'>
           <div id='search-options-left'>
             <div id='options-label label' style="color: #efefef">MAP CONTROLS</div>
-
+            
             <multiselect
               class="controls"
               v-model="selectedBackgroundOption"
@@ -16,6 +16,7 @@
               :showPointer="false"
               data-intro='Change the map background.'
               data-position='right'
+              v-if="false"
             />
             <multiselect
               class="controls"

@@ -12,14 +12,14 @@
       },
       {
         "info":
-          "Here is some information about Abiotic. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Wind",
+          "Here is some information about Fire. For example, where it encompasses, how important it is to species in general, etc.",
+        "name": "Fire",
         "img": "http://via.placeholder.com/150x150"
       },
       {
         "info":
-          "Here is some information about Fire. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Fire",
+          "Here is some information about Wind. For example, where it encompasses, how important it is to species in general, etc.",
+        "name": "Wind",
         "img": "http://via.placeholder.com/150x150"
       }
     ],
@@ -816,8 +816,13 @@
         "img": "http://via.placeholder.com/150x150"
       }
     ],
-    "type": "categorical",
-    "name": "Understory Density",
+    "ranges": [
+        "Heavy", 
+        "Medium", 
+        "Light"
+    ],
+    "type": "continuous",
+    "name": "Evergreen Shrub Density",
     "related-species": [
       [
         "Vanessa_virginiensis",
