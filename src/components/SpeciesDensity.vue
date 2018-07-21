@@ -46,6 +46,7 @@ export default {
     this.$root.$on('speciesChanged', (show, name) => {
       this.show = show;
       if (show) {
+        document.getElementById('toggle-species-three').checked = true;
         findAUC(2, name);
       }
     });
