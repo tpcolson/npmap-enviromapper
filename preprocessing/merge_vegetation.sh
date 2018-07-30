@@ -2,49 +2,43 @@
 
 for color in {1..2}; do
     j=0
-    cp tmp/vegetation_alluvial_vegetation_"$color".tif sublayers/vegetation_"$j"_"$color".tif
+    cp tmp/vegetation_cove_"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    cp tmp/vegetation_chestnut_oak_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
+    # Skipping dead
+
+    cp tmp/vegetation_grass_"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    /usr/bin/python $(which gdal_merge.py) -n 0 -a_nodata 0 -o sublayers/vegetation_"$j"_"$color".tif tmp/vegetation_ericaceous_*"$color".tif
+    #/usr/bin/python $(which gdal_merge.py) -n 0 -a_nodata 0 -o sublayers/vegetation_"$j"_"$color".tif tmp/vegetation_ericaceous_*"$color".tif
+    #j=$(( j + 1 ));
+
+    cp tmp/vegetation_heath_"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    cp tmp/vegetation_floodplain_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
+    cp tmp/vegetation_hemlock_"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    cp tmp/vegetation_hemlock_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
+    cp tmp/vegetation_high_hardwood_"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    cp tmp/vegetation_high_elevation_beech_red_oak_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
+    cp tmp/vegetation_montane_alluv__"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    cp tmp/vegetation_high_elevation_red_oak_white_oak_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
+    cp tmp/vegetation_oak_"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    cp tmp/vegetation_montane_cove_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
+    cp tmp/vegetation_pine_oak_"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    cp tmp/vegetation_montane_oak_hickory_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
+    # Skipping rock
+
+    cp tmp/vegetation_spruce_fir_"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    cp tmp/vegetation_northern_hardwood_acid_hardwood_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
+    cp tmp/vegetation_successional_"$color".tif sublayers/vegetation_"$j"_"$color".tif
     j=$(( j + 1 ));
 
-    cp tmp/vegetation_northern_hardwood_boulderfield_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
-    j=$(( j + 1 ));
-
-    cp tmp/vegetation_spruce_fir_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
-    j=$(( j + 1 ));
-
-    /usr/bin/python $(which gdal_merge.py) -n 0 -a_nodata 0 -o sublayers/vegetation_"$j"_"$color".tif tmp/vegetation_successional_*"$color".tif
-    j=$(( j + 1 ));
-
-    cp tmp/vegetation_white_pine_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
-    j=$(( j + 1 ));
-
-    cp tmp/vegetation_yellow_pine_forests_"$color".tif sublayers/vegetation_"$j"_"$color".tif
-    j=$(( j + 1 ));
+    # skipping water
 done
 

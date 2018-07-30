@@ -43,12 +43,12 @@
         <div id='search-tool-extra-controls'>
           <div id='search-banner-help-share' class='bordered' tooltip='Get a shareable link'>
               <button id='search-banner-env-share-button' alt='Get a shareable link.'>
-              <i class="fa fa-share-alt fades show"></i>
+              <i class="fa fa-share-square fades show"></i>
               <i class="fa fa-check-circle fades hide"></i>
             </button>
           </div>
           <div id='search-banner-help-link' class='bordered' tooltip='Get help using the tool'>
-            <button id='search-banner-help-link-button'  onclick='showHelp();' alt='Show the help overlay.'>?</button>
+            <button id='search-banner-help-link-button'  onclick='showHelp();' alt='Show the help overlay.'> <i class="fa fa-question fades hide"></i> </button>
           </div>
         </div>
 
