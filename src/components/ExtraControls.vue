@@ -128,6 +128,7 @@ export default {
       })).on('success', function () {
         let shareIcon = document.getElementsByClassName('fa-share-alt')[0];
         let shareCircle = document.getElementsByClassName('fa-check-circle')[0];
+        let notice = document.getElementById('clipboard-notice');
 
         shareIcon.classList.toggle('hide');
         shareIcon.classList.toggle('show');
@@ -143,7 +144,7 @@ export default {
           envShareButton.style.display = 'inline-block';
           envShareButton.classList.toggle('hide');
           envShareButton.classList.toggle('show');
-          $('#clipboard-notice').css({"opacity": .4});
+          notice.style.opacity = 0.4;
         }, 310);
 
         setTimeout(function () {
@@ -151,7 +152,7 @@ export default {
           shareCircle.classList.toggle('show');
           envShareButton.classList.toggle('hide');
           envShareButton.classList.toggle('show');
-          $("#clipboard-notice").animate({"opacity": 0}, 1000);
+          notice.style.opacity = 0.0;
         }, 310 + 1000);
 
         setTimeout(function () {
@@ -199,4 +200,7 @@ export default {
   width: 80%;
 }
 
+#clipboard-notice {
+  transition: opacity 1.5s;
+}
 </style>
