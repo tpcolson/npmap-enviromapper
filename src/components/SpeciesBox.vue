@@ -14,6 +14,7 @@
                 :showPointer="false"
                 :optionsLimit="speciesOptionsLimit"
                 class="species-multiselect"
+                :class="{ 'species-selected': selected !== '' && selected !== null }"
             >
             <p slot="noResult">No species found. Consider changing your search.</p>
             <template slot="option" slot-scope="props">
@@ -50,7 +51,7 @@
         </div>
 
 
-        <span v-if="selected !== ''">
+        <span v-if="selected !== '' && selected !== null">
             <transition name="species-info-slide">
             <div v-show="open" class="species-info-box">
                 <div class="species-info-box-title">{{ selected }}</div>
@@ -159,7 +160,7 @@ export default {
         },
         mouseOverSpecies: function(e) {
             let speciesName = e.srcElement.innerText;
-            if (speciesName == 'Sorted by most effective to least' || speciesName == 'Clear Selection') {
+            if (speciesName == 'Sorted by most effected to least' || speciesName == 'Clear Selection') {
               this.hoverImageDisplay = 'none';
               return;
             }
@@ -272,7 +273,7 @@ export default {
     mounted: function()
     {
         this.$root.$on('layerChanged', data => {
-            this.speciesNames = ['Sorted by most effective to least', 'Clear Selection'];
+            this.speciesNames = ['Sorted by most effected to least', 'Clear Selection'];
             this.speciesImages = [];
             this.speciesTaxonomyImages = [];
             this.selected = "";
@@ -423,5 +424,15 @@ export default {
 
 .species-multiselect > .multiselect__content-wrapper > .multiselect__content > .multiselect__element:nth-child(1) {
     pointer-events: none;
+}
+
+.species-selected > .multiselect__tags {
+  border: 1px solid black;
+  background:  #1d909b;
+}
+.species-selected > .multiselect__tags > .multiselect__single,
+.species-selected > .multiselect__tags > span > .multiselect__single,
+.species-selected > .multiselect__tags > .multiselect__input {
+  background: #1d909b;
 }
 </style>

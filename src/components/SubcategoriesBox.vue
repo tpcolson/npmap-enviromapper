@@ -4,6 +4,7 @@
             <multiselect
                 v-if="mutableType !== 'continuous'"
                 class="subcat1"
+                :class="{'subcat1-selected': selected1 !== '' && selected1 !== null}"
                 v-model="selected1"
                 :options="mutableSubcategories"
                 :close-on-select="true"
@@ -19,6 +20,7 @@
             <multiselect
                 v-if="mutableType !== 'continuous'"
                 class="subcat2"
+                :class="{'subcat2-selected': selected2 !== '' && selected2 !== null}"
                 v-model="selected2"
                 :options="mutableSubcategories"
                 :close-on-select="true"
@@ -91,7 +93,10 @@ export default {
             return -1;
         },
         subcatChange: function (value, subcatNumber) {
-            if (value == null) value = { fullname: 'null' };
+            if (value == null) {
+                
+                value = { fullname: 'null' };
+            }
             this.$root.$emit('subcatChanged', value.fullname, subcatNumber);
             let s1 = (this.selected1 == null) ? '' : this.selected1.fullname;
             let s2 = (this.selected2 == null) ? '' : this.selected2.fullname;
@@ -251,22 +256,22 @@ export default {
 .subcat2 {
   background: black;
 }
-.subcat1 > .multiselect__tags {
+.subcat1.subcat1-selected > .multiselect__tags {
   border: 1px solid black;
   background:  #c41c8e;
 }
-.subcat1 > .multiselect__tags > .multiselect__single,
-.subcat1 > .multiselect__tags > span > .multiselect__single,
-.subcat1 > .multiselect__tags > .multiselect__input {
+.subcat1.subcat1-selected > .multiselect__tags > .multiselect__single,
+.subcat1.subcat1-selected > .multiselect__tags > span > .multiselect__single,
+.subcat1.subcat1-selected > .multiselect__tags > .multiselect__input {
   background: #c41c8e;
 }
-.subcat2 > .multiselect__tags {
+.subcat2.subcat2-selected > .multiselect__tags {
   border: 1px solid black;
   background:  #fd8e1f;
 }
-.subcat2 > .multiselect__tags > .multiselect__single,
-.subcat2 > .multiselect__tags > span > .multiselect__single,
-.subcat2 > .multiselect__tags > .multiselect__input {
+.subcat2.subcat2-selected > .multiselect__tags > .multiselect__single,
+.subcat2.subcat2-selected > .multiselect__tags > span > .multiselect__single,
+.subcat2.subcat2-selected > .multiselect__tags > .multiselect__input {
   background: #fd8e1f;
 }
 .continuous-block
