@@ -817,9 +817,9 @@
       }
     ],
     "ranges": [
-        "Heavy", 
-        "Medium", 
-        "Light"
+        "Light",
+        "Medium",
+        "Heavy"
     ],
     "type": "continuous",
     "name": "Evergreen Shrub Density",
