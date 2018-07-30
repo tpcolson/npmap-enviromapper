@@ -19,17 +19,17 @@ function createPopup(li) {
         tooltip: li._common.replace(/_/g, ' '),
         styles: {
         point: {
-            'marker-color': '#c91892',
+            'marker-color': '#1d909b',
             'marker-size': 'medium'
         }
         },
         cluster: {
-            clusterIcon: '#c91892'
+            clusterIcon: '#1d909b'
         },
         disableClusteringAtZoom: 15,
         polygonOptions: {
-            color: '#c91892',
-            fillColor: '#c91892'
+            color: '#1d909b',
+            fillColor: '#1d909b'
         }
     });
 }
