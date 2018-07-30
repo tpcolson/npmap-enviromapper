@@ -115,7 +115,9 @@ export default {
             selectedLayer: "...",
             largeImageSource: '',
             showLargeImage: false,
-            speciesOptionsLimit: 10
+            speciesOptionsLimit: 10,
+            effect: 'Sorted by most effected to least',
+            clear: 'Clear Selection'
         }
     },
     methods: {
@@ -134,7 +136,7 @@ export default {
             if (typeof this.mutableSpecies == 'undefined' || typeof this.mutableSpecies.length == 'undefined') return;
             let element = document.getElementsByClassName('species-multiselect')[0].getElementsByClassName('multiselect__single')[0];
             let currentSpeciesName = element.innerText;
-            this.speciesNames = ['CLEAR SELECTION'];
+            this.speciesNames = [this.effect, this.clear];
             for (var i = 0; i < this.mutableSpecies.length; i++) 
             {
               if (this.mutableSpecies[i][2] !== 'Unspecified') {
@@ -159,7 +161,7 @@ export default {
         },
         mouseOverSpecies: function(e) {
             let speciesName = e.srcElement.innerText;
-            if (speciesName == 'Sorted by most effected to least' || speciesName == 'Clear Selection') {
+            if (speciesName == this.effect || speciesName == this.clear) {
               this.hoverImageDisplay = 'none';
               return;
             }
@@ -189,7 +191,7 @@ export default {
         speciesChanged: function(){
             this.hoverImageDisplay = 'none';
             this.selectedImage = '';
-            if (this.selected == null || this.selected == 'Clear Selection') {
+            if (this.selected == null || this.selected == this.clear) {
                 this.selected = null;
                 this.$root.$emit('speciesChanged', false);
                 this.$emit('updateSpecies', '');
@@ -272,7 +274,7 @@ export default {
     mounted: function()
     {
         this.$root.$on('layerChanged', data => {
-            this.speciesNames = ['Sorted by most effected to least', 'Clear Selection'];
+            this.speciesNames = [this.effect, this.clear];
             this.speciesImages = [];
             this.speciesTaxonomyImages = [];
             this.selected = "";
@@ -305,6 +307,9 @@ export default {
     {
         species: function() {
             this.mutableSpecies = this.species;
+        },
+        selected1: function(val) {
+          
         }
     },
     updated: function() {

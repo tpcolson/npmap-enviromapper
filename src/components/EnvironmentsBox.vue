@@ -199,7 +199,7 @@ export default {
 .multiselect__single {
     background: rgb(64, 64, 61);
     color: #f5faf2;
-    max-height: 20px;
+    max-height: 18px;
     overflow: hidden;
     line-height: 18px;
 }
