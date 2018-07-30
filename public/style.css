@@ -153,12 +153,12 @@ body.dragging * {
   padding: 0;
   cursor: pointer;
   letter-spacing: .001em;
-  color: #efefef;
+  color: #969696;
   border: none;
   outline: none;
   text-align: center;
   background: none;
-  font-size: 10pt;
+  font-size: 1.7em;
   font-weight: bold;
   line-height: 30px;
 }

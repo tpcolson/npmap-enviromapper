@@ -42,13 +42,13 @@
 
         <div id='search-tool-extra-controls'>
           <div id='search-banner-help-share' class='bordered' tooltip='Get a shareable link'>
-              <button id='search-banner-env-share-button' alt='Get a shareable link.'>
+              <button id='search-banner-env-share-button' class='control-btn' alt='Get a shareable link.'>
               <i class="fa fa-share-square fades show"></i>
               <i class="fa fa-check-circle fades hide"></i>
             </button>
           </div>
           <div id='search-banner-help-link' class='bordered' tooltip='Get help using the tool'>
-            <button id='search-banner-help-link-button'  onclick='showHelp();' alt='Show the help overlay.'> <i class="fa fa-question fades hide"></i> </button>
+            <button id='search-banner-help-link-button' class='control-btn' onclick='showHelp();' alt='Show the help overlay.'><i class="fa fa-question-circle"></i></button>
           </div>
         </div>
 
@@ -126,7 +126,7 @@ export default {
           return location.href.split("#")[0] + hash;
         }
       })).on('success', function () {
-        let shareIcon = document.getElementsByClassName('fa-share-alt')[0];
+        let shareIcon = document.getElementsByClassName('fa-share-square')[0];
         let shareCircle = document.getElementsByClassName('fa-check-circle')[0];
         let notice = document.getElementById('clipboard-notice');
 
@@ -203,4 +203,5 @@ export default {
 #clipboard-notice {
   transition: opacity 1.5s;
 }
+
 </style>
