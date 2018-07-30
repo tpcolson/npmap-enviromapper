@@ -143,6 +143,7 @@ export default {
           envShareButton.style.display = 'inline-block';
           envShareButton.classList.toggle('hide');
           envShareButton.classList.toggle('show');
+          $('#clipboard-notice').css({"opacity": .4});
         }, 310);
 
         setTimeout(function () {
@@ -150,6 +151,7 @@ export default {
           shareCircle.classList.toggle('show');
           envShareButton.classList.toggle('hide');
           envShareButton.classList.toggle('show');
+          $("#clipboard-notice").animate({"opacity": 0}, 1000);
         }, 310 + 1000);
 
         setTimeout(function () {

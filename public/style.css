@@ -2261,6 +2261,22 @@ select {
   background-color: #fd8e1f;
 }
 
+#clipboard-notice
+{
+    font-size: 60px;
+    color: black;
+    opacity: 0.0;
+    width: 700px;
+    height: 100px;
+    z-index: 10000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -50px;
+    pointer-events: none;
+}
+
 footer ul li {
   background-color: black;
 }
