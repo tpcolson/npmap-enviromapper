@@ -31,9 +31,9 @@
               <div id='options-predicted' class='search-checkbox' data-intro='Toggle the visibility of predicted and observed data.' data-position='left'>
                 View:&nbsp; 
                 <input type='checkbox' id='options-predicted-checkbox' onkeypress='togglePredicted();' onclick='togglePredicted();' @click="updatePrediction" checked :disabled="selected == '' || selected == null" />
-                <label for='options-predicted-checkbox'>Predictions</label>&nbsp;&nbsp;
+                <label for='options-predicted-checkbox'>&nbsp;Predictions</label>&nbsp;&nbsp;
                 <input type='checkbox' id='options-observed-checkbox' onkeypress='toggleObserved();' onclick='toggleObserved();' @click="updateObservation" :disabled="selected == '' || selected == null" />
-                <label for='options-observed-checkbox'>Observations</label>
+                <label for='options-observed-checkbox'>&nbsp;Observations</label>
               </div>
                 <div id='search-initial-switch' class='label' tooltip='Choose to show latin or common species names' data-intro='Choose to show common or latin names.' data-position='bottom'>
                   Name convention: 
@@ -134,7 +134,7 @@ export default {
             if (typeof this.mutableSpecies == 'undefined' || typeof this.mutableSpecies.length == 'undefined') return;
             let element = document.getElementsByClassName('species-multiselect')[0].getElementsByClassName('multiselect__single')[0];
             let currentSpeciesName = element.innerText;
-            this.speciesNames = ['Sorted by most effective to least', 'Clear Selection'];
+            this.speciesNames = ['CLEAR SELECTION'];
             for (var i = 0; i < this.mutableSpecies.length; i++) 
             {
               if (this.mutableSpecies[i][2] !== 'Unspecified') {
@@ -154,6 +154,7 @@ export default {
                 }
               }
             }
+            this.speciesNames.push('Sorted by most affected to least');
             this.$emit('updateSpecies', this.selected);
         },
         mouseOverSpecies: function(e) {

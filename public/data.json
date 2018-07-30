@@ -1846,92 +1846,62 @@
       {
         "info":
           "Here is some information about Alluvial vegetation. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Alluvial vegetation",
+        "name": "Hardwood Cove",
         "img": "http://via.placeholder.com/150x150",
         "remove": "true"
       },
       {
         "info":
           "Here is some information about Chestnut oak. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Chestnut oak",
+        "name": "Grass",
         "img": "http://via.placeholder.com/150x150"
       },
       {
         "info":
           "Here is some information about Evergreen Shrub. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Evergreen Shrub",
+        "name": "Heath",
         "img": "http://via.placeholder.com/150x150"
       },
       {
         "info":
           "Here is some information about Floodplain. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Floodplain",
-        "img": "http://via.placeholder.com/150x150"
-      },
-      {
-        "info":
-          "Here is some information about Hemlock. For example, where it encompasses, how important it is to species in general, etc.",
         "name": "Hemlock",
         "img": "http://via.placeholder.com/150x150"
       },
       {
         "info":
+          "Here is some information about Hemlock. For example, where it encompasses, how important it is to species in general, etc.",
+        "name": "High Hardwood",
+        "img": "http://via.placeholder.com/150x150"
+      },
+      {
+        "info":
           "Here is some information about High elevation beech. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "High elevation beech",
+        "name": "Montane Alluvial",
         "img": "http://via.placeholder.com/150x150"
       },
       {
         "info":
           "Here is some information about High elevation red/white oak. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "High elevation red/white oak",
+        "name": "Oak",
         "img": "http://via.placeholder.com/150x150"
       },
       {
         "info":
           "Here is some information about Montane cave. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Montane cave",
+        "name": "Pine oak",
         "img": "http://via.placeholder.com/150x150"
       },
       {
         "info":
           "Here is some information about Montane oak-hickory. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Montane oak-hickory",
+        "name": "Spruce fir",
         "img": "http://via.placeholder.com/150x150"
       },
       {
         "info":
           "Here is some information about Northern acid hardwood. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Northern acid hardwood",
-        "img": "http://via.placeholder.com/150x150"
-      },
-      {
-        "info":
-          "Here is some information about Northern boulderfield. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Northern boulderfield",
-        "img": "http://via.placeholder.com/150x150"
-      },
-      {
-        "info":
-          "Here is some information about Spruce-fir. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Spruce-fir",
-        "img": "http://via.placeholder.com/150x150"
-      },
-      {
-        "info":
-          "Here is some information about Successional. For example, where it encompasses, how important it is to species in general, etc.",
         "name": "Successional",
-        "img": "http://via.placeholder.com/150x150"
-      },
-      {
-        "info":
-          "Here is some information about White pine. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "White pine",
-        "img": "http://via.placeholder.com/150x150"
-      },
-      {
-        "info":
-          "Here is some information about Yellow pine. For example, where it encompasses, how important it is to species in general, etc.",
-        "name": "Yellow pine",
         "img": "http://via.placeholder.com/150x150"
       }
     ],
