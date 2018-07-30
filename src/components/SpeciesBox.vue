@@ -4,7 +4,7 @@
             <div class='label' data-intro='Select a species to see how it is affected by the attribute.' data-position='top'>2. Select species affected by {{ selectedLayer | Shorten }}</div>
             <img class="species-hover-thumbnail" :src="hoverImage" :style="{ top: hoverImageTopOffset + 50 + 'px', display: hoverImageDisplay, left: hoverImageLeftOffset + 'px' }">
             <multiselect
-                :disabled="speciesNames.length == 0"
+                :disabled="speciesNames.length <= 2"
                 v-model="selected"
                 :options="speciesNames"
                 :close-on-select="true"
@@ -134,7 +134,7 @@ export default {
             if (typeof this.mutableSpecies == 'undefined' || typeof this.mutableSpecies.length == 'undefined') return;
             let element = document.getElementsByClassName('species-multiselect')[0].getElementsByClassName('multiselect__single')[0];
             let currentSpeciesName = element.innerText;
-            this.speciesNames = ['Clear Selection'];
+            this.speciesNames = ['Sorted by most effective to least', 'Clear Selection'];
             for (var i = 0; i < this.mutableSpecies.length; i++) 
             {
               if (this.mutableSpecies[i][2] !== 'Unspecified') {
@@ -158,7 +158,7 @@ export default {
         },
         mouseOverSpecies: function(e) {
             let speciesName = e.srcElement.innerText;
-            if (speciesName == 'Clear Selection') {
+            if (speciesName == 'Sorted by most effective to least' || speciesName == 'Clear Selection') {
               this.hoverImageDisplay = 'none';
               return;
             }
@@ -271,7 +271,7 @@ export default {
     mounted: function()
     {
         this.$root.$on('layerChanged', data => {
-            this.speciesNames = [];
+            this.speciesNames = ['Sorted by most effective to least', 'Clear Selection'];
             this.speciesImages = [];
             this.speciesTaxonomyImages = [];
             this.selected = "";
@@ -290,7 +290,6 @@ export default {
                     this.speciesNames.push(common);
                 } else {
                     this.speciesNames.push(latin);
-                   
                 }
                 this.speciesImages[common] = this.mutableSpecies[species][4];
                 this.speciesImages[latin] = this.mutableSpecies[species][4];
@@ -298,7 +297,6 @@ export default {
                 this.speciesTaxonomyImages[latin] = '/Taxonomy_Images/' + this.mutableSpecies[species][5] + '_110px.jpg';
               }
             }
-            this.speciesNames.unshift('Clear Selection');
         });
         this.$parent.$on('settingsLoaded', this.loadSettings);
     },
@@ -420,5 +418,9 @@ export default {
 }
 .chardinjs-tooltip.chardinjs-right:before {
     left: -50px;
+}
+
+.species-multiselect > .multiselect__content-wrapper > .multiselect__content > .multiselect__element:nth-child(1) {
+    pointer-events: none;
 }
 </style>

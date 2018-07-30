@@ -8,14 +8,15 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vue/cli": "^3.0.0-rc.9",
     "axios": "^0.18.0",
     "vue": "^2.5.16",
     "vue-multiselect": "^2.1.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-rc.3",
-    "@vue/cli-plugin-eslint": "^3.0.0-rc.3",
-    "@vue/cli-service": "^3.0.0-rc.3",
+    "@vue/cli-plugin-babel": "^3.0.0-rc.9",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.9",
+    "@vue/cli-service": "^3.0.0-rc.9",
     "vue-template-compiler": "^2.5.13"
   },
   "babel": {
