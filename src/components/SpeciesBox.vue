@@ -50,7 +50,7 @@
         </div>
 
 
-        <span v-if="selected !== ''">
+        <span v-if="false && selected !== ''">
             <transition name="species-info-slide">
             <div v-show="open" class="species-info-box">
                 <div class="species-info-box-title">{{ selected }}</div>

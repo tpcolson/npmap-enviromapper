@@ -4,7 +4,7 @@
             {{ mutableInfo }} 
         </div>
 
-        <span style="display: block;" v-if="subcatExists1 || subcatExists2">
+        <span style="display: block" v-if="false && (subcatExists1 || subcatExists2)">
             <transition name="info-slide">
             <div v-show="categoricalOpen" class="info-box">
                 <transition name="info-box-subcat-1">
@@ -27,7 +27,7 @@
                 <div :class="{ 'triangle-closed': !categoricalOpen, 'triangle-open': categoricalOpen }" class="triangle"></div>
             </div>
         </span>
-        <span style="display: block;" v-else-if="type=='continuous'">
+        <span style="display: block;" v-else-if="false && type=='continuous'">
             <transition name="info-slide">
             <div v-show="continousOpen" class="info-box">
                 <div class="info-box-cont-title">{{ name }}</div>
