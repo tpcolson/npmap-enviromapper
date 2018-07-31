@@ -159,7 +159,7 @@ export default {
         },
         mouseOverSpecies: function(e) {
             let speciesName = e.srcElement.innerText;
-            if (speciesName == 'Sorted by most effected to least' || speciesName == 'Clear Selection') {
+            if (speciesName == 'Sorted by most affected to least' || speciesName == 'Clear Selection') {
               this.hoverImageDisplay = 'none';
               return;
             }
