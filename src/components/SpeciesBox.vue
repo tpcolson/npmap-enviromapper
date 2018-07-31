@@ -430,6 +430,10 @@ export default {
 .species-multiselect > .multiselect__content-wrapper > .multiselect__content > .multiselect__element:nth-last-child(2) {
     pointer-events: none;
 }
+.species-multiselect > .multiselect__content-wrapper > .multiselect__content > .multiselect__element:nth-last-child(2) > .multiselect__option{
+    background-color: #eee;
+    color: #333;
+}
 
 .species-selected > .multiselect__tags {
   border: 1px solid black;

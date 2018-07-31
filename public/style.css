@@ -2280,3 +2280,7 @@ select {
 footer ul li {
   background-color: black;
 }
+
+[src='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='] {
+    width: 0 !important;
+}
