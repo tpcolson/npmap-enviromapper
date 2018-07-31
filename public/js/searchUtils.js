@@ -1052,10 +1052,6 @@ function closeDropdowns() {
     $('#compare-dist-two').animate({height: '20px'});
     $('ul', '#compare-dist-two').css({display: 'none'});
 
-    if(showBackground) {
-        toggleBackgroundList();
-    }
-
     if(showOverlayList) {
         toggleOverlayList();
     }

@@ -12,9 +12,6 @@ function exportSettings() {
   if (minimized)
     settings.minimized = true;
 
-  if (lastBaseIndex !== 0)
-    settings.mapBackground = lastBaseIndex;
-
   if (!showPredicted)
     settings.showPredicted = false;
 
@@ -79,9 +76,6 @@ function loadSettings() {
 
   if (settings.tooltips && settings.tooltips === false && $tooltips._active)
     toggleTooltips();
-
-  if (settings.mapBackground)
-    updateBaseLayer(settings.mapBackground);
 
   if (settings.mapOverlays)
     NPMap.config.overlays.forEach(function (overlay, index) {

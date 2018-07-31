@@ -2,22 +2,9 @@
 	<div class='box' style="border-right: none;">
         <div id='search-options' class='bordered'>
           <div id='search-options-left'>
-            <div id='options-label label' style="color: #efefef">MAP CONTROLS</div>
-            
-            <multiselect
-              class="controls"
-              v-model="selectedBackgroundOption"
-              :options="mapBackgroundOptions"
-              :close-on-select="true"
-              placeholder="Map Background"
-              @input="selectBackground"
-              :show-labels="false"
-              :searchable="false"
-              :showPointer="false"
-              data-intro='Change the map background.'
-              data-position='right'
-              v-if="false"
-            />
+            <div id='options-label label' style="color: #efefef">
+              MAP CONTROLS
+            </div>
             <multiselect
               class="controls"
               :multiple="true"
@@ -36,8 +23,6 @@
               <template slot="tag" slot-scope="props"><span class="multiselect__single">Map Overlays</span></template>
             </multiselect>
           </div>
-
-          <!--<button onkeypress='clearLayers();' onclick='clearLayers();' tooltip='Press here to remove all drawings from map'>CLEAR</button>-->
         </div>
 
         <div id='search-tool-extra-controls'>
@@ -68,17 +53,12 @@ export default {
     overlays: Array,
     species: String,
     subcat: Array,
-    naming: String,
-    background: String
+    naming: String
   },
   data: function(){
     return {
         a: true,
-        layers: [
-        ],
-        selected: "",
-        selectedBackgroundOption: "Park Tiles",
-        mapBackgroundOptions: ['Park Tiles', 'Mapbox Terrain', 'Esri Topo', 'Esri Imagery'],
+        layers: [],
         selectedOverlayOptions: "",
         mapOverlayOptions: ['Trails', 'Visitor Centers', 'Shelters', 'Roads', 'Campsites'],
         mapOverlayOptionState: [0, 0, 0, 0, 0]
@@ -89,10 +69,6 @@ export default {
       this.$parent.$on('settingsLoaded', this.loadSettings);
   },
   methods: {
-    selectBackground: function(option) {
-      updateBaseLayer(this.mapBackgroundOptions.indexOf(option));
-      this.$emit('updateBackground', option);
-    },
     selectOverlay: function(option) {
       toggleOverlay(this.mapOverlayOptions.indexOf(option));
     },
@@ -100,7 +76,6 @@ export default {
       let settings = {};
 
       settings.env = this.env;
-      settings.background = this.background;
       settings.prediction = this.prediction;
       settings.observation = this.observation;
       settings.naming = this.naming;
@@ -168,10 +143,6 @@ export default {
       });
     },
     loadSettings: function(envSettings) {
-      if (envSettings.background !== null) {
-        this.selectedBackgroundOption = envSettings.background;
-        this.selectBackground(envSettings.background);
-      }
       if (envSettings.overlays !== null) {
         this.selectedOverlayOptions = envSettings.overlays;
         for (let i = 0; i < envSettings.overlays.length; i++) {

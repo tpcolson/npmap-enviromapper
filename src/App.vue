@@ -18,8 +18,6 @@
                 />
                 <ExtraControls
                   @updateOverlays="updateOverlays"
-                  @updateBackground="updateBackground"
-                  :background.sync="background"
                   :env.sync="env"
                   :observation.sync="observation"
                   :overlays.sync="overlays"
@@ -60,7 +58,6 @@ export default {
             env: '',
             subcat: [],
             species: '',
-            background: 'Park Tiles',
             prediction: true,
             observation: false,
             naming: 'common'
@@ -79,7 +76,7 @@ export default {
         setTimeout(function() {
           let envSettings = self.loadEnvSettings(settings);
           self.$emit('settingsLoaded', envSettings);
-        }, 1000);
+        }, 2000);
       }
     },
     methods: {
@@ -92,13 +89,6 @@ export default {
         } else {
           envSettings.env = null;
           errMsg += 'The environmental layer\n';
-        }
-
-        if (typeof settings.background !== 'undefined') {
-          envSettings.background = settings.background;
-        } else {
-          envSettings.background = null;
-          errMsg += 'The map background\n'
         }
 
         if (typeof settings.overlays !== 'undefined') {
@@ -172,9 +162,6 @@ export default {
       },
       updateOverlays: function(selectedOverlays) {
         this.overlays = selectedOverlays;
-      },
-      updateBackground: function (selectedBackground) {
-        this.background = selectedBackground;
       },
       updatePrediction: function (selectedPrediction) {
         this.prediction = selectedPrediction;
