@@ -219,9 +219,9 @@ export default {
         this.$root.$on('layerChanged', (data, id) =>{
             if (data == 'removeLayer') {
               this.populated = false;
-              this.subcatChanged1(null);
-              this.subcatChanged2(null);
             }
+            this.subcatChanged1(null, 1);
+            this.subcatChanged2(null, 2);
             this.selected1 = "";
             this.selected2 = "";
             this.oldSelected1 = "";
