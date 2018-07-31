@@ -307,25 +307,6 @@ function toggleObserved() {
   }
 }
 
-var showBackground = false;
-function toggleBackgroundList() {
-    if(showOverlayList) {
-        toggleOverlayList();
-    }
-
-  showBackground = !showBackground;
-
-  if(showBackground) {
-    $('#options-background-dropdown').stop();
-    $('#options-background-dropdown').animate({'height': '105px'});
-    $('#options-background-dropdown-ul').css({'display':'block'});
-  } else {
-    $('#options-background-dropdown').stop();
-    $('#options-background-dropdown').animate({'height': '20px'});
-    $('#options-background-dropdown-ul').css({'display':'none'});
-  }
-}
-
 var showOverlayList = false;
 function toggleOverlayList() {
   showOverlayList = !showOverlayList;
