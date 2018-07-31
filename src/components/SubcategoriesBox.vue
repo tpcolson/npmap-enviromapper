@@ -11,7 +11,6 @@
                 placeholder="Select a subtype"
                 label="fullname"
                 track-by="fullname"
-                @input="subcatChanged1"
                 :show-labels="false"
                 :showPointer="false"
                 :disabled="!populated"
@@ -27,7 +26,6 @@
                 placeholder="Select another subtype"
                 label="fullname"
                 track-by="fullname"
-                @input="subcatChanged2"
                 :show-labels="false"
                 :showPointer="false"
                 :disabled="!populated"
@@ -179,14 +177,8 @@ export default {
           if (envSettings.subcat !== null) {
             for (let i = 0; i < this.mutableSubcategories.length; i++) {
               let subcat = this.mutableSubcategories[i];
-              if (subcat.fullname == envSettings.subcat[0]) {
-                this.selected1 = subcat;
-                this.subcatChanged1(subcat);
-              }
-              if (subcat.fullname == envSettings.subcat[1]) {
-                this.selected2 = subcat;
-                this.subcatChanged2(subcat);
-              }
+              if (subcat.fullname == envSettings.subcat[0]) this.selected1 = subcat;
+              if (subcat.fullname == envSettings.subcat[1]) this.selected2 = subcat;
             }
           }
         }
@@ -212,6 +204,12 @@ export default {
         },
         range: function() {
             this.mutableRanges = this.ranges;
+        },
+        selected1: function (val) {
+          setTimeout(() => this.subcatChanged1(val), 25);
+        },
+        selected2: function (val) {
+          setTimeout(() => this.subcatChanged2(val), 25);
         }
     },
     mounted: function()
@@ -220,10 +218,8 @@ export default {
             if (data == 'removeLayer') {
               this.populated = false;
             }
-            this.subcatChanged1(null, 1);
-            this.subcatChanged2(null, 2);
-            this.selected1 = "";
-            this.selected2 = "";
+            this.selected1 = null;
+            this.selected2 = null;
             this.oldSelected1 = "";
             this.oldSelected2 = "";
             if (data == 'removeLayer') return;

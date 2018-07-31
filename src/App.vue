@@ -64,7 +64,7 @@ export default {
         }
     },
     mounted: function() {
-      let index, url = window.location.href, self = this;
+      let index, url = window.location.href;
       if ((index = url.search('#')) !== -1) {
         try {
           var settings = JSON.parse(decodeURI(url.substr(index + 1)));
@@ -73,14 +73,16 @@ export default {
           return;
         }
 
-        setTimeout(function() {
-          let envSettings = self.loadEnvSettings(settings);
-          self.$emit('settingsLoaded', envSettings);
+        setTimeout(() => {
+          this.loadEnvSettings(settings);
         }, 2000);
       }
     },
     methods: {
       loadEnvSettings(settings) {
+        if (!NPMap.config.L) {
+          return setTimeout(() => this.loadEnvSettings(settings), 100);
+        }
         let envSettings = {};
         let errMsg = 'We found some things we couldn\'t load:\n';
 
@@ -149,7 +151,8 @@ export default {
         if (errMsg.length > 39) {
           console.log(errMsg);
         }
-        return envSettings;
+
+        this.$emit('settingsLoaded', envSettings);
       },
       updateEnv: function(selectedEnv) {
         this.env = selectedEnv;

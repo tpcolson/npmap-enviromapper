@@ -45,7 +45,7 @@
     </style>
   </head>
   <body>
-  <div id="adblockoverlay" onclick="document.getElementById('adblockoverlay').style.display = 'none';">Please consider whitelisting our website.<br />Not all of the features work if adblock is enabled.<br />(Click anywhere to continue)</div>
+  <div id="adblockoverlay" onclick="document.getElementById('adblockoverlay').style.display = 'none'; event.stopPropagation();">Please consider whitelisting our website.<br />Not all of the features work if adblock is enabled.<br />(Click anywhere to continue)</div>
   <div id="mockupoverlay">Loading...</div>
   <iframe src="https://science.nature.nps.gov/parks/grsm/species/" class="species-mapper-iframe"></iframe>
     <header>
