@@ -116,7 +116,7 @@ export default {
             largeImageSource: '',
             showLargeImage: false,
             speciesOptionsLimit: 10,
-            effect: 'Sorted by most affected to least',
+            affect: 'Sorted by most affected to least',
             clear: 'Clear Selection'
         }
     },
@@ -136,7 +136,7 @@ export default {
             if (typeof this.mutableSpecies == 'undefined' || typeof this.mutableSpecies.length == 'undefined') return;
             let element = document.getElementsByClassName('species-multiselect')[0].getElementsByClassName('multiselect__single')[0];
             let currentSpeciesName = element.innerText;
-            this.speciesNames = [this.effect, this.clear];
+            this.speciesNames = [this.clear];
             for (var i = 0; i < this.mutableSpecies.length; i++) 
             {
               if (this.mutableSpecies[i][2] !== 'Unspecified') {
@@ -156,12 +156,12 @@ export default {
                 }
               }
             }
-            this.speciesNames.push('Sorted by most affected to least');
+            (this.speciesNames.length >= this.speciesOptionsLimit) ? this.speciesNames.splice(this.speciesOptionsLimit - 1, 0, this.affect) : this.speciesNames.push(this.affect);
             this.$emit('updateSpecies', this.selected);
         },
         mouseOverSpecies: function(e) {
             let speciesName = e.srcElement.innerText;
-            if (speciesName == this.effect || speciesName == this.clear) {
+            if (speciesName == this.affect || speciesName == this.clear) {
               this.hoverImageDisplay = 'none';
               return;
             }
@@ -183,7 +183,7 @@ export default {
           if (   e.pageX >= elem.offsetLeft + elem.offsetWidth - 20
               || e.pageX <= elem.offsetLeft + 20
               || e.pageY <= 160
-              || e.pageY >= (140 + 20 * this.speciesOptionsLimit))
+              || e.pageY >= (140 + 20 * (this.speciesOptionsLimit - 1)))
           {
             this.hoverImageDisplay = 'none';
           }
@@ -274,7 +274,7 @@ export default {
     mounted: function()
     {
         this.$root.$on('layerChanged', data => {
-            this.speciesNames = [this.effect, this.clear];
+            this.speciesNames = [this.clear];
             this.speciesImages = [];
             this.speciesTaxonomyImages = [];
             this.selected = "";
@@ -300,6 +300,7 @@ export default {
                 this.speciesTaxonomyImages[latin] = '/Taxonomy_Images/' + this.mutableSpecies[species][5] + '_110px.jpg';
               }
             }
+            (this.speciesNames.length >= this.speciesOptionsLimit) ? this.speciesNames.splice(this.speciesOptionsLimit - 1, 0, this.affect) : this.speciesNames.push(this.affect);
         });
         this.$parent.$on('settingsLoaded', this.loadSettings);
     },
@@ -426,7 +427,7 @@ export default {
     left: -50px;
 }
 
-.species-multiselect > .multiselect__content-wrapper > .multiselect__content > .multiselect__element:nth-child(1) {
+.species-multiselect > .multiselect__content-wrapper > .multiselect__content > .multiselect__element:nth-last-child(2) {
     pointer-events: none;
 }
 
