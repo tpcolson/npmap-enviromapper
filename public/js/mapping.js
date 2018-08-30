@@ -108,8 +108,10 @@ var subNavZ, headerZ, divHeader, divSubNav,
     scaleControl: { metric: true },
     events: [{
       fn: function(evt) {
-        if(currentBaseLayer && evt.layer._leaflet_id === currentBaseLayer._leaflet_id) {
-          drawData();
+        if (typeof currentBaseLayer != "undefined") {
+            if(evt.layer._leaflet_id === currentBaseLayer._leaflet_id) {
+              drawData();
+            }
         }
       },
       type: 'layeradd'
