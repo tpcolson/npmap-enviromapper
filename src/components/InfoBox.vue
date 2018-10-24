@@ -32,7 +32,7 @@
             <div v-show="continousOpen" class="info-box">
                 <div class="info-box-cont-title">{{ name }}</div>
                 <div style="" class="info-box-image environment-image">
-                    <img src="http://via.placeholder.com/150x150" @click="largeImageSource = 'http://via.placeholder.com/150x150'; showLargeImage = true;"/>
+                    <img src="" @click="largeImageSource = ''; showLargeImage = true;"/>
                     <i class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = 'http://via.placeholder.com/150x150'; showLargeImage = true;" />
                 </div>
                 <div class="info-box-info">Placeholder text about {{name}}</div>
