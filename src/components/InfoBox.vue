@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="label environment-info">
-            {{ mutableInfo }} 
+            {{ mutableInfo | firstSentence }} 
         </div>
 
-        <span style="display: block" v-if="false && (subcatExists1 || subcatExists2)">
+        <span style="display: block" v-if="subcatExists1 || subcatExists2">
             <transition name="info-slide">
             <div v-show="categoricalOpen" class="info-box">
                 <transition name="info-box-subcat-1">
@@ -27,15 +27,15 @@
                 <div :class="{ 'triangle-closed': !categoricalOpen, 'triangle-open': categoricalOpen }" class="triangle"></div>
             </div>
         </span>
-        <span style="display: block;" v-else-if="false && type=='continuous'">
+        <span style="display: block;" v-else-if="type=='continuous'">
             <transition name="info-slide">
             <div v-show="continousOpen" class="info-box">
                 <div class="info-box-cont-title">{{ name }}</div>
                 <div style="" class="info-box-image environment-image">
-                    <img src="" @click="largeImageSource = ''; showLargeImage = true;"/>
-                    <i class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = 'http://via.placeholder.com/150x150'; showLargeImage = true;" />
+                    <img :src="layerImg" @click="largeImageSource = layerImg; showLargeImage = true;"/>
+                    <i class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = layerImg; showLargeImage = true;" />
                 </div>
-                <div class="info-box-info">Placeholder text about {{name}}</div>
+                <div class="info-box-info">{{ mutableInfo | restOfSentence }}</div>
             </div>
             </transition>
             <div @click="continousOpen=!continousOpen" class="info-toggle" style="margin-left: 200px; margin-top: -2px;">
@@ -59,6 +59,22 @@ export default {
             type: String
         }
     },
+    filters: {
+        firstSentence: function(text) {
+            let period = text.indexOf(".");
+            if (period != -1)
+                return text.substring(0, period + 1).trim();
+            else
+                return text;
+        }, 
+        restOfSentence: function(text) {
+            let period = text.indexOf(".");
+            if (period != -1)
+                return text.substring(period + 1).trim();
+            else
+                return text;
+        }
+    },
     data: function() {
         return {
             categoricalOpen: false,
@@ -78,7 +94,8 @@ export default {
             selected: '',
             type: null,
             largeImageSource: '',
-            showLargeImage: false
+            showLargeImage: false,
+            layerImg: ''
         }
     },
     mounted: function(){
@@ -96,6 +113,8 @@ export default {
             this.type = data.type;
             this.name = data.name;
             this.mutableInfo = data.info;
+            this.layerImg = data.img;
+            console.log(data);
         });
         this.$root.$on('subcatChanged', (subcatName, subcatNumber) => {
             let name = subcatName;
@@ -261,7 +280,7 @@ export default {
 .info-box {
     background-color: #EAEAEA;
     width: 470px; 
-    height: 300px;
+    height: 350px;
     position: relative; 
     z-index: 10000;
     color: #333;
@@ -272,6 +291,8 @@ export default {
     -webkit-transform: translate(0, 8px);
         -ms-transform: translate(0, 8px);
             transform: translate(0, 8px);
+
+    font-size: 12px;
 }
 .info-slide-enter {
     height: 0;
