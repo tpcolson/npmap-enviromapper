@@ -93,7 +93,7 @@ export default {
         subcatChange: function (value, subcatNumber) {
             let swap = ['2', '1'];
             let elements = document.querySelectorAll('.subcat'+ swap[subcatNumber - 1] + '> .multiselect__content-wrapper > .multiselect__content > .multiselect__element > .multiselect__option > span');
-            if (value !== null && value.fullname !== 'Clear Selection') {
+            if (value.fullname !== null && value.fullname !== 'Clear Selection') {
               value = value.fullname;
               for (let i = 0; i < elements.length; i++) {
                 if (value == elements[i].innerText.trim()) {

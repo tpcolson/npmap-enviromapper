@@ -14,10 +14,10 @@
                 <div :class="{'info-box-subcat-title-2': true, 'info-box-subcat-title-2-inactive': !subcatActive2 }" v-show="subcatExists2" @click="subcatActive1 = false; subcatActive2 = true;">{{ subcatName2 }}</div>
                 </transition>
                 <div style="" class="info-box-image environment-image">
-                    <img v-if="subcatImg1 !== '' && subcatActive1" :src="subcatImg1" @click="largeImageSource = subcatImg1; showLargeImage = true;" />
-                    <img v-else-if="subcatImg2 !== '' && subcatActive2" :src="subcatImg2" @click="largeImageSource = subcatImg2; showLargeImage = true;"/>
-                    <i v-if="subcatImg1 !== '' && subcatActive1" class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = subcatImg1; showLargeImage = true;" />
-                    <i v-if="subcatImg2 !== '' && subcatActive2" class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = subcatImg2; showLargeImage = true;" />
+                    <img v-if="subcatImg1 !== '' && subcatActive1" :src="'env_layer_images/thumb/' + subcatImg1" @click="largeImageSource = 'env_layer_images/full/' + subcatImg1; showLargeImage = true;" />
+                    <img v-else-if="subcatImg2 !== '' && subcatActive2" :src="'env_layer_images/thumb/' + subcatImg2" @click="largeImageSource = 'env_layer_images/full/' + subcatImg2; showLargeImage = true;"/>
+                    <i v-if="subcatImg1 !== '' && subcatActive1" class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = 'env_layer_images/full/' + subcatImg1; showLargeImage = true;" />
+                    <i v-if="subcatImg2 !== '' && subcatActive2" class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = 'env_layer_images/full/' + subcatImg2; showLargeImage = true;" />
                 </div>
                 <div class="info-box-info" v-if="subcatInfo1 !== '' && subcatActive1">{{ subcatInfo1 }}</div>
                 <div class="info-box-info" v-else-if="subcatInfo2 !== '' && subcatActive2">{{ subcatInfo2 }}</div>
@@ -32,8 +32,8 @@
             <div v-show="continousOpen" class="info-box">
                 <div class="info-box-cont-title">{{ name }}</div>
                 <div style="" class="info-box-image environment-image">
-                    <img :src="layerImg" @click="largeImageSource = layerImg; showLargeImage = true;"/>
-                    <i class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = layerImg; showLargeImage = true;" />
+                    <img :src="'env_layer_images/thumb/' + layerImg" @click="largeImageSource = 'env_layer_images/full/' + layerImg; showLargeImage = true;"/>
+                    <i class="fa fa-search-plus species-info-box-image-magnifier" aria-hidden="true"  @click="largeImageSource = 'env_layer_images/full/' + layerImg; showLargeImage = true;" />
                 </div>
                 <div class="info-box-info">{{ mutableInfo | restOfSentence }}</div>
             </div>
@@ -199,11 +199,9 @@ export default {
 .info-box-subcat-title-1 {
     font-weight: bold;
     border-bottom: 5px solid magenta;
-    width: 100px;
-    max-width: 100px;
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    width: 44%;
+    padding: 10px 0;
+    margin: 10px 3%;
     float: left;
     cursor: pointer;
     text-align: center;
@@ -237,11 +235,9 @@ export default {
 .info-box-subcat-title-2 {
     font-weight: bold;
     border-bottom: 5px solid #FF9933;
-    width: 100px;
-    max-width: 100px;
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    width: 44%;
+    padding: 10px 0;
+    margin: 10px 3%;
     float: left;
     cursor: pointer;
     text-align: center;
@@ -253,7 +249,7 @@ export default {
     width: 0%;
 }
 .info-box-subcat-2-enter-to {
-    width: 100%;
+    width: 44%;
     -webkit-transition: all 1s linear;
     -o-transition: all 1s linear;
     transition: all 1s linear;
@@ -280,7 +276,7 @@ export default {
 .info-box {
     background-color: #EAEAEA;
     width: 470px; 
-    height: 350px;
+    height: 400px;
     position: relative; 
     z-index: 10000;
     color: #333;
@@ -288,9 +284,9 @@ export default {
             box-shadow: 0 0 5px #777, inset 0 6px 3px -5px #777;
     border: 1px solid #999;
     border-top: 0;
-    -webkit-transform: translate(0, 8px);
-        -ms-transform: translate(0, 8px);
-            transform: translate(0, 8px);
+    -webkit-transform: translate(0, 11px);
+        -ms-transform: translate(0, 11px);
+            transform: translate(0, 11px);
 
     font-size: 12px;
 }
@@ -301,7 +297,7 @@ export default {
     -webkit-transition: height 1s ease-out;
     -o-transition: height 1s ease-out;
     transition: height 1s ease-out;
-    height: 300px;
+    height: 400px;
 }
 .info-slide-leave-to {
     height: 0;

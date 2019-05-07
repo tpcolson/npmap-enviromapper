@@ -14,13 +14,13 @@
         "info":
           "Fire is has a complex role in the GSMNP. Historically, the landscape has long been shaped by naturally occurring fires and many plant and ecological communities of Southern Appalachia have evolved to depend on periodic wildfires to thrive. However, fires can also be a force of danger and destruction under certain conditions. Since the park was founded in 1934, several fire management policies have been adapted. Today fires are managed by controlled burns in an effort to simulate the conservation benefits caused by natural wildfires while minimizing the potential danger and damage caused by inevitable unplanned fires. Although dangerous fires are rare, these events do occasionally occur.",
         "name": "Fire",
-        "img": "http://via.placeholder.com/150x150"
+        "img": "cat_disturb_fire.jpg"
       },
       {
         "info":
           "Wind is a regular climatic disturbance is the GSMNP. At velocities in excess of 100 miles (160 kilometers) per hour, one of the most common wind disturbance types is mountain wave wind. This phenomenon is caused when wind interact with the shape of the mountains causing an  isolated and unpredictable wind with hurricane-strength. Property damage and tree blowdowns may occur during these short term events. Other types of wind disturbances are tornadoes and derechos, although these are less common.",
         "name": "Wind",
-        "img": "http://via.placeholder.com/150x150"
+        "img": "cat_disturb_wind.jpg"
       }
     ],
     "type": "categorical",

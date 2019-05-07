@@ -2114,12 +2114,12 @@ select {
 .environment-image {
   background-image: url('images/environment.png');
   width: 400px;
-  height: 150px;
+  height: 128px;
   background-size: contain;
 }
 
 .info-box-info {
-  padding: 5px;
+  padding: 3%;
 }
 
 .info-box ul,
