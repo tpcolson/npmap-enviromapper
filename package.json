@@ -10,6 +10,7 @@
   "dependencies": {
     "@vue/cli": "^3.0.0-rc.9",
     "axios": "^0.18.0",
+    "core-js": "^3.0.1",
     "vue": "^2.5.16",
     "vue-multiselect": "^2.1.0"
   },
@@ -21,7 +22,7 @@
   },
   "babel": {
     "presets": [
-      "@vue/app"
+      ["@vue/app", { "useBuiltIns": "entry" }]
     ]
   },
   "eslintConfig": {
