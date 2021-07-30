@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="left">
-      <a id="title" href = "https://www.nps.gov/grsm/learn/nature/index.htm" style="text-decoration: none" target="_blank"> 
-        <h1> Great Smoky Mountains National Park</h1>
+      <a id="title" href = "https://www.nps.gov/grsm/learn/nature/index.htm" style="text-decoration: none;" target="_blank"> 
+        <h1 style="margin-bottom: 3px; padding-bottom: 2px; height: 36px;"> Great Smoky Mountains National Park</h1>
       </a>
-      <div style="padding-left: 1px; color: #bdbdbd; letter-spacing: 1px; display: inline-block; font-size: 19px; font-family: 'Source Sans Pro'">ATLAS OF THE SMOKIES: </div>
-      <div style="margin-left: 230px; margin-top: 18px;" id="atlas-app-changer">
+      <div style="margin-top: 9px; color: #bdbdbd; letter-spacing: 1px; display: inline-block; font-size: 19px; font-family: 'Source Sans Pro'">ATLAS OF THE SMOKIES: </div>
+      <div style="margin-left: 230px; margin-top: 9px;" id="atlas-app-changer">
         <multiselect
           class="header-selector"
           v-model="selected"
           :options="options"
           :close-on-select="true"
-          placeholder="ENVIROMAPPER"
+          :placeholder="selected"
           :show-labels="false"
           @input="appSelect"
         />
@@ -34,8 +34,8 @@ export default {
   },
   data: function() {
     return {
-      options: ['Species Mapper'],
-      selected: ''
+      options: ['Enviromapper', 'Species Mapper'],
+      selected: 'Enviromapper'
     }
   },
   methods: {
@@ -51,12 +51,11 @@ export default {
   display: inline-block;
   position: relative;
   top: -7px;
-  letter-spacing: 1px;
 }
 .header-selector .multiselect__tags {
   background-color: #40403d;
   border: none;
-  color: #bdbdbd;
+  color: white;
   max-height: 20px;
 }
 .header-selector .multiselect__single {
@@ -64,6 +63,9 @@ export default {
   border-radius: 3px 0 0 3px;
   border-right: 1px solid #5b5b5b;
   width: 125px;
+  font-size: 10pt;
+  font-weight: normal;
+  line-height: 20px;
 }
 .header-selector .multiselect__select:before {
   top: 13px;
@@ -77,5 +79,15 @@ export default {
 }
 header .left h1, header .left div {
   overflow: visible !important;
+}
+header .left {
+  padding-top: 10px;
+}
+header .right h2 {
+  font-size: 14px;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  line-height: 1;
 }
 </style>
