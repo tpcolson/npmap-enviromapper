@@ -217,6 +217,7 @@ export default {
         this.$root.$on('layerChanged', (data, id) =>{
             if (data == 'removeLayer') {
               this.populated = false;
+              this.mutableType = 'categorical';
             }
             this.selected1 = null;
             this.selected2 = null;

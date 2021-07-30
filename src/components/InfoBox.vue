@@ -114,7 +114,6 @@ export default {
             this.name = data.name;
             this.mutableInfo = data.info;
             this.layerImg = data.img;
-            console.log(data);
         });
         this.$root.$on('subcatChanged', (subcatName, subcatNumber) => {
             let name = subcatName;
