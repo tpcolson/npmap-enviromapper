@@ -373,16 +373,6 @@ function recordAction(event, label) {
 
 free_circle = true;
 
-/* Used by Header.vue to change from the Environment Mapper to the Species Mapper */
-/* Can be used in the future to toggle between the two */
-function appChange() 
-{
-  $("#search-tool").slideUp();
-  setTimeout(function(){
-      $(".species-mapper-iframe").show();
-  }, 600);
-}
-
 /* quick hacks by Moa for the mockup versions */
 function hacks()
 {
